@@ -25,5 +25,12 @@ $routes->get('/', 'Home::index', $authFilter);
 $routes->get('/dashboard', 'Home::index', $authFilter);
 
 //USERS
+$routes->get('/users', 'Users::index');
 $routes->get('/users/create', 'Users::create'); // form tambah user
 $routes->post('/users/store', 'Users::store'); // aksi simpan user
+$routes->get('/users/edit/(:num)', 'Users::edit/$1', $allRole); // form edit user
+$routes->post('/users/update/(:num)', 'Users::update/$1', $allRole); // aksi update user
+$routes->get('/users/delete/(:num)', 'Users::delete/$1', $allRole); // aksi hapus user
+$routes->get('users/detail/(:num)', 'Users::detail/$1', $allRole); // aksi detail user
+$routes->get('users/print', 'Users::print', $allRole); // aksi print data user
+$routes->get('users/wa/(:num)', 'Users::wa/$1', $allRole); // aksi kirim ke whatsapp
