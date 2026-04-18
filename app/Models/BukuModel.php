@@ -15,10 +15,12 @@ class BukuModel extends Model
         'id_kategori',
         'id_penulis',
         'id_penerbit',
+        'id_rak',
         'tahun_terbit',
         'jumlah',
         'tersedia',
         'deskripsi',
         'cover'
+
     ];
 }

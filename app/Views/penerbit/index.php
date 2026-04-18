@@ -1,24 +1,23 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 <h2>Data Penerbit</h2>
-<a href="/penerbit/create">Tambah</a>
+
 
 <table border="1">
 <tr>
-<th>No</th>    
+    
 <th>Nama Penerbit</th>
 <th>Alamat</th>
 <th>Aksi</th>
 </tr>
 
-<?php foreach($rak as $r): ?>
+<?php foreach($penerbit as $p): ?>
 <tr>
-<td><?= $no++ ?></td>    
-<td><?= $r['nama_penerbit'] ?></td>
-<td><?= $r['alamat'] ?></td>
+<td><?= $p['nama_penerbit'] ?></td>
+<td><?= $p['alamat'] ?></td>
 <td>
-<a href="/penerbit/edit/<?= $r['id_penerbit'] ?>">Edit</a>
-<a href="/penerbit/delete/<?= $r['id_penerbit'] ?>">Hapus</a>
+<a href="/penerbit/edit/<?= $p['id_penerbit'] ?>">Edit</a>
+<a href="/penerbit/delete/<?= $p['id_penerbit'] ?>">Hapus</a>
 </td>
 </tr>
 <?php endforeach; ?>

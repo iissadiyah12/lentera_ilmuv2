@@ -121,44 +121,79 @@ class Buku extends BaseController
         return view('buku/edit', $data);
     }
 
-    public function update($id)
+   private function getOrInsert($table, $field, $value)
     {
+        $db = \Config\Database::connect();
 
-        $rules = [
-            'judul' => 'required',
-            'cover' => 'max_size[cover,2048]|ext_in[cover,jpg,jpeg,png,pdf]'
-        ];
+        $data = $db->table($table)
+                ->where($field, $value)
+                ->get()
+                ->getRowArray();
 
-        if (!$this->validate($rules)) {
-            return redirect()->back()->withInput()->with('error', 'Validasi gagal');
+        if ($data) {
+            return $data['id_'.$table];
+        } else {
+            $db->table($table)->insert([$field => $value]);
+            return $db->insertID();
         }
-        $data = $this->request->getPost();
-
-        $file = $this->request->getFile('cover');
-
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-
-            // hapus file lama
-            $buku = $this->buku->find($id);
-            if ($buku['cover'] && file_exists('uploads/buku/' . $buku['cover'])) {
-                unlink('uploads/buku/' . $buku['cover']);
-            }
-
-            // upload baru
-            $namaFile = $file->getRandomName();
-            $file->move('uploads/buku/', $namaFile);
-
-            $data['cover'] = $namaFile;
-        }
-
-        $this->buku->update($id, $data);
-
-        $this->db->table('buku_rak')
-            ->where('id_buku', $id)
-            ->update(['id_rak' => $data['id_rak']]);
-
-        return redirect()->to('/buku');
     }
+
+public function save()
+{
+    $kategori_id = $this->getOrInsert('kategori','nama_kategori',$this->request->getPost('kategori_nama'));
+    $penulis_id  = $this->getOrInsert('penulis','nama_penulis',$this->request->getPost('penulis_nama'));
+    $penerbit_id = $this->getOrInsert('penerbit','nama_penerbit',$this->request->getPost('penerbit_nama'));
+    $rak_id      = $this->getOrInsert('rak','nama_rak',$this->request->getPost('rak_nama'));
+
+    $this->buku->save([
+        'isbn' => $this->request->getPost('isbn'),
+        'judul' => $this->request->getPost('judul'),
+        'id_kategori' => $kategori_id,
+        'id_penulis' => $penulis_id,
+        'id_penerbit' => $penerbit_id,
+        'id_rak' => $rak_id,
+        'tahun_terbit' => $this->request->getPost('tahun_terbit'),
+        'jumlah' => $this->request->getPost('jumlah'),
+        'tersedia' => $this->request->getPost('jumlah'),
+        'deskripsi' => $this->request->getPost('deskripsi')
+    ]);
+
+    return redirect()->to('/buku')->with('success','Data berhasil ditambahkan');
+}
+
+    public function update($id)
+{
+    $kategori_id = $this->getOrInsert('kategori','nama_kategori',$this->request->getPost('kategori_nama'));
+    $penulis_id  = $this->getOrInsert('penulis','nama_penulis',$this->request->getPost('penulis_nama'));
+    $penerbit_id = $this->getOrInsert('penerbit','nama_penerbit',$this->request->getPost('penerbit_nama'));
+    $rak_id      = $this->getOrInsert('rak','nama_rak',$this->request->getPost('rak_nama'));
+
+    $data = [
+        'id_buku' => $id,
+        'judul' => $this->request->getPost('judul'),
+        'isbn' => $this->request->getPost('isbn'),
+        'id_kategori' => $kategori_id,
+        'id_penulis' => $penulis_id,
+        'id_penerbit' => $penerbit_id,
+        'id_rak' => $rak_id,
+        'tahun_terbit' => $this->request->getPost('tahun_terbit'),
+        'jumlah' => $this->request->getPost('jumlah'),
+        'tersedia' => $this->request->getPost('tersedia'),
+        'deskripsi' => $this->request->getPost('deskripsi'),
+    ];
+
+    // upload cover (opsional)
+    $file = $this->request->getFile('cover');
+    if ($file && $file->isValid() && !$file->hasMoved()) {
+        $namaFile = $file->getRandomName();
+        $file->move('uploads/buku', $namaFile);
+        $data['cover'] = $namaFile;
+    }
+
+    $this->buku->save($data);
+
+    return redirect()->to('/buku')->with('success','Data berhasil diupdate');
+}
 
     public function delete($id)
     {

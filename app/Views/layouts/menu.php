@@ -5,6 +5,10 @@
     <a href="<?= base_url('/') ?>">
         Dashboard
     </a><br>
+    <?php $idu = session('id'); ?>
+    <a href="<?= base_url('/buku') ?>">
+        Buku
+    </a><br>
 
     <?php if (session()->get('role') == 'admin' || session()->get('role') == 'petugas') : ?>
         <a href="<?= base_url('/users') ?>">
@@ -23,10 +27,7 @@
             Penulis
         </a><br>
     <?php endif; ?>
-     <?php $idu = session('id'); ?>
-    <a href="<?= base_url('/buku') ?>">
-        Buku
-    </a><br>
+     
         <?php $idu = session('id'); ?>
     <a href="<?= base_url('users/edit/' . $idu) ?>">
         Setting

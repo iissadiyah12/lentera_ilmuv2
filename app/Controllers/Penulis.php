@@ -15,7 +15,7 @@ class Penulis extends BaseController
     public function index()
     {
         return view('penulis/index',[
-            'data'=>$this->model->findAll()
+            'penulis'=>$this->model->findAll()
         ]);
     }
 

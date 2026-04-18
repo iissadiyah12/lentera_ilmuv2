@@ -15,7 +15,7 @@ class Penerbit extends BaseController
     public function index()
     {
         return view('penerbit/index',[
-            'data'=>$this->model->findAll()
+            'penerbit'=>$this->model->findAll()
         ]);
     }
 

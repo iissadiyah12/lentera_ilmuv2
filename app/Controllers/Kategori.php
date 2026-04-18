@@ -15,7 +15,7 @@ class Kategori extends BaseController
     public function index()
     {
         return view('kategori/index',[
-            'data'=>$this->model->findAll()
+            'kategori'=>$this->model->findAll()
         ]);
     }
 
