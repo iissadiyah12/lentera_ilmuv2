@@ -10,7 +10,23 @@
         <a href="<?= base_url('/users') ?>">
             Users
         </a><br>
+        <a href="<?= base_url('/rak') ?>">
+            Rak
+        </a><br>
+        <a href="<?= base_url('/kategori') ?>">
+            Kategori
+        </a><br>
+        <a href="<?= base_url('/penerbit') ?>">
+            Penerbit
+        </a><br>
+        <a href="<?= base_url('/penulis') ?>">
+            Penulis
+        </a><br>
     <?php endif; ?>
+     <?php $idu = session('id'); ?>
+    <a href="<?= base_url('/buku') ?>">
+        Buku
+    </a><br>
         <?php $idu = session('id'); ?>
     <a href="<?= base_url('users/edit/' . $idu) ?>">
         Setting
