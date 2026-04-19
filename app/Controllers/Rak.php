@@ -9,16 +9,24 @@ class Rak extends BaseController
 
     public function __construct()
     {
-        $this->rak = new RakModel();
+        $this->rak= new RakModel();
     }
 
     public function index()
-    {
-        return view('rak/index',[
-            'rak'=>$this->rak->findAll()
-        ]);
+{
+    $keyword = $this->request->getGet('keyword');
+
+    if ($keyword) {
+        $data['rak'] = $this->rak
+            ->like('nama_rak', $keyword)
+            ->orLike('lokasi', $keyword)
+            ->findAll();
+    } else {
+        $data['rak'] = $this->rak->findAll();
     }
 
+    return view('rak/index', $data);
+}
     public function create()
     {
         return view('rak/create');

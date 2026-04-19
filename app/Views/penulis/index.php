@@ -2,7 +2,12 @@
 <?= $this->section('content') ?>
 <h2>Data Penulis</h2>
 
-
+<form method="get" action="">
+    <input type="text" name="keyword" placeholder="Cari..." value="<?= $_GET['keyword'] ?? '' ?>">
+    <button type="submit">Cari</button>
+    <a href="<?= current_url() ?>">Reset</a>
+</form>
+<br>
 <table border="1">
 <tr>
     

@@ -1,56 +1,66 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
-<h2>Tambah Buku</h2>
+<h3>Tambah Buku</h3>
 
-<form action="/buku/save" method="post" enctype="multipart/form-data">
+<form method="post" action="<?= base_url('buku/store') ?>" enctype="multipart/form-data">
 
-ISBN: <input type="text" name="isbn"><br>
-Judul: <input type="text" name="judul"><br>
+    Judul:<br>
+    <input type="text" name="judul"><br><br>
 
-Kategori:
-<input list="list_kategori" name="kategori_nama">
+    ISBN:<br>
+    <input type="text" name="isbn"><br><br>
 
-<datalist id="list_kategori">
-<?php foreach($kategori as $k): ?>
-<option value="<?= $k['nama_kategori'] ?>">
-<?php endforeach; ?>
-</datalist>
+    Kategori:<br>
+    <select name="id_kategori">
+        <option value="">Pilih</option>
+        <?php foreach ($kategori as $k): ?>
+            <option value="<?= $k['id_kategori'] ?>"><?= $k['nama_kategori'] ?></option>
+        <?php endforeach; ?>
+    </select><br><br>
 
-Penulis:
-<input list="list_penulis" name="penulis_nama">
+    Penulis:<br>
+    <select name="id_penulis">
+        <option value="">Pilih</option>
+        <?php foreach ($penulis as $p): ?>
+            <option value="<?= $p['id_penulis'] ?>"><?= $p['nama_penulis'] ?></option>
+        <?php endforeach; ?>
+    </select><br><br>
 
-<datalist id="list_penulis">
-<?php foreach($penulis as $p): ?>
-<option value="<?= $p['nama_penulis'] ?>">
-<?php endforeach; ?>
-</datalist>
+    Penerbit:<br>
+    <select name="id_penerbit">
+        <option value="">Pilih</option>
+        <?php foreach ($penerbit as $p): ?>
+            <option value="<?= $p['id_penerbit'] ?>"><?= $p['nama_penerbit'] ?></option>
+        <?php endforeach; ?>
+    </select><br><br>
 
-Penerbit:
-<input list="list_penerbit" name="penerbit_nama">
-<datalist id="list_penerbit">
-<?php foreach($penerbit as $p): ?>
-<option value="<?= $p['nama_penerbit'] ?>">
-<?php endforeach; ?>
-</datalist>
+    Rak:<br>
+    <select name="id_rak">
+        <option value="">Pilih</option>
+        <?php foreach ($rak as $r): ?>
+            <option value="<?= $r['id_rak'] ?>">
+                <?= $r['nama_rak'] ?> - <?= $r['lokasi'] ?>
+            </option>
+        <?php endforeach; ?>
+    </select><br><br>
 
-Rak:
-<input list="list_rak" name="rak_nama">
+    Tahun Terbit:<br>
+    <input type="number" name="tahun_terbit"><br><br>
 
-<datalist id="list_rak">
-<?php foreach($rak as $r): ?>
-<option value="<?= $r['nama_rak'] ?>">
-<?php endforeach; ?>
-</datalist>
+    Jumlah:<br>
+    <input type="number" name="jumlah"><br><br>
 
-Tahun: <input type="number" name="tahun_terbit"><br>
-Jumlah: <input type="number" name="jumlah"><br>
+    Tersedia:<br>
+    <input type="number" name="tersedia"><br><br>
 
-Deskripsi:<br>
-<textarea name="deskripsi"></textarea><br>
+    Deskripsi:<br>
+    <textarea name="deskripsi"></textarea><br><br>
 
-Cover:
-<input type="file" name="cover"><br>
+    Cover / file :<br>
+    <input type="file" name="cover"><br><br>
 
-<button type="submit">Simpan</button>
+    <button type="submit">Simpan</button>
+    <a href="<?= base_url('buku') ?>">Kembali</a>
+
 </form>
 <?= $this->endSection() ?>

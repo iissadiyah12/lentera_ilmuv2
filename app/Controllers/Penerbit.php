@@ -12,12 +12,21 @@ class Penerbit extends BaseController
         $this->model = new PenerbitModel();
     }
 
-    public function index()
-    {
-        return view('penerbit/index',[
-            'penerbit'=>$this->model->findAll()
-        ]);
+   public function index()
+{
+    $keyword = $this->request->getGet('keyword');
+
+    if ($keyword) {
+        $data['penerbit'] = $this->model
+            ->like('nama_penerbit', $keyword)
+            ->orLike('alamat', $keyword)
+            ->findAll();
+    } else {
+        $data['penerbit'] = $this->model->findAll();
     }
+
+    return view('penerbit/index', $data);
+}
 
     public function create()
     {

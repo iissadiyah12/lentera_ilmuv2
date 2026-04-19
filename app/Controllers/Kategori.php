@@ -13,11 +13,19 @@ class Kategori extends BaseController
     }
 
     public function index()
-    {
-        return view('kategori/index',[
-            'kategori'=>$this->model->findAll()
-        ]);
+{
+    $keyword = $this->request->getGet('keyword');
+
+    if ($keyword) {
+        $data['kategori'] = $this->model
+            ->like('nama_kategori', $keyword)
+            ->findAll();
+    } else {
+        $data['kategori'] = $this->model->findAll();
     }
+
+    return view('kategori/index', $data);
+}
 
     public function create()
     {

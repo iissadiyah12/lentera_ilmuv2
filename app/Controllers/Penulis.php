@@ -13,11 +13,19 @@ class Penulis extends BaseController
     }
 
     public function index()
-    {
-        return view('penulis/index',[
-            'penulis'=>$this->model->findAll()
-        ]);
+{
+    $keyword = $this->request->getGet('keyword');
+
+    if ($keyword) {
+        $data['penulis'] = $this->model
+            ->like('nama_penulis', $keyword)
+            ->findAll();
+    } else {
+        $data['penulis'] = $this->model->findAll();
     }
+
+    return view('penulis/index', $data);
+}
 
     public function create()
     {

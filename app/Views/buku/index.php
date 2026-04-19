@@ -44,7 +44,7 @@
                     <?php $ext = pathinfo($b['cover'], PATHINFO_EXTENSION); ?>
 
                     <?php if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif'])): ?>
-                        <img src="<?= base_url('uploads/buku/' . $b['cover']) ?>" width="100">
+                        <img src="<?= base_url('uploads/buku/' . $b['cover']) ?>" width="60">
                     <?php else: ?>
                         <a href="<?= base_url('uploads/buku/' . $b['cover']) ?>" target="_blank">File</a>
                     <?php endif; ?>
