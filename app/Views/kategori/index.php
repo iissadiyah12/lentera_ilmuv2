@@ -19,8 +19,8 @@
 <tr>  
 <td><?= $k['nama_kategori'] ?></td>
 <td>
-<a href="/kategori/edit/<?= $k['id_kategori'] ?>">Edit</a>
-<a href="/kategori/delete/<?= $k['id_kategori'] ?>">Hapus</a>
+    <a href="<?= base_url('kategori/edit/'.$k['id_kategori']) ?>">Edit</a>
+    <a href="<?= base_url('kategori/delete/'.$k['id_kategori']) ?>">Hapus</a>
 </td>
 </tr>
 <?php endforeach; ?>

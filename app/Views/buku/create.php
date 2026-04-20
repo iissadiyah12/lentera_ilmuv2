@@ -1,66 +1,114 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
+
 <h3>Tambah Buku</h3>
+ 
+<?php if(session()->getFlashdata('error')): ?>
+    <p style="color:red"><?= session()->getFlashdata('error') ?></p>
+<?php endif; ?>
 
-<form method="post" action="<?= base_url('buku/store') ?>" enctype="multipart/form-data">
+<form action="<?= base_url('buku/store') ?>" method="post" enctype="multipart/form-data">
 
-    Judul:<br>
-    <input type="text" name="judul"><br><br>
 
-    ISBN:<br>
-    <input type="text" name="isbn"><br><br>
+    <div>
+        <label>Judul</label><br>
+        <input type="text" name="judul" required>
+    </div>
 
-    Kategori:<br>
-    <select name="id_kategori">
-        <option value="">Pilih</option>
-        <?php foreach ($kategori as $k): ?>
-            <option value="<?= $k['id_kategori'] ?>"><?= $k['nama_kategori'] ?></option>
-        <?php endforeach; ?>
-    </select><br><br>
+    <div>
+        <label>ISBN</label><br>
+        <input type="text" name="isbn">
+    </div>
 
-    Penulis:<br>
-    <select name="id_penulis">
-        <option value="">Pilih</option>
-        <?php foreach ($penulis as $p): ?>
-            <option value="<?= $p['id_penulis'] ?>"><?= $p['nama_penulis'] ?></option>
-        <?php endforeach; ?>
-    </select><br><br>
+    <!-- KATEGORI -->
+    <div>
+        <label>Kategori</label><br>
+        <select name="id_kategori">
+            <option value="">Pilih Kategori</option>
+            <?php foreach ($kategori as $k): ?>
+                <option value="<?= $k['id_kategori'] ?>">
+                    <?= $k['nama_kategori'] ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
 
-    Penerbit:<br>
-    <select name="id_penerbit">
-        <option value="">Pilih</option>
-        <?php foreach ($penerbit as $p): ?>
-            <option value="<?= $p['id_penerbit'] ?>"><?= $p['nama_penerbit'] ?></option>
-        <?php endforeach; ?>
-    </select><br><br>
+        <br>
+        <input type="text" name="kategori_baru" placeholder="Atau tambah kategori baru">
+    </div>
 
-    Rak:<br>
-    <select name="id_rak">
-        <option value="">Pilih</option>
-        <?php foreach ($rak as $r): ?>
-            <option value="<?= $r['id_rak'] ?>">
-                <?= $r['nama_rak'] ?> - <?= $r['lokasi'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br><br>
+    <!-- PENULIS -->
+    <div>
+        <label>Penulis</label><br>
+        <select name="id_penulis">
+    <?php foreach($penulis as $p): ?>
+        <option value="<?= $p['id_penulis'] ?>">
+            <?= $p['nama_penulis'] ?>
+        </option>
+    <?php endforeach; ?>
+</select>
 
-    Tahun Terbit:<br>
-    <input type="number" name="tahun_terbit"><br><br>
+        <br>
+        <input type="text" name="penulis_baru" placeholder="Atau tambah penulis baru">
+    </div>
 
-    Jumlah:<br>
-    <input type="number" name="jumlah"><br><br>
+    <!-- PENERBIT -->
+    <div>
+        <label>Penerbit</label><br>
+        <select name="id_penerbit">
+            <option value="">-- Pilih --</option>
+            <?php foreach ($penerbit as $p): ?>
+                <option value="<?= $p['id_penerbit'] ?>">
+                    <?= $p['nama_penerbit'] ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
 
-    Tersedia:<br>
-    <input type="number" name="tersedia"><br><br>
+        <br>
+        <input type="text" name="penerbit_baru" placeholder="Atau tambah penerbit baru">
+    </div>
 
-    Deskripsi:<br>
-    <textarea name="deskripsi"></textarea><br><br>
+    <!-- RAK -->
+    <div>
+        <label>Rak</label><br>
+        <select name="id_rak">
+            <option value="">-- Pilih Rak --</option>
+            <?php foreach ($rak as $r): ?>
+                <option value="<?= $r['id_rak'] ?>">
+                    <?= $r['nama_rak'] ?> - <?= $r['lokasi'] ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
 
-    Cover / file :<br>
-    <input type="file" name="cover"><br><br>
+    <div>
+        <label>Tahun Terbit</label><br>
+        <input type="number" name="tahun_terbit">
+    </div>
 
-    <button type="submit">Simpan</button>
-    <a href="<?= base_url('buku') ?>">Kembali</a>
+    <div>
+        <label>Jumlah</label><br>
+        <input type="number" name="jumlah">
+    </div>
 
+    <div>
+        <label>Tersedia</label><br>
+        <input type="number" name="tersedia">
+    </div>
+
+    <div>
+        <label>Deskripsi</label><br>
+        <textarea name="deskripsi"></textarea>
+    </div>
+
+    <!-- COVER -->
+    <div>
+        <label>Cover</label><br>
+        <input type="file" name="cover">
+    </div>
+
+    <br>
+<button type="submit">Simpan</button>
+<a href="<?= base_url('buku') ?>">Kembali</a>
 </form>
+
 <?= $this->endSection() ?>

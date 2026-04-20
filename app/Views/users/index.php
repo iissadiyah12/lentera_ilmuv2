@@ -18,9 +18,9 @@
 
         <button type="submit">Cari</button>
         <a href="<?= base_url('users') ?>">Reset</a>
-                <a href="<?= base_url('users/print?' . http_build_query($_GET)) ?>" target="_blank">
+        <a href="<?= base_url('users/print?' . http_build_query($_GET)) ?>" target="_blank">
             Print </a>
-                </form>
+    </form>
 
     <br>
 
@@ -63,10 +63,10 @@
 
                         <?php if (session()->get('role') == 'admin') : ?>
                             <td>
-                                <a href="<?= base_url('users/detail/' . $u['id']) ?>">Detail</a>
-                                <a href="<?= base_url('users/edit/' . $u['id']) ?>">Edit</a>
-                                <a href="<?= base_url('users/wa/' . $u['id']) ?>" target="_blank">Kirim WA</a>
-                                <a href="<?= base_url('users/delete/' . $u['id']) ?>"
+                                <a href="<?= base_url('users/detail/' . $u['id_user']) ?>">Detail</a>
+                                <a href="<?= base_url('users/edit/' . $u['id_user']) ?>">Edit</a>
+                                <a href="<?= base_url('users/wa/' . $u['id_user']) ?>" target="_blank">Kirim WA</a>
+                                <a href="<?= base_url('users/delete/' . $u['id_user']) ?>"
                                     onclick="return confirm('Hapus user ini?')">Hapus</a>
                             </td>
                         <?php endif; ?>
@@ -82,7 +82,10 @@
 
     <br>
 
-    
+    <!-- PAGINATION -->
+    <div>
+        <?= $pager->links() ?>
+    </div>
 
 </div>
 

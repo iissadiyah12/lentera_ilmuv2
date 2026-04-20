@@ -38,13 +38,26 @@ class Rak extends BaseController
         return redirect()->to('/rak')->with('success','Data rak ditambahkan');
     }
 
-    public function edit($id)
-    {
-        return view('rak/edit',[
-            'rak'=>$this->rak->find($id)
-        ]);
-    }
+   public function store()
+{
+    $this->rak->save([
+        'nama_rak' => $this->request->getPost('nama_rak'),
+        'lokasi' => $this->request->getPost('lokasi'),
+    ]);
 
+    return redirect()->to('/rak');
+}
+        public function edit($id)
+        {
+            $data['rak'] = $this->rak->find($id);
+            return view('rak/edit', $data);
+        }
+
+        public function delete($id)
+        {
+            $this->rak->delete($id);
+            return redirect()->to('/rak');
+        }
     public function update($id)
     {
         $this->rak->save([
@@ -55,9 +68,4 @@ class Rak extends BaseController
         return redirect()->to('/rak')->with('success','Data diupdate');
     }
 
-    public function delete($id)
-    {
-        $this->rak->delete($id);
-        return redirect()->to('/rak')->with('success','Data dihapus');
-    }
 }

@@ -64,7 +64,7 @@
     Cover:<br>
     <input type="file" name="cover"><br><br>
 
-    Cover Saat Ini:<br>
+
     <?php if ($buku['cover']): ?>
 
         <?php
@@ -74,7 +74,7 @@
         <?php if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif'])): ?>
             <img src="<?= base_url('uploads/buku/' . $buku['cover']) ?>" width="100"><br>
         <?php else: ?>
-            <a href="<?= base_url('uploads/buku/' . $buku['cover']) ?>" target="_blank">Lihat File</a><br>
+           
         <?php endif; ?>
 
     <?php else: ?>

@@ -8,6 +8,8 @@
     <a href="<?= current_url() ?>">Reset</a>
 </form>
 <br>
+<a href="<?= base_url('rak/create') ?>">Tambah Rak</a>
+
 <table border="1">
 <tr>
   
@@ -22,8 +24,8 @@
 <td><?= $r['nama_rak'] ?></td>
 <td><?= $r['lokasi'] ?></td>
 <td>
-<a href="/rak/edit/<?= $r['id_rak'] ?>">Edit</a>
-<a href="/rak/delete/<?= $r['id_rak'] ?>">Hapus</a>
+    <a href="<?= base_url('rak/edit/'.$r['id_rak']) ?>">Edit</a>
+    <a href="<?= base_url('rak/delete/'.$r['id_rak']) ?>">Hapus</a>
 </td>
 </tr>
 <?php endforeach; ?>

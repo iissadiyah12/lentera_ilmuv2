@@ -20,8 +20,8 @@
   
 <td><?= $p['nama_penulis'] ?></td>
 <td>
-<a href="/penulis/edit/<?= $p['id_penulis'] ?>">Edit</a>
-<a href="/penulis/delete/<?= $p['id_penulis'] ?>">Hapus</a>
+    <a href="<?= base_url('penulis/edit/'.$p['id_penulis']) ?>">Edit</a>
+    <a href="<?= base_url('penulis/delete/'.$p['id_penulis']) ?>">Hapus</a>
 </td>
 </tr>
 <?php endforeach; ?>

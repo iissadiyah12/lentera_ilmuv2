@@ -38,13 +38,13 @@ $routes->get('users/wa/(:num)', 'Users::wa/$1', $allRole); // aksi kirim ke what
 //BUKU
 $routes->get('buku', 'Buku::index');
 $routes->get('buku/create', 'Buku::create');
-$routes->post('buku/store', 'Buku::store');
 $routes->get('buku/detail/(:num)', 'Buku::detail/$1');
 $routes->get('buku/edit/(:num)', 'Buku::edit/$1');
 $routes->post('buku/update/(:num)', 'Buku::update/$1');
 $routes->get('buku/delete/(:num)', 'Buku::delete/$1');
 $routes->get('buku/print', 'Buku::print');
 $routes->get('buku/wa/(:num)', 'Buku::wa/$1');
+$routes->post('buku/store', 'Buku::store');
 
 //RAK
 $routes->get('/rak', 'Rak::index');
@@ -53,6 +53,8 @@ $routes->post('/rak/save','Rak::save');
 $routes->get('/rak/edit/(:num)','Rak::edit/$1');
 $routes->post('/rak/update/(:num)','Rak::update/$1');
 $routes->get('/rak/delete/(:num)','Rak::delete/$1');
+$routes->get('rak/edit/(:num)', 'Rak::edit/$1');
+$routes->post('rak/store', 'Rak::store');
 
 
 //KATEGORI
@@ -62,7 +64,7 @@ $routes->post('/kategori/save','Kategori::save');
 $routes->get('/kategori/edit/(:num)','Kategori::edit/$1');
 $routes->post('/kategori/update/(:num)','Kategori::update/$1');
 $routes->get('/kategori/delete/(:num)','Kategori::delete/$1');
-
+$routes->get('kategori/edit/(:num)', 'Kategori::edit/$1');
 
 //PENULIS
 $routes->get('/penulis', 'Penulis::index');
@@ -80,3 +82,20 @@ $routes->get('/penerbit/edit/(:num)','Penerbit::edit/$1');
 $routes->post('/penerbit/update/(:num)','Penerbit::update/$1');
 $routes->get('/penerbit/delete/(:num)','Penerbit::delete/$1');
 
+//PEMINJAMAN
+$routes->get('peminjaman', 'Peminjaman::index');
+$routes->get('peminjaman/create', 'Peminjaman::create');
+$routes->post('peminjaman/store', 'Peminjaman::store');
+$routes->get('peminjaman/delete/(:num)', 'Peminjaman::delete/$1');
+$routes->get('buku/wa/(:num)', 'Buku::wa/$1');
+$routes->get('peminjaman/detail/(:num)', 'Peminjaman::detail/$1');
+$routes->get('peminjaman/kembalikan/(:num)', 'Peminjaman::kembalikan/$1');
+
+
+// PETUGAS
+$routes->get('petugas', 'Petugas::index');
+$routes->get('petugas/create', 'Petugas::create');
+$routes->post('petugas/store', 'Petugas::store');
+$routes->get('petugas/edit/(:num)', 'Petugas::edit/$1');
+$routes->post('petugas/update/(:num)', 'Petugas::update/$1');
+$routes->get('petugas/delete/(:num)', 'Petugas::delete/$1');

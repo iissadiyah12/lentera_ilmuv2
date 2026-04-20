@@ -9,7 +9,7 @@
 
         <div>
 
-            <form action="<?= base_url('users/update/' . $user['id']) ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('users/update/' . $user['id_user']) ?>" method="post" enctype="multipart/form-data">
 
                 <div>
                     <label>Nama Lengkap</label><br>

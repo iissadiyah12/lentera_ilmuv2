@@ -3,8 +3,12 @@
 namespace App\Controllers;
 
 use App\Models\BukuModel;
+use App\Models\BukuRakModel;
+
+$rakBukuModel = new BukuRakModel();
 
 class Buku extends BaseController
+
 {
     protected $buku;
     protected $db;
@@ -14,7 +18,22 @@ class Buku extends BaseController
         $this->buku = new BukuModel();
         $this->db = \Config\Database::connect();
     }
+    private function getOrInsert($table, $field, $value)
+    {
+        $db = \Config\Database::connect();
 
+        $data = $db->table($table)
+                ->where($field, $value)
+                ->get()
+                ->getRowArray();
+
+        if ($data) {
+            return $data['id_'.$table];
+        } else {
+            $db->table($table)->insert([$field => $value]);
+            return $db->insertID();
+        }
+    }
     public function index()
     {
         $keyword = $this->request->getGet('keyword');
@@ -53,62 +72,54 @@ class Buku extends BaseController
         return view('buku/create', $data);
     }
 
-    public function store()
-    {
-        // VALIDASI
-        $rules = [
-            'judul' => 'required',
-            'cover' => 'max_size[cover,2048]|ext_in[cover,jpg,jpeg,png,pdf]'
-        ];
+   public function store()
+{
+    $data = $this->request->getPost();
 
-        if (!$this->validate($rules)) {
-            return redirect()->back()->withInput()->with('error', 'Validasi gagal');
-        }
+    $file = $this->request->getFile('cover');
 
-        $data = $this->request->getPost();
+    if ($file && $file->isValid() && !$file->hasMoved()) {
+        $namaFile = $file->getRandomName();
+        $file->move('uploads/buku/', $namaFile);
+        $data['cover'] = $namaFile;
+    }
 
-        // HANDLE UPLOAD COVER
         $file = $this->request->getFile('cover');
 
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-            $namaFile = $file->getRandomName();
-            $file->move('uploads/buku/', $namaFile);
-            $data['cover'] = $namaFile;
-        }
-
-        $this->buku->insert($data);
-        $id_buku = $this->buku->getInsertID();
-
-        $this->db->table('buku_rak')->insert([
-            'id_buku' => $id_buku,
-            'id_rak' => $data['id_rak']
-        ]);
-
-        return redirect()->to('/buku');
+    if ($file && $file->isValid() && !$file->hasMoved()) {
+        $namaFile = $file->getRandomName();
+        $file->move('uploads/buku/', $namaFile);
+        $data['cover'] = $namaFile;
+    } else {
+        $data['cover'] = 'default.png'; // fallback
     }
+    $this->buku->insert($data);
+
+
+    return redirect()->to('/buku')->with('success', 'Data berhasil disimpan');
+}
 
     public function detail($id)
-    {
-        $builder = $this->db->table('buku');
-        $builder->select('
-            buku.*,
-            kategori.nama_kategori,
-            penulis.nama_penulis,
-            penerbit.nama_penerbit,
+{
+    $data['buku'] = $this->db->table('buku')
+        ->select('
+            buku.*, 
+            kategori.nama_kategori, 
+            penulis.nama_penulis, 
+            penerbit.nama_penerbit, 
             rak.nama_rak,
             rak.lokasi
-        ');
-        $builder->join('kategori', 'kategori.id_kategori = buku.id_kategori', 'left');
-        $builder->join('penulis', 'penulis.id_penulis = buku.id_penulis', 'left');
-        $builder->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit', 'left');
-        $builder->join('buku_rak', 'buku_rak.id_buku = buku.id_buku', 'left');
-        $builder->join('rak', 'rak.id_rak = buku_rak.id_rak', 'left');
-        $builder->where('buku.id_buku', $id);
+        ')
+        ->join('kategori', 'kategori.id_kategori=buku.id_kategori', 'left')
+        ->join('penulis', 'penulis.id_penulis=buku.id_penulis', 'left')
+        ->join('penerbit', 'penerbit.id_penerbit=buku.id_penerbit', 'left')
+        ->join('rak', 'rak.id_rak=buku.id_rak', 'left')
+        ->where('buku.id_buku', $id)
+        ->get()
+        ->getRowArray();
 
-        $data['buku'] = $builder->get()->getRowArray();
-
-        return view('buku/detail', $data);
-    }
+    return view('buku/detail', $data);
+}
 
     public function edit($id)
     {
@@ -121,45 +132,83 @@ class Buku extends BaseController
         return view('buku/edit', $data);
     }
 
-    public function update($id)
-    {
 
-        $rules = [
-            'judul' => 'required',
-            'cover' => 'max_size[cover,2048]|ext_in[cover,jpg,jpeg,png,pdf]'
-        ];
+public function update($id)
+{
+    $rakBukuModel = new BukuRakModel();
 
-        if (!$this->validate($rules)) {
-            return redirect()->back()->withInput()->with('error', 'Validasi gagal');
-        }
-        $data = $this->request->getPost();
+    $data = $this->request->getPost();
+    $id_rak = $this->request->getPost('id_rak');
 
-        $file = $this->request->getFile('cover');
+    // upload cover
+    $file = $this->request->getFile('cover');
 
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-
-            // hapus file lama
-            $buku = $this->buku->find($id);
-            if ($buku['cover'] && file_exists('uploads/buku/' . $buku['cover'])) {
-                unlink('uploads/buku/' . $buku['cover']);
-            }
-
-            // upload baru
-            $namaFile = $file->getRandomName();
-            $file->move('uploads/buku/', $namaFile);
-
-            $data['cover'] = $namaFile;
-        }
-
-        $this->buku->update($id, $data);
-
-        $this->db->table('buku_rak')
-            ->where('id_buku', $id)
-            ->update(['id_rak' => $data['id_rak']]);
-
-        return redirect()->to('/buku');
+    if ($file && $file->isValid() && !$file->hasMoved()) {
+        $namaFile = $file->getRandomName();
+        $file->move('uploads/buku', $namaFile);
+        $data['cover'] = $namaFile;
     }
 
+    // update buku
+    $this->buku->update($id, $data);
+
+    // hapus relasi lama
+    $rakBukuModel->where('id_buku', $id)->delete();
+
+    // insert relasi baru
+    if (!empty($id_rak)) {
+        $rakBukuModel->insert([
+            'id_buku' => $id,
+            'id_rak'  => $id_rak
+        ]);
+    }
+
+    $rakNama = $this->request->getPost('rak_nama');
+
+// cari rak berdasarkan nama
+$rak = $this->db->table('rak')
+    ->where('nama_rak', $rakNama)
+    ->get()
+    ->getRowArray();
+
+// jika belum ada → insert
+if (!$rak && $rakNama) {
+    $this->db->table('rak')->insert([
+        'nama_rak' => $rakNama,
+        'lokasi' => '-' // default
+    ]);
+
+    $id_rak = $this->db->insertID();
+} else {
+    $id_rak = $rak['id_rak'] ?? null;
+}
+
+// masukkan ke data buku
+$data['id_rak'] = $id_rak;
+
+$penulisNama = $this->request->getPost('penulis_nama');
+
+// cari penulis
+$penulis = $this->db->table('penulis')
+    ->where('nama_penulis', $penulisNama)
+    ->get()
+    ->getRowArray();
+
+// kalau belum ada → insert
+if (!$penulis && $penulisNama) {
+    $this->db->table('penulis')->insert([
+        'nama_penulis' => $penulisNama
+    ]);
+
+    $id_penulis = $this->db->insertID();
+} else {
+    $id_penulis = $penulis['id_penulis'] ?? null;
+}
+
+// masukkan ke buku
+$data['id_penulis'] = $id_penulis;
+    return redirect()->to('/buku');
+}
     public function delete($id)
     {
         $buku = $this->buku->find($id);
