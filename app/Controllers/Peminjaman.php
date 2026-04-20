@@ -44,84 +44,67 @@ class Peminjaman extends BaseController
     // STORE
     // ======================
     public function store()
-    {
-        $id_user = $this->request->getPost('id_user');
-        $bukuDipilih = $this->request->getPost('buku'); // array
+{
+    $id_user = $this->request->getPost('id_user');
+    $bukuDipilih = $this->request->getPost('buku');
 
-        $tanggal_pinjam = date('Y-m-d');
-        $tanggal_kembali = date('Y-m-d', strtotime('+6 days'));
+    $tanggal_pinjam = date('Y-m-d');
+    $tanggal_kembali = date('Y-m-d', strtotime('+6 days'));
 
-        // simpan peminjaman
-        $this->peminjaman->insert([
-            'id_user' => $id_user,
-            'tanggal_pinjam' => $tanggal_pinjam,
-            'tanggal_kembali' => $tanggal_kembali,
-            'status' => 'dipinjam'
-        ]);
+    $this->peminjaman->insert([
+        'id_user' => $id_user,
+        'tanggal_pinjam' => $tanggal_pinjam,
+        'tanggal_kembali' => $tanggal_kembali,
+        'status' => 'dipinjam'
+    ]);
 
-        $id_peminjaman = $this->db->insertID();
+    $id_peminjaman = $this->db->insertID();
 
-        foreach ($bukuDipilih as $id_buku) {
+    foreach ($bukuDipilih as $id_buku => $qty) {
 
-            $buku = $this->db->table('buku')
-                ->where('id_buku', $id_buku)
-                ->get()->getRowArray();
+        // ❗ skip kalau 0
+        if ($qty <= 0) continue;
 
-            if ($buku['jumlah'] <= 0) {
-                continue;
-            }
+        $buku = $this->db->table('buku')
+            ->where('id_buku', $id_buku)
+            ->get()->getRowArray();
 
-            // simpan detail
-            $this->db->table('detail_peminjaman')->insert([
-                'id_peminjaman' => $id_peminjaman,
-                'id_buku' => $id_buku
-            ]);
-
-            // update stok
-            $this->db->table('buku')
-                ->where('id_buku', $id_buku)
-                ->update([
-                    'jumlah' => $buku['jumlah'] - 1
-                ]);
+        if (!$buku || $buku['jumlah'] < $qty) {
+            continue;
         }
 
-        return redirect()->to('/peminjaman');
+        // simpan detail
+        $this->db->table('detail_peminjaman')->insert([
+            'id_peminjaman' => $id_peminjaman,
+            'id_buku' => $id_buku,
+            'jumlah' => $qty
+        ]);
+
+        // update stok
+        $this->db->table('buku')
+            ->where('id_buku', $id_buku)
+            ->update([
+                'jumlah' => $buku['jumlah'] - $qty
+            ]);
     }
 
-    public function detail($id)
+    return redirect()->to('/peminjaman');
+}
+
+  public function detail($id)
 {
-    // data peminjaman
-    $peminjaman = $this->db->table('peminjaman')
-        ->where('id_peminjaman', $id)
-        ->get()->getRowArray();
+    $data['p'] = $this->peminjaman->find($id);
 
-    // ambil detail buku
-    $detail = $this->db->table('detail_peminjaman')
-        ->select('detail_peminjaman.*, buku.judul, buku.cover')
-        ->join('buku', 'buku.id_buku = detail_peminjaman.id_buku')
-        ->where('detail_peminjaman.id_peminjaman', $id)
-        ->get()->getResultArray();
+    $data['detail'] = $this->db->table('detail_peminjaman dp')
+        ->select('dp.jumlah, buku.judul, buku.cover')
+        ->join('buku', 'buku.id_buku = dp.id_buku')
+        ->where('dp.id_peminjaman', $id)
+        ->get()
+        ->getResultArray();
 
-    // hitung total buku
-    $total_buku = 0;
-    foreach ($detail as $d) {
-        $total_buku += $d['jumlah'];
-    }
+    $data['total_buku'] = array_sum(array_column($data['detail'], 'jumlah'));
 
-    // cek keterlambatan
-    $today = date('Y-m-d');
-    $notif = null;
-
-    if ($peminjaman['status'] == 'dipinjam' && $today > $peminjaman['tanggal_kembali']) {
-        $notif = "⚠️ Anda terlambat mengembalikan buku dan terkena denda!";
-    }
-
-    return view('peminjaman/detail', [
-        'peminjaman' => $peminjaman,
-        'detail' => $detail,
-        'total_buku' => $total_buku,
-        'notif' => $notif
-    ]);
+    return view('peminjaman/detail', $data);
 }
 
     public function kembalikan($id_detail)
