@@ -55,7 +55,9 @@
                         <td><?= ucfirst($u['role']) ?></td>
                         <td>
                             <?php if ($u['foto']): ?>
-                                <img src="<?= base_url('uploads/users/' . $u['foto']) ?>" width="60">
+                                <img src="<?= base_url('uploads/users/' . $u['foto']) ?>" width="100">
+                                <img src="<?= base_url('uploads/buku/' . $u['foto']) ?>" width="100">
+
                             <?php else: ?>
                                 -
                             <?php endif; ?>

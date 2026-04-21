@@ -10,7 +10,7 @@
     <th>Anggota</th>
     <th>Buku</th>
     <th>Tanggal Pinjam</th>
-    <th>Kembali</th>
+    <th>Tanggal Kembali</th>
     <th>Status</th>
     <th>Aksi</th>
 </tr>
@@ -21,11 +21,22 @@
     <td><?= $p['judul'] ?></td>
     <td><?= $p['tanggal_pinjam'] ?></td>
     <td><?= $p['tanggal_kembali'] ?></td>
+    <script>
+    function perpanjang(id) {
+    let hari = prompt("Masukkan jumlah hari perpanjangan:");
+
+    if (hari != null && hari != "") {
+        window.location.href = "<?= base_url('peminjaman/perpanjang/') ?>" + id + "/" + hari;
+    }
+}
+</script>
     <td><?= $p['status'] ?></td>
     <td>
+        <a href="<?= base_url('peminjaman/edit/'.$p['id_peminjaman']) ?>">Edit</a>
         <a href="<?= base_url('peminjaman/delete/'.$p['id_peminjaman']) ?>">Hapus</a>
         <a href="<?= base_url('peminjaman/detail/'.$p['id_peminjaman']) ?>">Detail</a>
-
+        <a href="#" onclick="perpanjang(<?= $p['id_peminjaman'] ?>)">Perpanjang</a>
+        
     </td>
 </tr>
 <?php endforeach; ?>

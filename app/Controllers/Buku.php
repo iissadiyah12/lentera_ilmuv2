@@ -91,7 +91,7 @@ class Buku extends BaseController
         $file->move('uploads/buku/', $namaFile);
         $data['cover'] = $namaFile;
     } else {
-        $data['cover'] = 'default.png'; // fallback
+       
     }
     $this->buku->insert($data);
 

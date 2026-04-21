@@ -43,7 +43,7 @@
     <a href="<?= base_url('users') ?>">Kembali</a>
 
     <?php if (session()->get('role') == 'admin') : ?>
-        <a href="<?= base_url('users/edit/' . $user['id']) ?>">Edit</a>
+        <a href="<?= base_url('users/edit/' . $user['id_user']) ?>">Edit</a>
     <?php endif; ?>
 
 </div>

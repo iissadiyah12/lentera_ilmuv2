@@ -7,11 +7,15 @@
     </a><br>
     <?php $idu = session('id'); ?>
    
-  <a href="<?= base_url('/peminjaman') ?>">
+    <a href="<?= base_url('/peminjaman') ?>">
     Peminjaman
-</a><br>
+    </a><br>
+    
 
     <?php if (session()->get('role') == 'admin' || session()->get('role') == 'petugas') : ?>
+        <a href="<?= base_url('/pengembalian') ?>">
+        pengembalian
+        </a><br>
         <a href="<?= base_url('/buku') ?>">
         Buku
         </a><br>
@@ -43,3 +47,6 @@
     <li>
         <a href="<?= base_url('/logout') ?>">Log Out</a>
     </li>
+    <?php if (session()->get('role') == 'admin') : ?>
+        <a href="<?= base_url('/backup') ?>" class="btn btn-success">Backup Database</a>
+    <?php endif; ?>

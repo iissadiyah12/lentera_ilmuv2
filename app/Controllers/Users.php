@@ -47,6 +47,7 @@ class Users extends BaseController
             // Kembali ke halaman sebelumnya + tampilkan error
             return redirect()->back()->with('error', implode('<br>', $validation->getErrors()));
         }
+        
 
         // ================= UPLOAD FOTO =================
         // Mengambil file dari input name="foto"
@@ -240,7 +241,7 @@ class Users extends BaseController
 
         // ================= FORMAT PESAN =================
         $pesan = "DATA USER\n\n";
-        $pesan .= "ID: " . $user['id'] . "\n";
+        $pesan .= "ID: " . $user['id_user'] . "\n";
         $pesan .= "Nama: " . $user['nama'] . "\n";
         $pesan .= "Email: " . $user['email'] . "\n";
         $pesan .= "Username: " . $user['username'] . "\n";
