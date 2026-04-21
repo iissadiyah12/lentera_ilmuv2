@@ -104,8 +104,13 @@
     <div>
         <label>Cover</label><br>
         <input type="file" name="cover">
+        
     </div>
-
+<!-- FILE PDF -->
+<div>
+    <label>File Buku (PDF)</label><br>
+    <input type="file" name="file_pdf" accept="application/pdf">
+</div>
     <br>
 <button type="submit">Simpan</button>
 <a href="<?= base_url('buku') ?>">Kembali</a>

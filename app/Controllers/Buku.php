@@ -72,10 +72,11 @@ class Buku extends BaseController
         return view('buku/create', $data);
     }
 
-   public function store()
+ public function store()
 {
     $data = $this->request->getPost();
 
+    // ================= UPLOAD COVER =================
     $file = $this->request->getFile('cover');
 
     if ($file && $file->isValid() && !$file->hasMoved()) {
@@ -84,19 +85,50 @@ class Buku extends BaseController
         $data['cover'] = $namaFile;
     }
 
-        $file = $this->request->getFile('cover');
+    // ================= UPLOAD PDF =================
+    $filePdf = $this->request->getFile('file_pdf');
 
-    if ($file && $file->isValid() && !$file->hasMoved()) {
-        $namaFile = $file->getRandomName();
-        $file->move('uploads/buku/', $namaFile);
-        $data['cover'] = $namaFile;
-    } else {
-       
+    if ($filePdf && $filePdf->isValid() && !$filePdf->hasMoved()) {
+        $namaPdf = $filePdf->getRandomName();
+        $filePdf->move('uploads/buku/baca/', $namaPdf);
+
+        // simpan ke database
+        $data['file_pdf'] = $namaPdf;
     }
+
+    // ================= SIMPAN KE DATABASE =================
     $this->buku->insert($data);
 
-
     return redirect()->to('/buku')->with('success', 'Data berhasil disimpan');
+}
+public function baca($id)
+{
+    $buku = $this->db->table('buku')
+        ->where('id_buku', $id)
+        ->get()
+        ->getRowArray();
+
+    if (!$buku) {
+        echo "Buku tidak ditemukan";
+        die;
+    }
+
+    if (empty($buku['file_pdf'])) {
+        echo "File PDF tidak ada";
+        die;
+    }
+
+    $path = FCPATH . 'uploads/buku/baca/' . $buku['file_pdf'];
+
+    if (!file_exists($path)) {
+        echo "File tidak ditemukan di folder";
+        die;
+    }
+
+    return $this->response
+        ->setHeader('Content-Type', 'application/pdf')
+        ->setHeader('Content-Disposition', 'inline; filename="'.$buku['file_pdf'].'"')
+        ->setBody(file_get_contents($path));
 }
 
     public function detail($id)

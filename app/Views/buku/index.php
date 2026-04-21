@@ -47,10 +47,26 @@
 
     <!-- AKSI -->
     <td>
-        <a href="<?= base_url('buku/detail/'.$b['id_buku']) ?>">Detail</a> |
-        <a href="<?= base_url('buku/edit/'.$b['id_buku']) ?>">Edit</a> |
-        <a href="<?= base_url('buku/delete/'.$b['id_buku']) ?>" onclick="return confirm('Yakin hapus?')">Hapus</a> |
-        <a href="<?= base_url('buku/wa/'.$b['id_buku']) ?>" target="_blank">WA</a>
+       <a href="<?= base_url('buku/baca/'.$b['id_buku']) ?>" target="_blank">
+    <i class="bi bi-book"></i> 
+</a><br>
+
+<a href="<?= base_url('buku/detail/'.$b['id_buku']) ?>">
+    <i class="bi bi-info-circle"></i>
+</a><br>
+
+<a href="<?= base_url('buku/edit/'.$b['id_buku']) ?>">
+    <i class="bi bi-pencil-square"></i> 
+</a> <br>
+
+<a href="<?= base_url('buku/delete/'.$b['id_buku']) ?>" onclick="return confirm('Yakin hapus?')">
+    <i class="bi bi-trash"></i> 
+</a><br>
+
+<a href="<?= base_url('buku/wa/'.$b['id_buku']) ?>" target="_blank">
+    <i class="bi bi-whatsapp"></i> 
+</a><br>
+
     </td>
 
 </tr>

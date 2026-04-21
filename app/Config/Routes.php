@@ -45,6 +45,7 @@ $routes->get('buku/delete/(:num)', 'Buku::delete/$1');
 $routes->get('buku/print', 'Buku::print');
 $routes->get('buku/wa/(:num)', 'Buku::wa/$1');
 $routes->post('buku/store', 'Buku::store');
+$routes->get('buku/baca/(:num)', 'Buku::baca/$1');
 
 //RAK
 $routes->get('/rak', 'Rak::index');

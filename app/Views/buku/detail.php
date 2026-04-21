@@ -57,7 +57,9 @@
                 <?php if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif'])): ?>
                     <img src="<?= base_url('uploads/buku/' . $buku['cover']) ?>" width="150">
                 <?php else: ?>
-                  
+                <?php if ($b['file_pdf']): ?>
+                    <a href="<?= base_url('uploads/buku/'.$b['file_pdf']) ?>" target="_blank">Baca PDF</a>
+                <?php endif; ?>
                 <?php endif; ?>
 
             <?php endif; ?>

@@ -19,6 +19,8 @@ class BukuModel extends Model
         'jumlah',
         'tersedia',
         'deskripsi',
-        'cover'
-    ];
+        'cover',
+        'file_pdf' 
+];
+
 }

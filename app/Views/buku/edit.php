@@ -80,7 +80,10 @@
     <?php else: ?>
         -
     <?php endif; ?>
-
+<div>
+    <label>File Buku (PDF)</label><br>
+    <input type="file" name="file_pdf" accept="application/pdf">
+</div>
     <button type="submit">Update</button>
     <a href="<?= base_url('buku') ?>">Kembali</a>
 

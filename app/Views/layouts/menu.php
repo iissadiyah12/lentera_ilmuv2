@@ -1,52 +1,73 @@
-   <a href="#">
-        <b>lentera ilmu</b>App
+<a href="#">
+    <i class="bi bi-book-half"></i> 
+    <b>lentera ilmu</b> App
+</a><br>
+
+<a href="<?= base_url('/') ?>">
+    <i class="bi bi-speedometer2"></i> Dashboard
+</a><br>
+
+<?php $idu = session('id'); ?>
+
+<a href="<?= base_url('/peminjaman') ?>">
+    <i class="bi bi-journal-arrow-up"></i> Peminjaman
+</a><br>
+
+<?php if (session()->get('role') == 'admin' || session()->get('role') == 'petugas') : ?>
+
+    <a href="<?= base_url('/pengembalian') ?>">
+        <i class="bi bi-journal-check"></i> Pengembalian
     </a><br>
 
-    <a href="<?= base_url('/') ?>">
-        Dashboard
+    <a href="<?= base_url('/buku') ?>">
+        <i class="bi bi-book"></i> Buku
     </a><br>
-    <?php $idu = session('id'); ?>
-   
-    <a href="<?= base_url('/peminjaman') ?>">
-    Peminjaman
-    </a><br>
-    
 
-    <?php if (session()->get('role') == 'admin' || session()->get('role') == 'petugas') : ?>
-        <a href="<?= base_url('/pengembalian') ?>">
-        pengembalian
-        </a><br>
-        <a href="<?= base_url('/buku') ?>">
-        Buku
-        </a><br>
-        <a href="<?= base_url('/users') ?>">
-            Users
-        </a><br>
-        <a href="<?= base_url('/rak') ?>">
-            Rak
-        </a><br>
-        <a href="<?= base_url('/kategori') ?>">
-            Kategori
-        </a><br>
-        <a href="<?= base_url('/penerbit') ?>">
-            Penerbit
-        </a><br>
-        <a href="<?= base_url('/penulis') ?>">
-            Penulis
-        </a><br>
-    <?php endif; ?>
-     
-        <?php $idu = session('id'); ?>
-    <a href="<?= base_url('users/edit/' . $idu) ?>">
-        Setting
+    <a href="<?= base_url('/users') ?>">
+        <i class="bi bi-people"></i> Users
     </a><br>
-    <br>
-    Masuk sebagai: <b><?= session('nama'); ?> (<?= session('role'); ?>)</b>
-    <br>
-    <img src="<?= base_url('uploads/users/' . session()->get('foto')) ?>" height="80" />
-    <li>
-        <a href="<?= base_url('/logout') ?>">Log Out</a>
-    </li>
-    <?php if (session()->get('role') == 'admin') : ?>
-        <a href="<?= base_url('/backup') ?>" class="btn btn-success">Backup Database</a>
-    <?php endif; ?>
+
+    <a href="<?= base_url('/rak') ?>">
+        <i class="bi bi-archive"></i> Rak
+    </a><br>
+
+    <a href="<?= base_url('/kategori') ?>">
+        <i class="bi bi-tags"></i> Kategori
+    </a><br>
+
+    <a href="<?= base_url('/penerbit') ?>">
+        <i class="bi bi-building"></i> Penerbit
+    </a><br>
+
+    <a href="<?= base_url('/penulis') ?>">
+        <i class="bi bi-person"></i> Penulis
+    </a><br>
+
+<?php endif; ?>
+
+<?php $idu = session('id'); ?>
+
+<a href="<?= base_url('users/edit/' . $idu) ?>">
+    <i class="bi bi-gear"></i> Setting
+</a><br>
+
+<br>
+
+<i class="bi bi-person-circle"></i> 
+Masuk sebagai: <b><?= session('nama'); ?> (<?= session('role'); ?>)</b>
+
+<br>
+
+<img src="<?= base_url('uploads/users/' . session()->get('foto')) ?>" height="80" />
+
+<li>
+    <a href="<?= base_url('/logout') ?>">
+        <i class="bi bi-box-arrow-right"></i> Log Out
+    </a>
+</li>
+
+<?php if (session()->get('role') == 'admin') : ?>
+    <a href="<?= base_url('/backup') ?>" class="btn btn-success">
+        <i class="bi bi-database-down"></i> Backup Database
+    </a>
+<?php endif; ?>
