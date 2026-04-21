@@ -110,3 +110,8 @@ $routes->get('pengembalian/delete/(:num)', 'Pengembalian::delete/$1');
 
 
 $routes->get('/backup', 'Backup::index');
+
+$routes->get('/restore', 'Restore::index');
+$routes->post('/restore/auth', 'Restore::auth');
+$routes->get('/restore/form', 'Restore::form');
+$routes->post('/restore/process', 'Restore::process');

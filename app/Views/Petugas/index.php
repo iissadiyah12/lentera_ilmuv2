@@ -6,10 +6,11 @@
 <form method="get">
     <input type="text" name="keyword" placeholder="Cari Jabatan">
     <button type="submit">Cari</button>
+    <a href="<?= base_url('petugas/create') ?>">Tambah Petugas</a>
+
 </form>
 
 <br>
-<a href="<?= base_url('petugas/create') ?>">Tambah Petugas</a>
 
 <table border="1" cellpadding="5">
 <tr>

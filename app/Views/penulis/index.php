@@ -6,6 +6,8 @@
     <input type="text" name="keyword" placeholder="Cari..." value="<?= $_GET['keyword'] ?? '' ?>">
     <button type="submit">Cari</button>
     <a href="<?= current_url() ?>">Reset</a>
+    <a href="<?= base_url('penulis/create') ?>">Tambah</a>
+
 </form>
 <br>
 <table border="1">

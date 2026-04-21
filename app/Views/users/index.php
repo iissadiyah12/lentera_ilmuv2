@@ -18,9 +18,9 @@
 
         <button type="submit">Cari</button>
         <a href="<?= base_url('users') ?>">Reset</a>
-        <a href="<?= base_url('users/print?' . http_build_query($_GET)) ?>" target="_blank">
+                <a href="<?= base_url('users/print?' . http_build_query($_GET)) ?>" target="_blank">
             Print </a>
-    </form>
+                </form>
 
     <br>
 
@@ -55,9 +55,7 @@
                         <td><?= ucfirst($u['role']) ?></td>
                         <td>
                             <?php if ($u['foto']): ?>
-                                <img src="<?= base_url('uploads/users/' . $u['foto']) ?>" width="100">
-                                <img src="<?= base_url('uploads/buku/' . $u['foto']) ?>" width="100">
-
+                                <img src="<?= base_url('uploads/users/' . $u['foto']) ?>" width="60">
                             <?php else: ?>
                                 -
                             <?php endif; ?>
