@@ -68,7 +68,7 @@
 </table>
 
 <br>
-
+<a href="<?= base_url('buku/baca/' . $buku['id_buku']) ?>" target="_blank">Baca</a>
 <a href="<?= base_url('buku') ?>">Kembali</a>
 <a href="<?= base_url('buku/wa/' . $buku['id_buku']) ?>" target="_blank">Kirim WA</a>
 <?= $this->endSection() ?>

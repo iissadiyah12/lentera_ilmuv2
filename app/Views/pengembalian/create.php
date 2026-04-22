@@ -1,21 +1,11 @@
-<?= $this->extend('layouts/main') ?>
-<?= $this->section('content') ?>
+<h2>Proses Pengembalian</h2>
 
-<h2>Pengembalian Buku</h2>
+<form action="/pengembalian/store" method="post">
 
-<?php if(session()->getFlashdata('error')): ?>
-<p style="color:red"><?= session()->getFlashdata('error') ?></p>
-<?php endif; ?>
+<input type="hidden" name="id_peminjaman" value="<?= $peminjaman['id_peminjaman'] ?>">
 
-<form method="post" action="<?= base_url('pengembalian/store') ?>">
+<p>Status peminjaman: <?= $peminjaman['status'] ?></p>
 
-Nama peminjam :<br>
-<input type="text" name="nama"><br><br>
-
-<button type="submit">Proses Pengembalian</button>
+<button type="submit">Kembalikan Buku</button>
 
 </form>
-
-<a href="<?= base_url('pengembalian') ?>">Kembali</a>
-
-<?= $this->endSection() ?>

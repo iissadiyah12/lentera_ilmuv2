@@ -7,7 +7,6 @@
     <i class="bi bi-speedometer2"></i> Dashboard
 </a><br>
 
-<?php $idu = session('id'); ?>
 
 <a href="<?= base_url('/peminjaman') ?>">
     <i class="bi bi-journal-arrow-up"></i> Peminjaman
@@ -15,14 +14,13 @@
 
 <?php if (session()->get('role') == 'admin' || session()->get('role') == 'petugas') : ?>
 
+ <a href="<?= base_url('/buku') ?>">
+        <i class="bi bi-book"></i> Buku
+    </a><br>
+<?php $idu = session('id'); ?>
     <a href="<?= base_url('/pengembalian') ?>">
         <i class="bi bi-journal-check"></i> Pengembalian
     </a><br>
-
-    <a href="<?= base_url('/buku') ?>">
-        <i class="bi bi-book"></i> Buku
-    </a><br>
-
     <a href="<?= base_url('/users') ?>">
         <i class="bi bi-people"></i> Users
     </a><br>

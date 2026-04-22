@@ -15,23 +15,19 @@
 
 <br><br>
 
-<table border="1" cellpadding="10">
-<tr>
-    <th>Cover</th>
-    <th>Aksi</th>
-</tr>
+<table border="1" cellpadding="10" width="100%">
 
+<tr>
 <?php foreach ($buku as $b): ?>
-<tr>
 
-    <!-- COVER -->
-    <td>
+    <td style="vertical-align: top; width: 200px; text-align:center;">
+
+        <!-- COVER -->
         <?php if ($b['cover']): ?>
             <?php $ext = pathinfo($b['cover'], PATHINFO_EXTENSION); ?>
 
             <?php if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif'])): ?>
                 
-                <!-- Klik cover → ke detail -->
                 <a href="<?= base_url('buku/detail/'.$b['id_buku']) ?>">
                     <img src="<?= base_url('uploads/buku/'.$b['cover']) ?>" width="150">
                 </a>
@@ -43,34 +39,34 @@
         <?php else: ?>
             -
         <?php endif; ?>
+
+        <br><br>
+
+        <!-- AKSI -->
+        <a href="<?= base_url('buku/baca/'.$b['id_buku']) ?>" target="_blank">
+            <i class="bi bi-book"></i>
+        </a>
+
+        <a href="<?= base_url('buku/detail/'.$b['id_buku']) ?>">
+            <i class="bi bi-info-circle"></i>
+        </a>
+
+        <a href="<?= base_url('buku/edit/'.$b['id_buku']) ?>">
+            <i class="bi bi-pencil-square"></i>
+        </a>
+
+        <a href="<?= base_url('buku/delete/'.$b['id_buku']) ?>" onclick="return confirm('Yakin hapus?')">
+            <i class="bi bi-trash"></i>
+        </a>
+
+        <a href="<?= base_url('buku/wa/'.$b['id_buku']) ?>" target="_blank">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+
     </td>
 
-    <!-- AKSI -->
-    <td>
-       <a href="<?= base_url('buku/baca/'.$b['id_buku']) ?>" target="_blank">
-    <i class="bi bi-book"></i> 
-</a><br>
-
-<a href="<?= base_url('buku/detail/'.$b['id_buku']) ?>">
-    <i class="bi bi-info-circle"></i>
-</a><br>
-
-<a href="<?= base_url('buku/edit/'.$b['id_buku']) ?>">
-    <i class="bi bi-pencil-square"></i> 
-</a> <br>
-
-<a href="<?= base_url('buku/delete/'.$b['id_buku']) ?>" onclick="return confirm('Yakin hapus?')">
-    <i class="bi bi-trash"></i> 
-</a><br>
-
-<a href="<?= base_url('buku/wa/'.$b['id_buku']) ?>" target="_blank">
-    <i class="bi bi-whatsapp"></i> 
-</a><br>
-
-    </td>
-
-</tr>
 <?php endforeach; ?>
+</tr>
 
 </table>
 
