@@ -32,11 +32,14 @@ class Penulis extends BaseController
         return view('penulis/create');
     }
 
-    public function save()
-    {
-        $this->model->save($this->request->getPost());
-        return redirect()->to('/penulis');
-    }
+     public function store()
+{
+    $this->model->save([
+        'nama_penulis' => $this->request->getPost('nama_penulis')
+    ]);
+
+    return redirect()->to('/penulis');
+}
 
     public function edit($id)
     {

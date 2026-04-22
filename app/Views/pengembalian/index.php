@@ -1,3 +1,6 @@
+<?= $this->extend('layouts/main') ?>
+<?= $this->section('content') ?>
+
 <h2>Data Pengembalian</h2>
 
 <table border="1">
@@ -22,3 +25,5 @@
 </tr>
 <?php endforeach; ?>
 </table>
+
+<?= $this->endSection() ?>

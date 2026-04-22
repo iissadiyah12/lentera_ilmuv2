@@ -32,11 +32,14 @@ class Kategori extends BaseController
         return view('kategori/create');
     }
 
-    public function save()
-    {
-        $this->model->save($this->request->getPost());
-        return redirect()->to('/kategori');
-    }
+   public function store()
+{
+    $this->model->save([
+        'nama_kategori' => $this->request->getPost('nama_kategori')
+    ]);
+
+    return redirect()->to('/kategori');
+}
 
     public function edit($id)
     {

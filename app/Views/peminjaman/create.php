@@ -19,24 +19,6 @@
 
 <br><br>
 
-<!-- ================= METODE ================= -->
-<label>Metode Pengambilan</label><br>
-<select name="metode" id="metode" required>
-    <option value="">-- Pilih --</option>
-    <option value="ambil">Ambil di Perpustakaan</option>
-    <option value="antar">Kirim ke Rumah</option>
-</select>
-
-<br><br>
-
-<!-- ================= ALAMAT ================= -->
-<div id="alamatBox" style="display:none;">
-    <label>Alamat Pengiriman</label><br>
-    <textarea name="alamat" id="alamatInput" placeholder="Masukkan alamat lengkap"></textarea>
-</div>
-
-<br><br>
-
 <!-- ================= LIST BUKU ================= -->
 <div style="display:flex; flex-wrap:wrap; gap:20px;">
 

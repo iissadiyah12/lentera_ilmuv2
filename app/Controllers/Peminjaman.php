@@ -52,10 +52,10 @@ class Peminjaman extends BaseController
     public function store()
 {
     // 🔥 pakai session yang benar
-    $id_anggota = session()->get('id_anggota'); // pastikan ini benar di login kamu
+    $id_anggota = session()->get('id_anggota'); 
+    $id_petugas = session()->get('id_petugas');
     $id_buku = $this->request->getPost('buku');
-    $metode = $this->request->getPost('metode');
-    $alamat = $this->request->getPost('alamat');
+   
 
     // ================= VALIDASI =================
     if (!$id_anggota) {
@@ -83,10 +83,7 @@ class Peminjaman extends BaseController
 
     $id_peminjaman = $this->db->insertID();
 
-    if (!$id_peminjaman) {
-        $this->db->transRollback();
-        return redirect()->back()->with('error', 'Gagal membuat peminjaman');
-    }
+
 
     // ================= DETAIL + STOK =================
     foreach ($id_buku as $id_b) {
@@ -95,6 +92,16 @@ class Peminjaman extends BaseController
             ->where('id_buku', $id_b)
             ->get()
             ->getRowArray();
+
+    // ================= PETUGAS OTOMATIS =================
+    foreach ($id_petugas as $id_p) {
+
+        $petugas = $this->db->table('petugas')
+            ->where('jabatan', 'sirkulasi')
+            ->get()
+            ->getRowArray();
+
+$id_petugas = $petugas ? $petugas['id_petugas'] : 1;
 
         if (!$buku) {
             $this->db->transRollback();
@@ -124,6 +131,7 @@ class Peminjaman extends BaseController
     $this->db->transCommit();
 
     return redirect()->to('/peminjaman')->with('success', 'Berhasil meminjam');
+}
 }
     // ======================
     // DELETE

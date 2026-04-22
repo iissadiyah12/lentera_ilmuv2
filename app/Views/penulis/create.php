@@ -2,7 +2,7 @@
 <?= $this->section('content') ?>
 <h2>Tambah Penulis</h2>
 
-<form action="/penulis/save" method="post">
+<form action="<?= base_url('penulis/store') ?>" method="post">
 Nama Penulis: <input type="text" name="nama_penulis"><br>
 <button type="submit">Simpan</button>
 </form>

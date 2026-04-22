@@ -5,7 +5,7 @@
 <form method="get" action="">
     <input type="text" name="keyword" placeholder="Cari..." value="<?= $_GET['keyword'] ?? '' ?>">
     <button type="submit">Cari</button>
-    <a href="<?= current_url() ?>">Reset</a>
+    <a href="<?= current_url() ?>">Reset</a><br>
     <a href="<?= base_url('kategori/create') ?>">Tambah</a>
 
 </form>

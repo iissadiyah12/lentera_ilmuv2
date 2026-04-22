@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\penerbitModel;
+use App\Models\PenerbitModel;
 
 class Penerbit extends BaseController
 {
@@ -33,11 +33,15 @@ class Penerbit extends BaseController
         return view('penerbit/create');
     }
 
-    public function save()
-    {
-        $this->model->save($this->request->getPost());
-        return redirect()->to('/penerbit');
-    }
+    public function store()
+{
+    $this->model->save([
+        'nama_penerbit' => $this->request->getPost('nama_penerbit'),
+        'alamat' => $this->request->getPost('alamat') // tambahin ini juga
+    ]);
+
+    return redirect()->to('/penerbit');
+}
 
     public function edit($id)
     {

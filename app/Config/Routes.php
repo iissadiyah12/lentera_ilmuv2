@@ -60,17 +60,19 @@ $routes->post('rak/store', 'Rak::store');
 
 //KATEGORI
 $routes->get('/kategori', 'Kategori::index');
-$routes->get('/katrgori/create','Kategori::create');
+$routes->get('/kategori/create','Kategori::create');
 $routes->post('/kategori/save','Kategori::save');
 $routes->get('/kategori/edit/(:num)','Kategori::edit/$1');
 $routes->post('/kategori/update/(:num)','Kategori::update/$1');
 $routes->get('/kategori/delete/(:num)','Kategori::delete/$1');
 $routes->get('kategori/edit/(:num)', 'Kategori::edit/$1');
+$routes->post('/kategori/store','kategori::store');
+
 
 //PENULIS
 $routes->get('/penulis', 'Penulis::index');
 $routes->get('/penulis/create','Penulis::create');
-$routes->post('/penulis/save','Penulis::save');
+$routes->post('/penulis/store','penulis::store');
 $routes->get('/penulis/edit/(:num)','Penulis::edit/$1');
 $routes->post('/penulis/update/(:num)','Penulis::update/$1');
 $routes->get('/penulis/delete/(:num)','Penulis::delete/$1');
@@ -78,7 +80,7 @@ $routes->get('/penulis/delete/(:num)','Penulis::delete/$1');
 //PENERBIT
 $routes->get('/penerbit', 'Penerbit::index');
 $routes->get('/penerbit/create','Penerbit::create');
-$routes->post('/penerbit/save','Penerbit::save');
+$routes->post('/penerbit/store','Penerbit::store');
 $routes->get('/penerbit/edit/(:num)','Penerbit::edit/$1');
 $routes->post('/penerbit/update/(:num)','Penerbit::update/$1');
 $routes->get('/penerbit/delete/(:num)','Penerbit::delete/$1');
