@@ -1250,3 +1250,477 @@ DEBUG - 2026-04-22 17:26:28 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2026-04-22 17:26:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-22 17:27:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-22 17:27:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:30:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:31:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:31:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:31:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:31:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:31:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:32:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:32:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:32:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:32:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:32:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:51:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:51:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:51:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:51:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:52:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:52:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:52:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:52:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:52:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:52:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:52:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:52:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 17:53:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:28:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:28:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:29:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:29:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:29:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:29:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-22 18:29:29 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'lentera_ilmu1' in C:\xampp\htdocs\lentera_ilmuv2\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\lentera_ilmuv2\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'lentera_ilmu1', 3306, '', 0)
+#1 C:\xampp\htdocs\lentera_ilmuv2\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\lentera_ilmuv2\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\lentera_ilmuv2\app\Controllers\Restore.php(88): CodeIgniter\Database\BaseConnection->query('/*!40101 SET @O...')
+#4 C:\xampp\htdocs\lentera_ilmuv2\system\CodeIgniter.php(951): App\Controllers\Restore->process()
+#5 C:\xampp\htdocs\lentera_ilmuv2\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Restore))
+#6 C:\xampp\htdocs\lentera_ilmuv2\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\lentera_ilmuv2\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\lentera_ilmuv2\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\lentera_ilmuv2\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'lentera_ilmu1' in C:\xampp\htdocs\lentera_ilmuv2\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\lentera_ilmuv2\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\lentera_ilmuv2\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\lentera_ilmuv2\app\Controllers\Restore.php(88): CodeIgniter\Database\BaseConnection->query('/*!40101 SET @O...')
+#3 C:\xampp\htdocs\lentera_ilmuv2\system\CodeIgniter.php(951): App\Controllers\Restore->process()
+#4 C:\xampp\htdocs\lentera_ilmuv2\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Restore))
+#5 C:\xampp\htdocs\lentera_ilmuv2\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\lentera_ilmuv2\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\lentera_ilmuv2\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#8 C:\xampp\htdocs\lentera_ilmuv2\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#9 {main}
+DEBUG - 2026-04-22 18:29:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:30:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:30:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:30:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:30:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:30:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:30:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:30:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:31:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:31:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:31:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:31:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:31:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:31:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:31:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:31:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:34:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:34:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:34:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:34:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:34:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:34:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:34:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:34:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:34:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:34:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:35:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:35:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 18:35:43 --> ErrorException: foreach() argument must be of type array|object, null given
+[Method: POST, Route: peminjaman/store]
+in APPPATH\Controllers\Peminjaman.php on line 97.
+ 1 APPPATH\Controllers\Peminjaman.php(97): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Controllers\\Peminjaman.php', 97)
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->store()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 18:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:48:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:48:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:48:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:48:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:50:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:50:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:50:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:50:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:50:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:50:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:50:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:50:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:50:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:50:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-22 18:50:43 --> Duplicate entry '1' for key 'id_buku'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (31, \'1\', 1)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (31, \'1\', 1)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (31, \'1\', 1)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (:id_peminjaman:, :id_buku:, :jumlah:)', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(110): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->store()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 18:50:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 18:50:43 --> ErrorException: Undefined array key "nama"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 20.
+ 1 APPPATH\Views\peminjaman\index.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\peminjaman\\index.php', 20)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\peminjaman\\index.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(36): view('peminjaman/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 18:50:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:50:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 18:51:03 --> ErrorException: Undefined array key "nama"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 20.
+ 1 APPPATH\Views\peminjaman\index.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\peminjaman\\index.php', 20)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\peminjaman\\index.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(36): view('peminjaman/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 18:52:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-22 18:52:21 --> ErrorException: Undefined array key "judul"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 21.
+ 1 APPPATH\Views\peminjaman\index.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "judul"', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\peminjaman\\index.php', 21)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\peminjaman\\index.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(36): view('peminjaman/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 18:55:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:55:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:55:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:56:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:56:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:56:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:56:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:56:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 18:56:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:00:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-22 19:00:39 --> Unknown column 'buku.id_rak' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = :buku.id_buku:', [...], false)
+ 5 APPPATH\Controllers\Buku.php(150): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 19:00:39 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'buku.id_rak' in 'on clause'
+[Method: GET, Route: buku/detail/1]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = :buku.id_buku:', [...], false)
+ 2 APPPATH\Controllers\Buku.php(150): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->detail('1')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 19:00:39 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'buku.id_rak' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = :buku.id_buku:', [...], false)
+ 4 APPPATH\Controllers\Buku.php(150): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->detail('1')
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 19:00:39 --> [Caused by] mysqli_sql_exception: Unknown column 'buku.id_rak' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = :buku.id_buku:', [...], false)
+ 5 APPPATH\Controllers\Buku.php(150): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 19:00:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-22 19:00:44 --> Unknown column 'buku.id_rak' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = :buku.id_buku:', [...], false)
+ 5 APPPATH\Controllers\Buku.php(150): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 19:00:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'buku.id_rak' in 'on clause'
+[Method: GET, Route: buku/detail/1]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = :buku.id_buku:', [...], false)
+ 2 APPPATH\Controllers\Buku.php(150): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->detail('1')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 19:00:44 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'buku.id_rak' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = :buku.id_buku:', [...], false)
+ 4 APPPATH\Controllers\Buku.php(150): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->detail('1')
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-22 19:00:44 --> [Caused by] mysqli_sql_exception: Unknown column 'buku.id_rak' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori`=`buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis`=`buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit`=`buku`.`id_penerbit`
+LEFT JOIN `rak` ON `rak`.`id_rak`=`buku`.`id_rak`
+WHERE `buku`.`id_buku` = :buku.id_buku:', [...], false)
+ 5 APPPATH\Controllers\Buku.php(150): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 19:06:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:06:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:07:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:08:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:08:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:10:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:10:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:10:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:10:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:11:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:11:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:11:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:11:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-22 19:11:23 --> Duplicate entry '14' for key 'id_buku'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (33, \'14\', 1)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (33, \'14\', 1)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (33, \'14\', 1)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (:id_peminjaman:, :id_buku:, :jumlah:)', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(114): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->store()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-22 19:11:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:11:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:11:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:11:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:11:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:11:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:11:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:11:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:11:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:11:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:11:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:12:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:12:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:12:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:12:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:12:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:12:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:13:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:13:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:13:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:13:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:13:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:17:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:18:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-22 19:18:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

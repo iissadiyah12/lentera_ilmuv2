@@ -17,17 +17,25 @@
 
 <tr>
     <td>Buku</td>
-    <td><?= $peminjaman['judul'] ?? '-' ?></td>
+    <td>
+        <?php if (!empty($detail)): ?>
+            <?php foreach ($detail as $d): ?>
+                <?= $d['judul'] ?> (<?= $d['jumlah'] ?>)<br>
+            <?php endforeach; ?>
+        <?php else: ?>
+            -
+        <?php endif; ?>
+    </td>
 </tr>
-
 <tr>
     <td>Status</td>
     <td>
-        <?php if($peminjaman['status'] == 'dipinjam'): ?>
+        <?php if(isset($peminjaman['status']) && $peminjaman['status'] == 'dipinjam'): ?>
             <span style="color:red;">Dipinjam</span>
         <?php else: ?>
-            <span style="color:green;">Kembali</span>
+            <span style="color:green;">Dikembalikan</span>
         <?php endif; ?>
+
     </td>
 </tr>
 

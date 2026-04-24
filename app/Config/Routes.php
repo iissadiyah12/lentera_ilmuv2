@@ -93,9 +93,18 @@ $routes->get('peminjaman/delete/(:num)', 'Peminjaman::delete/$1');
 $routes->get('buku/wa/(:num)', 'Buku::wa/$1');
 $routes->get('peminjaman/detail/(:num)', 'Peminjaman::detail/$1');
 $routes->get('peminjaman/perpanjang/(:num)/(:num)', 'Peminjaman::perpanjang/$1/$2');
-$routes->get('peminjaman/kembalikan/(:num)', 'Peminjaman::kembalikan/$1');
 $routes->get('peminjaman/edit/(:num)', 'Peminjaman::edit/$1');
 $routes->post('peminjaman/update/(:num)', 'Peminjaman::update/$1');
+$routes->get('peminjaman/dikembalikan/(:num)', 'Peminjaman::dikembalikan/$1');
+$routes->get('peminjaman/selesai/(:num)', 'Peminjaman::selesai/$1');
+$routes->get('peminjaman/selesai/(:num)', 'Peminjaman::selesai/$1');
+
+//DENDA
+$routes->post('denda/bayar/(:num)', 'Denda::bayarDenda/$1');
+$routes->get('/denda', 'Denda::index');
+$routes->post('/denda/bayar/(:num)', 'Denda::bayar/$1');
+$routes->post('denda/bayar/(:num)', 'Peminjaman::bayarDenda/$1');
+
 
 // PETUGAS
 $routes->get('petugas', 'Petugas::index');
@@ -110,6 +119,8 @@ $routes->get('pengembalian', 'Pengembalian::index');
 $routes->get('pengembalian/create', 'Pengembalian::create');
 $routes->post('pengembalian/store', 'Pengembalian::store');
 $routes->get('pengembalian/delete/(:num)', 'Pengembalian::delete/$1');
+$routes->get('pengembalian/dikembalikan/(:num)', 'Pengembalian::dikembalikan/$1');
+$routes->get('pengembalian/selesai/(:num)', 'Pengembalian::selesai/$1');
 
 
 $routes->get('/backup', 'Backup::index');
