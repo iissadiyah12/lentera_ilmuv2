@@ -52,9 +52,9 @@
             </a><br>
 
             <?php endif; ?>
-</td>
+            </td>
             <td>
-       <?php if (session()->get('role') == 'petugas'): ?>
+            <?php if (session()->get('role') == 'petugas'): ?>
 
             <a href="<?= base_url('peminjaman/detail/'.$p['id_peminjaman']) ?>">
                 Detail
@@ -65,15 +65,13 @@
             </a><br>
             <a href="<?= base_url('peminjaman/setujui/'.$p['id_peminjaman']) ?>">
                 Setujui
-            </a><br>
-           
-                
-</td>
-<?php endif; ?>
+            </a><br>               
+            </td>
+            <?php endif; ?>
 
         </tr>
         <?php endforeach; ?>
-    <?php else : ?>
+        <?php else : ?>
         <tr>
             <td colspan="7" style="text-align:center;">Data tidak ada</td>
         </tr>

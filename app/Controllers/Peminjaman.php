@@ -38,6 +38,8 @@ class Peminjaman extends BaseController
             ->join('detail_peminjaman dp', 'dp.id_peminjaman = p.id_peminjaman', 'left')
             ->join('buku b', 'b.id_buku = dp.id_buku', 'left');
 
+        $builder->groupBy('p.id_peminjaman');
+        
         // filter anggota
         if ($role != 'admin' && $role != 'petugas') {
             $builder->where('p.id_anggota', $id_user);
@@ -66,7 +68,32 @@ class Peminjaman extends BaseController
     // ======================
     public function store()
     {
-        
+        $id_anggota = session()->get('id_anggota');
+
+        // hitung total buku yang masih dipinjam (belum dikembalikan)
+        $totalDipinjam = $this->db->table('detail_peminjaman dp')
+            ->join('peminjaman p', 'p.id_peminjaman = dp.id_peminjaman')
+            ->where('p.id_anggota', $id_anggota)
+            ->where('p.status !=', 'dikembalikan')
+            ->selectSum('dp.jumlah')
+            ->get()
+            ->getRow()
+            ->jumlah ?? 0;
+
+        // buku yang mau dipinjam sekarang
+        $bukuDipilih = $this->request->getPost('buku');
+        $jumlahBaru = count($bukuDipilih);
+
+        // ================= VALIDASI =================
+        if ($totalDipinjam >= 2) {
+            return redirect()->back()->with('error', 
+                '❌ Anda masih memiliki buku yang belum dikembalikan (max 2 buku)');
+        }
+
+        if (($totalDipinjam + $jumlahBaru) > 2) {
+            return redirect()->back()->with('error', 
+                '❌ Maksimal total peminjaman hanya 2 buku');
+        }
         $id_anggota = session()->get('id');
         $id_buku = $this->request->getPost('buku');
 

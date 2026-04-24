@@ -106,64 +106,29 @@ class Pengembalian extends BaseController
 
         return redirect()->to('/pengembalian')->with('success', 'Berhasil dikembalikan');
     }
-    public function acc($id_pengembalian)
+   public function acc($id)
 {
-    $today = date('Y-m-d');
-
+    // ambil data pengembalian
     $p = $this->db->table('pengembalian')
-        ->where('id_pengembalian', $id_pengembalian)
-        ->get()->getRowArray();
+        ->where('id_pengembalian', $id)
+        ->get()
+        ->getRowArray();
 
-    if (!$p) {
-        return redirect()->back()->with('error', 'Data tidak ditemukan');
-    }
-
-    // ambil peminjaman
-    $pm = $this->db->table('peminjaman')
-        ->where('id_peminjaman', $p['id_peminjaman'])
-        ->get()->getRowArray();
-
-    // hitung denda
-    $telat = 0;
-    if ($today > $pm['tanggal_kembali']) {
-        $telat = (strtotime($today) - strtotime($pm['tanggal_kembali'])) / 86400;
-    }
-
-    $denda = $telat * 2000;
-
-    $this->db->transBegin();
-
-    // 🔥 UPDATE PENGEMBALIAN
+    // update status pengembalian
     $this->db->table('pengembalian')
-        ->where('id_pengembalian', $id_pengembalian)
+        ->where('id_pengembalian', $id)
         ->update([
-            'status' => 'disetujui',
-            'tanggal_dikembalikan' => $today,
-            'denda' => $denda
+            'status' => 'disetujui'
         ]);
 
-    // 🔥 UPDATE PEMINJAMAN (opsional tapi disarankan)
+    // update peminjaman (pakai id_peminjaman dari pengembalian)
     $this->db->table('peminjaman')
         ->where('id_peminjaman', $p['id_peminjaman'])
         ->update([
             'status' => 'dikembalikan'
         ]);
 
-    // 🔥 KEMBALIKAN STOK
-    $detail = $this->db->table('detail_peminjaman')
-        ->where('id_peminjaman', $p['id_peminjaman'])
-        ->get()->getResultArray();
-
-    foreach ($detail as $d) {
-        $this->db->table('buku')
-            ->where('id_buku', $d['id_buku'])
-            ->set('jumlah', 'jumlah+'.$d['jumlah'], false)
-            ->update();
-    }
-
-    $this->db->transCommit();
-
-    return redirect()->to('/pengembalian')->with('success', 'Berhasil dikembalikan');
+    return redirect()->back();
 }
     // ================= PROSES PENGEMBALIAN =================
     public function store()

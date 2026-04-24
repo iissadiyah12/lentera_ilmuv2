@@ -3,7 +3,7 @@
 
 <h2>Data Pengembalian</h2>
 
-<table border="1">
+<table border="1" cellpadding="5" cellspacing="0">
 <tr>
     <th>ID</th>
     <th>Nama </th>
@@ -20,12 +20,12 @@
     <td><?= $p['tanggal_dikembalikan'] ?></td>
     <td><?= $p['denda'] ?></td>
     <td>
-        <?php if ($pengembalian): ?>
+    <?php if ($p['status'] == 'disetujui'): ?>
         <span style="color:green;">Dikembalikan</span>
-        <?php else: ?>
-         <span style="color:red;">Dipinjam</span>
-        <?php endif; ?>
-    </td>
+    <?php else: ?>
+        <span style="color:red;">Dipinjam</span>
+    <?php endif; ?>
+</td>
     <td>
         <a href="pengembalian/detail/<?= $p['id_pengembalian'] ?>">Detail</a>
        <a href="<?= base_url('pengembalian/delete/' . $p['id_pengembalian']) ?>" 
