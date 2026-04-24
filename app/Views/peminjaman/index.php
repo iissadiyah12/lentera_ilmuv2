@@ -50,9 +50,6 @@
             <a href="<?= base_url('peminjaman/ajukan/'.$p['id_peminjaman']) ?>">
                 Perpanjang
             </a><br>
-           <a href="<?= base_url('peminjaman/selesai/'.$p['id_peminjaman']) ?>">
-                Selesai
-            </a>
 
             <?php endif; ?>
 </td>
@@ -67,11 +64,9 @@
                 Hapus
             </a><br>
             <a href="<?= base_url('peminjaman/setujui/'.$p['id_peminjaman']) ?>">
-                    Setujui
+                Setujui
             </a><br>
-            <a href="<?= base_url('peminjaman/dikembalikan/'.$p['id_pengembalian']) ?>">
-                    Dikembalikan
-            </a>
+           
                 
 </td>
 <?php endif; ?>

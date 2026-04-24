@@ -119,9 +119,9 @@ $routes->get('pengembalian', 'Pengembalian::index');
 $routes->get('pengembalian/create', 'Pengembalian::create');
 $routes->post('pengembalian/store', 'Pengembalian::store');
 $routes->get('pengembalian/delete/(:num)', 'Pengembalian::delete/$1');
-$routes->get('pengembalian/dikembalikan/(:num)', 'Pengembalian::dikembalikan/$1');
 $routes->get('pengembalian/selesai/(:num)', 'Pengembalian::selesai/$1');
-
+$routes->get('pengembalian/kembalikan/(:num)', 'Pengembalian::kembalikan/$1');
+$routes->get('pengembalian/acc/(:num)', 'Pengembalian::acc/$1');
 
 $routes->get('/backup', 'Backup::index');
 

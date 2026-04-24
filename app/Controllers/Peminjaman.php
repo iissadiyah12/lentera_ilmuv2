@@ -66,6 +66,7 @@ class Peminjaman extends BaseController
     // ======================
     public function store()
     {
+        
         $id_anggota = session()->get('id');
         $id_buku = $this->request->getPost('buku');
 
@@ -96,6 +97,13 @@ class Peminjaman extends BaseController
         ]);
 
         $id_peminjaman = $this->db->insertID();
+        // ================= AUTO INSERT KE PENGEMBALIAN =================
+        $this->db->table('pengembalian')->insert([
+            'id_peminjaman' => $id_peminjaman,
+            'tanggal_dikembalikan' => date('Y-m-d'), // atau NULL kalau mau
+            'status' => 'belum',
+            'denda' => 0
+        ]);
 
         foreach ($id_buku as $id_b) {
 
@@ -124,29 +132,6 @@ class Peminjaman extends BaseController
         $this->db->transCommit();
 
         return redirect()->to('/peminjaman')->with('success', 'Berhasil meminjam');
-    }
-
-    // ======================
-    // PETUGAS KLIK DIKEMBALIKAN
-    // ======================
-    public function dikembalikan($id)
-    {
-        $cek = $this->db->table('pengembalian')
-            ->where('id_peminjaman', $id)
-            ->get()->getRowArray();
-
-        if ($cek) {
-            return redirect()->back()->with('error', 'Sudah diajukan');
-        }
-
-        $this->db->table('pengembalian')->insert([
-            'id_peminjaman' => $id,
-            'tanggal_dikembalikan' => date('Y-m-d'),
-            'status' => 'menunggu',
-            'denda' => 0
-        ]);
-
-        return redirect()->back()->with('success', 'Menunggu konfirmasi anggota');
     }
 
     // ======================
