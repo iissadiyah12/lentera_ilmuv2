@@ -30,7 +30,7 @@ class Peminjaman extends BaseController
                 pt.jabatan as nama_petugas,
                 pg.id_pengembalian,
                 pg.status as status_pengembalian,
-                GROUP_CONCAT(b.judul SEPARATOR ", ") as judul_buku
+                GROUP_CONCAT(DISTINCT b.judul) as judul_buku
             ')
             ->join('users u1', 'u1.id_user = p.id_anggota', 'left')
             ->join('petugas pt', 'pt.id_petugas = p.id_petugas', 'left')
@@ -38,15 +38,14 @@ class Peminjaman extends BaseController
             ->join('detail_peminjaman dp', 'dp.id_peminjaman = p.id_peminjaman', 'left')
             ->join('buku b', 'b.id_buku = dp.id_buku', 'left');
 
-        $builder->groupBy('p.id_peminjaman');
-        
+            $builder->groupBy('p.id_peminjaman');
+            
         // filter anggota
         if ($role != 'admin' && $role != 'petugas') {
             $builder->where('p.id_anggota', $id_user);
         }
 
         $data['peminjaman'] = $builder
-            ->groupBy('p.id_peminjaman')
             ->orderBy('p.id_peminjaman', 'DESC')
             ->get()
             ->getResultArray();
@@ -82,7 +81,7 @@ class Peminjaman extends BaseController
 
         // buku yang mau dipinjam sekarang
         $bukuDipilih = $this->request->getPost('buku');
-        $jumlahBaru = count($bukuDipilih);
+        $jumlahBaru = is_array($bukuDipilih) ? count($bukuDipilih) : 0;
 
         // ================= VALIDASI =================
         if ($totalDipinjam >= 2) {
@@ -97,6 +96,7 @@ class Peminjaman extends BaseController
         $id_anggota = session()->get('id');
         $id_buku = $this->request->getPost('buku');
 
+     
         if (!$id_anggota) {
             return redirect()->back()->with('error', 'Session user tidak ditemukan');
         }
@@ -121,7 +121,9 @@ class Peminjaman extends BaseController
             'tanggal_pinjam' => date('Y-m-d'),
             'tanggal_kembali' => date('Y-m-d', strtotime('+7 days')),
             'status' => 'dipinjam'
+            
         ]);
+        
 
         $id_peminjaman = $this->db->insertID();
         // ================= AUTO INSERT KE PENGEMBALIAN =================
@@ -131,30 +133,41 @@ class Peminjaman extends BaseController
             'status' => 'belum',
             'denda' => 0
         ]);
+// ================= DETAIL + STOK =================
+foreach ($id_buku as $id_b) {
 
-        foreach ($id_buku as $id_b) {
+    $buku = $this->db->table('buku')
+        ->where('id_buku', $id_b)
+        ->get()
+        ->getRowArray();
 
-            $buku = $this->db->table('buku')
-                ->where('id_buku', $id_b)
-                ->get()->getRowArray();
+    // ❌ kalau buku tidak ada → skip
+    if (!$buku) continue;
 
-            if (!$buku || $buku['jumlah'] <= 0) {
-                $this->db->transRollback();
-                return redirect()->back()->with('error', 'Stok buku tidak tersedia');
-            }
+    // ❌ kalau stok habis → batalkan semua
+    if ($buku['jumlah'] <= 0) {
+        $this->db->transRollback();
+        return redirect()->back()->with('error', 'Stok buku tidak tersedia');
+    }
 
-            $this->db->table('detail_peminjaman')->insert([
-                'id_peminjaman' => $id_peminjaman,
-                'id_buku' => $id_b,
-                'jumlah' => 1
-            ]);
+    // ✅ insert detail
+    $this->db->table('detail_peminjaman')->insert([
+        'id_peminjaman' => $id_peminjaman,
+        'id_buku' => $id_b,
+        'jumlah' => 1,
+        'dikembalikan' => 0 // 
+    ]);
 
-            // kurangi stok
-            $this->db->table('buku')
-                ->where('id_buku', $id_b)
-                ->set('jumlah', 'jumlah-1', false)
-                ->update();
-        }
+     // 🔥 INI PALING PENTING
+    if ($this->db->affectedRows() == 0) {
+        dd($this->db->error()); // tampilkan error asli DB
+    }
+    // ✅ update stok (AMAN)
+    $this->db->table('buku')
+        ->where('id_buku', $id_b)
+        ->set('jumlah', 'jumlah - 1', false)
+        ->update();
+}
 
         $this->db->transCommit();
 
@@ -237,36 +250,23 @@ class Peminjaman extends BaseController
     // ======================
     // DETAIL
     // ======================
-    public function detail($id)
+   public function detail($id)
 {
-    // ================= DATA UTAMA =================
     $data['peminjaman'] = $this->db->table('peminjaman p')
         ->select('
             p.*,
-            u.nama as nama_anggota,
-            pt.jabatan as nama_petugas
+            u1.nama as nama_anggota,
+            pt.jabatan as nama_petugas,
+            GROUP_CONCAT(DISTINCT b.judul) as judul_buku
         ')
-        ->join('users u', 'u.id_user = p.id_anggota', 'left')
+        ->join('users u1', 'u1.id_user = p.id_anggota', 'left')
         ->join('petugas pt', 'pt.id_petugas = p.id_petugas', 'left')
+        ->join('detail_peminjaman dp', 'dp.id_peminjaman = p.id_peminjaman', 'left')
+        ->join('buku b', 'b.id_buku = dp.id_buku', 'left')
         ->where('p.id_peminjaman', $id)
+        ->groupBy('p.id_peminjaman')
         ->get()
         ->getRowArray();
-
-    // ❗ CEK kalau data tidak ada
-    if (!$data['peminjaman']) {
-        return redirect()->to('/peminjaman')->with('error', 'Data tidak ditemukan');
-    }
-
-    // ================= DETAIL BUKU =================
-    $data['detail'] = $this->db->table('detail_peminjaman dp')
-        ->select('
-            b.judul,
-            dp.jumlah
-        ')
-        ->join('buku b', 'b.id_buku = dp.id_buku', 'left')
-        ->where('dp.id_peminjaman', $id)
-        ->get()
-        ->getResultArray();
 
     return view('peminjaman/detail', $data);
 }

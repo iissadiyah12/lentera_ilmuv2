@@ -99,6 +99,7 @@ $routes->get('peminjaman/dikembalikan/(:num)', 'Peminjaman::dikembalikan/$1');
 $routes->get('peminjaman/selesai/(:num)', 'Peminjaman::selesai/$1');
 $routes->get('peminjaman/selesai/(:num)', 'Peminjaman::selesai/$1');
 
+
 //DENDA
 $routes->post('denda/bayar/(:num)', 'Denda::bayarDenda/$1');
 $routes->get('/denda', 'Denda::index');
@@ -122,9 +123,13 @@ $routes->get('pengembalian/delete/(:num)', 'Pengembalian::delete/$1');
 $routes->get('pengembalian/selesai/(:num)', 'Pengembalian::selesai/$1');
 $routes->get('pengembalian/kembalikan/(:num)', 'Pengembalian::kembalikan/$1');
 $routes->get('pengembalian/acc/(:num)', 'Pengembalian::acc/$1');
+$routes->get('pengembalian/dikembalikan/(:num)', 'Pengembalian::dikembalikan/$1');
+$routes->post('pengembalian/bayar/(:num)', 'Pengembalian::bayarDenda/$1');
 
+//BACKUP
 $routes->get('/backup', 'Backup::index');
 
+//RESTORE
 $routes->get('/restore', 'Restore::index');
 $routes->post('/restore/auth', 'Restore::auth');
 $routes->get('/restore/form', 'Restore::form');

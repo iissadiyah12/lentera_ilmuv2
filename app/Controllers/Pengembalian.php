@@ -70,42 +70,73 @@ class Pengembalian extends BaseController
         return view('pengembalian/create');
     }
 
-   public function kembalikan($id_peminjaman)
-    {
-        $today = date('Y-m-d');
+   public function dikembalikan($id)
+{
+    $peminjaman = $this->db->table('peminjaman')
+        ->where('id_peminjaman', $id)
+        ->get()->getRowArray();
 
-        $p = $this->db->table('peminjaman')
-            ->where('id_peminjaman', $id_peminjaman)
-            ->get()->getRowArray();
+    if (!$peminjaman) {
+        return redirect()->back()->with('error', 'Data tidak ditemukan');
+    }
 
-        if (!$p) {
-            return redirect()->back()->with('error', 'Data tidak ditemukan');
-        }
+    $today = date('Y-m-d');
 
-        $cek = $this->db->table('pengembalian')
-            ->where('id_peminjaman', $id_peminjaman)
-            ->get()->getRowArray();
+    // ================= HITUNG TERLAMBAT =================
+    $terlambat = 0;
+    if ($today > $peminjaman['tanggal_kembali']) {
+        $terlambat = floor((strtotime($today) - strtotime($peminjaman['tanggal_kembali'])) / 86400);
+    }
 
-        if ($cek) {
-            return redirect()->back()->with('error', 'Sudah dikembalikan');
-        }
+    // ================= AMBIL JUMLAH BUKU =================
+    $detail = $this->db->table('detail_peminjaman')
+        ->where('id_peminjaman', $id)
+        ->get()->getResultArray();
 
-        $denda = 0;
+    $jumlahBuku = count($detail);
 
-        if ($today > $p['tanggal_kembali']) {
-            $telat = (strtotime($today) - strtotime($p['tanggal_kembali'])) / 86400;
-            $denda = $telat * 2000;
-        }
+    // ================= HITUNG DENDA =================
+    $denda = $terlambat * 5000 * $jumlahBuku;
 
-        $this->db->table('pengembalian')->insert([
-            'id_peminjaman' => $id_peminjaman,
-            'tanggal_dikembalikan' => $today,
-            'status' => 'disetujui',
-            'denda' => $denda
+    // ================= INSERT KE PENGEMBALIAN =================
+    $this->db->table('pengembalian')->insert([
+        'id_peminjaman' => $id,
+        'tanggal_dikembalikan' => $today,
+        'status' => 'disetujui',
+        'denda' => $denda
+    ]);
+
+    $id_pengembalian = $this->db->insertID();
+
+    // ================= UPDATE STATUS PEMINJAMAN =================
+    $this->db->table('peminjaman')
+        ->where('id_peminjaman', $id)
+        ->update([
+            'status' => 'dikembalikan'
         ]);
 
-        return redirect()->to('/pengembalian')->with('success', 'Berhasil dikembalikan');
+    // ================= KEMBALIKAN STOK =================
+    foreach ($detail as $d) {
+        $this->db->table('buku')
+            ->where('id_buku', $d['id_buku'])
+            ->set('jumlah', 'jumlah + '.$d['jumlah'], false)
+            ->update();
     }
+
+    // ================= MASUK KE TABEL DENDA =================
+    if ($denda > 0) {
+        $this->db->table('denda')->insert([
+            'id_pengembalian' => $id_pengembalian,
+            'total_denda' => $denda,
+            'hari_terlambat' => $terlambat,
+            'status_bayar' => 'belum'
+        ]);
+
+        return redirect()->back()->with('error', 'Terlambat! Denda Rp '.number_format($denda));
+    }
+
+    return redirect()->back()->with('success', 'Buku berhasil dikembalikan');
+}
    public function acc($id)
 {
     // ambil data pengembalian
@@ -186,7 +217,21 @@ class Pengembalian extends BaseController
 
         return redirect()->to('/pengembalian')->with('success', 'Pengembalian berhasil');
     }
+    
+    public function bayarDenda($id_pengembalian)
+{
+    $metode = $this->request->getPost('metode');
 
+    $this->db->table('denda')
+        ->where('id_pengembalian', $id_pengembalian)
+        ->update([
+            'status_bayar' => 'lunas',
+            'metode_bayar' => $metode,
+            'tanggal_bayar' => date('Y-m-d')
+        ]);
+
+    return redirect()->back()->with('success', 'Pembayaran berhasil');
+}
     // ================= DELETE =================
     public function delete($id)
     {

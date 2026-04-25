@@ -27,7 +27,6 @@
     <?php endif; ?>
 </td>
     <td>
-        <a href="pengembalian/detail/<?= $p['id_pengembalian'] ?>">Detail</a>
        <a href="<?= base_url('pengembalian/delete/' . $p['id_pengembalian']) ?>" 
             onclick="return confirm('Yakin mau hapus?')">Hapus</a>
         <?php if($p['status'] == 'belum'): ?>
