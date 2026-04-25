@@ -3,50 +3,54 @@
 
 <h3>Data Denda</h3>
 
-<?php if(session()->getFlashdata('success')): ?>
-    <p style="color:green"><?= session()->getFlashdata('success') ?></p>
-<?php endif; ?>
+<!-- SEARCH -->
+<form method="get">
+    <input type="text" name="keyword" placeholder="Cari ID Pengembalian">
+    <button type="submit">Cari</button>
+</form>
 
-<table border="1" cellpadding="10">
-<tr>
-    <th>Nama</th>
-    <th>Hari Terlambat</th>
-    <th>Jumlah Buku</th>
-    <th>Total Denda</th>
-    <th>Status</th>
-    <th>Aksi</th>
-</tr>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>ID</th>
+        <th>ID Pengembalian</th>
+        <th>Hari Terlambat</th>
+        <th>Total Denda</th>
+        <th>Status</th>
+        <th>Metode</th>
+        <th>Aksi</th>
+    </tr>
 
-<?php foreach ($denda as $d): ?>
-<tr>
-    <td><?= $d['nama'] ?></td>
-    <td><?= $d['hari_terlambat'] ?> hari</td>
-    <td><?= $d['jumlah_buku'] ?></td>
-    <td>Rp <?= number_format($d['total_denda']) ?></td>
-    <td><?= $d['status_bayar'] ?></td>
-    <td>
+    <?php foreach ($denda as $d): ?>
+    <tr>
+        <td><?= $d['id_denda'] ?></td>
+        <td><?= $d['id_pengembalian'] ?></td>
+        <td><?= $d['hari_terlambat'] ?></td>
+        <td>Rp <?= number_format($d['total_denda']) ?></td>
+        <td><?= $d['status_bayar'] ?></td>
+        <td><?= $d['metode_bayar'] ?></td>
 
-        <?php if ($d['status_bayar'] == 'belum'): ?>
-        
-        <!-- 💳 FORM BAYAR -->
-        <form method="post" action="<?= base_url('denda/bayar/'.$d['id_denda']) ?>">
-            <select name="metode" required>
-                <option value="dana">DANA</option>
-                <option value="gopay">GoPay</option>
-                <option value="qris">QRIS</option>
-            </select>
+        <td>
+            <!-- UPDATE -->
+            <form method="post" action="/denda/update/<?= $d['id_denda'] ?>">
+                <select name="status_bayar">
+                    <option value="belum">Belum</option>
+                    <option value="lunas">Lunas</option>
+                </select>
 
-            <button type="submit">Bayar</button>
-        </form>
+                <select name="metode_bayar">
+                    <option value="cash">Cash</option>
+                    <option value="dana">Dana</option>
+                    <option value="qris">QRIS</option>
+                </select>
 
-        <?php else: ?>
-            Lunas (<?= $d['metode_bayar'] ?>)
-        <?php endif; ?>
+                <button type="submit">Update</button>
+            </form>
 
-    </td>
-</tr>
-<?php endforeach; ?>
-
+            <!-- DELETE -->
+            <a href="/denda/delete/<?= $d['id_denda'] ?>" onclick="return confirm('Hapus data?')">Hapus</a>
+        </td>
+    </tr>
+    <?php endforeach ?>
 </table>
 
 <?= $this->endSection() ?>

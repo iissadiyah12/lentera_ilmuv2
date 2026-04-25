@@ -92,13 +92,14 @@ $routes->post('peminjaman/store', 'Peminjaman::store');
 $routes->get('peminjaman/delete/(:num)', 'Peminjaman::delete/$1');
 $routes->get('buku/wa/(:num)', 'Buku::wa/$1');
 $routes->get('peminjaman/detail/(:num)', 'Peminjaman::detail/$1');
-$routes->get('peminjaman/perpanjang/(:num)/(:num)', 'Peminjaman::perpanjang/$1/$2');
+$routes->get('peminjaman/requestPerpanjang/(:num)', 'Peminjaman::requestPerpanjang/$1');
 $routes->get('peminjaman/edit/(:num)', 'Peminjaman::edit/$1');
 $routes->post('peminjaman/update/(:num)', 'Peminjaman::update/$1');
 $routes->get('peminjaman/dikembalikan/(:num)', 'Peminjaman::dikembalikan/$1');
-$routes->get('peminjaman/selesai/(:num)', 'Peminjaman::selesai/$1');
-$routes->get('peminjaman/selesai/(:num)', 'Peminjaman::selesai/$1');
-
+$routes->get('peminjaman/approvePerpanjang/(:num)', 'Peminjaman::approvePerpanjang/$1');
+$routes->get('peminjaman/tolakPerpanjang/(:num)', 'Peminjaman::tolakPerpanjang/$1');
+$routes->get('peminjaman/acc/(:num)', 'Peminjaman::acc/$1');
+$routes->get('peminjaman/setujui/(:num)', 'Peminjaman::setujui/$1');
 
 //DENDA
 $routes->post('denda/bayar/(:num)', 'Denda::bayarDenda/$1');
@@ -118,6 +119,7 @@ $routes->get('petugas/delete/(:num)', 'Petugas::delete/$1');
 //PENGEMBALIAN
 $routes->get('pengembalian', 'Pengembalian::index');
 $routes->get('pengembalian/create', 'Pengembalian::create');
+$routes->get('pengembalian/create/(:num)', 'Pengembalian::create/$1');
 $routes->post('pengembalian/store', 'Pengembalian::store');
 $routes->get('pengembalian/delete/(:num)', 'Pengembalian::delete/$1');
 $routes->get('pengembalian/selesai/(:num)', 'Pengembalian::selesai/$1');
@@ -125,6 +127,7 @@ $routes->get('pengembalian/kembalikan/(:num)', 'Pengembalian::kembalikan/$1');
 $routes->get('pengembalian/acc/(:num)', 'Pengembalian::acc/$1');
 $routes->get('pengembalian/dikembalikan/(:num)', 'Pengembalian::dikembalikan/$1');
 $routes->post('pengembalian/bayar/(:num)', 'Pengembalian::bayarDenda/$1');
+$routes->get('pengembalian/create/(:num)', 'Pengembalian::create/$1');
 
 //BACKUP
 $routes->get('/backup', 'Backup::index');
@@ -134,3 +137,6 @@ $routes->get('/restore', 'Restore::index');
 $routes->post('/restore/auth', 'Restore::auth');
 $routes->get('/restore/form', 'Restore::form');
 $routes->post('/restore/process', 'Restore::process');
+
+//DASHBOARD
+$routes->get('/dashboard', 'Dashboard::index');

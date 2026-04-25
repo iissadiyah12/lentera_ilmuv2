@@ -10,7 +10,7 @@
 <?php endif; ?>
 
 <form method="post" action="<?= base_url('peminjaman/store') ?>">
-
+    
     <!-- ================= USER ================= -->
     <label>Nama Peminjam</label><br>
     <input type="text" value="<?= session()->get('nama') ?>" readonly>

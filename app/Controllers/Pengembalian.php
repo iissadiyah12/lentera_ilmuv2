@@ -16,7 +16,7 @@ class Pengembalian extends BaseController
     }
 
     // ================= INDEX + SEARCH =================
-   public function index()
+  public function index()
 {
     $keyword = $this->request->getGet('keyword');
 
@@ -27,15 +27,23 @@ class Pengembalian extends BaseController
         pm.tanggal_pinjam,
         pm.tanggal_kembali,
         u.nama as nama_anggota,
-        b.judul
+        pt.jabatan as nama_petugas,
+        GROUP_CONCAT(b.judul SEPARATOR ", ") as judul,
+        d.status_bayar,
+        d.metode_bayar
     ');
 
+    // ================= JOIN =================
     $builder->join('peminjaman pm', 'pm.id_peminjaman = p.id_peminjaman');
     $builder->join('users u', 'u.id_user = pm.id_anggota', 'left');
+    $builder->join('petugas pt', 'pt.id_petugas = pm.id_petugas', 'left');
 
-    // 🔥 TAMBAHAN PENTING
+    // 🔥 DETAIL BUKU
     $builder->join('detail_peminjaman dp', 'dp.id_peminjaman = pm.id_peminjaman', 'left');
     $builder->join('buku b', 'b.id_buku = dp.id_buku', 'left');
+
+    // 🔥 FIX DENDA (INI YANG PENTING)
+    $builder->join('denda d', 'd.id_pengembalian = p.id_pengembalian', 'left');
 
     // ================= SEARCH =================
     if ($keyword) {
@@ -45,25 +53,15 @@ class Pengembalian extends BaseController
             ->orLike('b.judul', $keyword)
             ->groupEnd();
     }
-     $builder = $this->db->table('pengembalian p');
 
-    $builder->select('
-        p.*,
-        u1.nama as id_peminjaman,  
-        u2.nama as nama_petugas
-    ');
-
-    $builder->join('peminjaman pm', 'pm.id_peminjaman = p.id_peminjaman');
-    $builder->join('users u1', 'u1.id_user = pm.id_anggota', 'left');
-
-    // 🔥 ambil petugas dari pengembalian atau peminjaman
-    $builder->join('users u2', 'u2.id_user = pm.id_petugas', 'left');
-
-    $data['pengembalian'] = $builder->get()->getResultArray();
+    $data['pengembalian'] = $builder
+        ->groupBy('p.id_pengembalian')
+        ->orderBy('p.id_pengembalian', 'DESC')
+        ->get()
+        ->getResultArray();
 
     return view('pengembalian/index', $data);
 }
-
     // ================= FORM CREATE =================
     public function create()
     {

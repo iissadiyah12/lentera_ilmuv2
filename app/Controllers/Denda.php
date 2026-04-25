@@ -3,46 +3,77 @@
 namespace App\Controllers;
 
 use App\Models\DendaModel;
+use App\Models\PeminjamanModel;
+use App\Models\PengembalianModel;
 
 class Denda extends BaseController
 {
-    protected $denda;
-    protected $db;
+    protected $dendaModel;
+    protected $peminjamanModel;
+    protected $pengembalianModel;
 
     public function __construct()
     {
-        $this->denda = new DendaModel();
-        $this->db = \Config\Database::connect();
+        $this->dendaModel = new DendaModel();
+        $this->peminjamanModel = new PeminjamanModel();
+        $this->pengembalianModel = new PengembalianModel();
     }
 
-    // ======================
-    // LIST DENDA
-    // ======================
+    // ================= LIST + SEARCH =================
     public function index()
     {
-        $builder = $this->db->table('denda d');
-        $builder->select('d.*, u.nama');
-        $builder->join('peminjaman p', 'p.id_peminjaman = d.id_peminjaman');
-        $builder->join('users u', 'u.id_user = p.id_anggota');
+        $keyword = $this->request->getGet('keyword');
 
-        $data['denda'] = $builder->get()->getResultArray();
+        $data = [
+            'denda' => $this->dendaModel->getDenda($keyword)
+        ];
 
         return view('denda/index', $data);
     }
 
-    // ======================
-    // BAYAR DENDA
-    // ======================
-    public function bayar($id)
+    // ================= HITUNG & SIMPAN OTOMATIS =================
+    public function generate($id_pengembalian)
     {
-        $metode = $this->request->getPost('metode');
+        $pengembalian = $this->pengembalianModel
+            ->select('pengembalian.*, peminjaman.tanggal_kembali')
+            ->join('peminjaman', 'peminjaman.id_peminjaman = pengembalian.id_peminjaman')
+            ->where('id_pengembalian', $id_pengembalian)
+            ->first();
 
-        $this->denda->update($id, [
-            'status_bayar' => 'lunas',
-            'metode_bayar' => $metode,
+        $tgl_kembali = $pengembalian['tanggal_kembali'];
+        $tgl_dikembalikan = $pengembalian['tanggal_dikembalikan'];
+
+        $selisih = (strtotime($tgl_dikembalikan) - strtotime($tgl_kembali)) / 86400;
+
+        $hari_terlambat = ($selisih > 0) ? $selisih : 0;
+        $total_denda = $hari_terlambat * 3000;
+
+        $this->dendaModel->insert([
+            'id_pengembalian' => $id_pengembalian,
+            'hari_terlambat' => $hari_terlambat,
+            'total_denda' => $total_denda,
+            'status_bayar' => 'belum'
+        ]);
+
+        return redirect()->to('/denda')->with('success', 'Denda berhasil dibuat');
+    }
+
+    // ================= UPDATE =================
+    public function update($id)
+    {
+        $this->dendaModel->update($id, [
+            'status_bayar' => $this->request->getPost('status_bayar'),
+            'metode_bayar' => $this->request->getPost('metode_bayar'),
             'tanggal_bayar' => date('Y-m-d')
         ]);
 
-        return redirect()->to('/denda')->with('success', 'Denda berhasil dibayar');
+        return redirect()->to('/denda');
+    }
+
+    // ================= DELETE =================
+    public function delete($id)
+    {
+        $this->dendaModel->delete($id);
+        return redirect()->to('/denda');
     }
 }
