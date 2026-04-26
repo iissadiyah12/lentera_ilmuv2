@@ -82,13 +82,6 @@
                                 <!-- AKSI ICON -->
                                 <td class="text-center">
 
-                                    <!-- DETAIL (opsional kalau ada) -->
-                                    <a href="<?= base_url('pengembalian/detail/'.$p['id_pengembalian']) ?>"
-                                       class="btn btn-sm btn-info"
-                                       title="Detail">
-                                        <i class="bi bi-eye"></i>
-                                    </a>
-
                                     <!-- HAPUS -->
                                     <a href="<?= base_url('pengembalian/delete/' . $p['id_pengembalian']) ?>"
                                        class="btn btn-sm btn-danger"

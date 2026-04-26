@@ -77,7 +77,7 @@
                             <th>Tgl Kembali</th>
                             <th>Status Perpanjang</th>
                             <th>Status</th>
-                           <?php if (session()->get('role') == 'petugas'): ?>
+                           <?php if (session()->get('role') == 'petugas' || session()->get('role') == 'anggota'): ?>
                             <th width="250">Aksi</th>
                            <?php endif; ?>
 
@@ -91,7 +91,7 @@
                             <?php foreach ($peminjaman as $p): ?>
                                 <tr>
                                     <td><?= $p['id_peminjaman'] ?></td>
-                                    <td><?= $p['id_user'] ?? '-' ?></td>
+                                    <td><?= $p['nama_anggota'] ?? '-' ?></td>
                                     <td><?= $p['nama_petugas'] ?? '-' ?></td>
                                     <td><?= $p['judul_buku'] ?? '-' ?></td>
                                     <td><?= $p['tanggal_pinjam'] ?></td>
@@ -113,7 +113,7 @@
                                         <?php endif; ?>
                                     </td>
 
-                                    <td class="text-nowrap">
+                                     <td class="text-nowrap">
 
                                         <!-- ANGGOTA -->
                                         <?php if (session()->get('role') == 'anggota'): ?>
@@ -122,39 +122,50 @@
 
                                                 <?php if ($p['jumlah_perpanjang'] < 2): ?>
                                                     <a href="<?= base_url('peminjaman/requestPerpanjang/' . $p['id_peminjaman']) ?>"
-                                                       class="btn btn-sm btn-primary">
-                                                        Perpanjang
+                                                    class="btn btn-sm btn-primary"
+                                                    title="Perpanjang">
+                                                        <i class="bi bi-arrow-repeat"></i> Perpanjang
                                                     </a>
                                                 <?php else: ?>
-                                                    <span class="text-muted">Habis</span>
+                                                    <span class="text-muted">
+                                                        <i class="bi bi-x-circle"></i> Habis
+                                                    </span>
                                                 <?php endif; ?>
 
                                             <?php else: ?>
-                                                <span class="text-warning">Menunggu persetujuan</span>
+                                                <span class="text-warning">
+                                                    <i class="bi bi-hourglass-split"></i> Menunggu persetujuan
+                                                </span>
                                             <?php endif; ?>
 
                                         <?php endif; ?>
 
                                         <!-- PETUGAS -->
-                                        <?php if (session()->get('role') == 'petugas'): ?>
+                                        <?php if (session()->get('role') == 'petugas' ): ?>
 
+                                            <!-- SETUJUI -->
                                             <?php if ($p['status'] == 'menunggu'): ?>
                                                 <a href="<?= base_url('peminjaman/setujui/'.$p['id_peminjaman']) ?>"
-                                                   class="btn btn-sm btn-success"
-                                                   onclick="return confirm('Setujui peminjaman ini?')">
-                                                    Setujui
+                                                class="btn btn-sm btn-success"
+                                                onclick="return confirm('Setujui peminjaman ini?')"
+                                                title="Setujui">
+                                                    <i class="bi bi-check-circle"></i> Setujui
                                                 </a>
                                             <?php endif; ?>
 
+                                            <!-- PERPANJANG -->
                                             <a href="<?= base_url('peminjaman/approvePerpanjang/' . $p['id_peminjaman']) ?>"
-                                               class="btn btn-sm btn-info">
-                                                Perpanjang
+                                            class="btn btn-sm btn-info"
+                                            title="Perpanjang">
+                                                <i class="bi bi-calendar-plus"></i> Perpanjang
                                             </a>
 
+                                            <!-- HAPUS -->
                                             <a href="<?= base_url('peminjaman/delete/'.$p['id_peminjaman']) ?>"
-                                               class="btn btn-sm btn-danger"
-                                               onclick="return confirm('Yakin hapus?')">
-                                                Hapus
+                                            class="btn btn-sm btn-danger"
+                                            onclick="return confirm('Yakin hapus?')"
+                                            title="Hapus">
+                                                <i class="bi bi-trash"></i> Hapus
                                             </a>
 
                                         <?php endif; ?>

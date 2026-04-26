@@ -94,32 +94,42 @@
                                         <?php else: ?>
                                             -
                                         <?php endif; ?>
-                                    </td>
+                                   </td>
 
-                                    <?php if (session()->get('role') == 'admin') : ?>
-                                        <td>
-                                            <a class="btn btn-sm btn-info"
-                                                href="<?= base_url('users/detail/' . $u['id_user']) ?>">
-                                                Detail
-                                            </a>
+                                        <?php if (session()->get('role') == 'admin') : ?>
+                                            <td class="text-nowrap">
 
-                                            <a class="btn btn-sm btn-warning"
-                                                href="<?= base_url('users/edit/' . $u['id_user']) ?>">
-                                                Edit
-                                            </a>
+                                                <!-- DETAIL -->
+                                                <a class="btn btn-sm btn-info"
+                                                href="<?= base_url('users/detail/' . $u['id_user']) ?>"
+                                                title="Detail">
+                                                    <i class="bi bi-eye"></i> Detail
+                                                </a>
 
-                                            <a class="btn btn-sm btn-success"
+                                                <!-- EDIT -->
+                                                <a class="btn btn-sm btn-warning"
+                                                href="<?= base_url('users/edit/' . $u['id_user']) ?>"
+                                                title="Edit">
+                                                    <i class="bi bi-pencil-square"></i> Edit
+                                                </a>
+
+                                                <!-- WHATSAPP -->
+                                                <a class="btn btn-sm btn-success"
                                                 href="<?= base_url('users/wa/' . $u['id_user']) ?>"
-                                                target="_blank">
-                                                WA
-                                            </a>
+                                                target="_blank"
+                                                title="WhatsApp">
+                                                    <i class="bi bi-whatsapp"></i> WA
+                                                </a>
 
-                                            <a class="btn btn-sm btn-danger"
+                                                <!-- HAPUS -->
+                                                <a class="btn btn-sm btn-danger"
                                                 href="<?= base_url('users/delete/' . $u['id_user']) ?>"
-                                                onclick="return confirm('Hapus user ini?')">
-                                                Hapus
-                                            </a>
-                                        </td>
+                                                onclick="return confirm('Hapus user ini?')"
+                                                title="Hapus">
+                                                    <i class="bi bi-trash"></i> Hapus
+                                                </a>
+
+                                            </td>
                                     <?php endif; ?>
                                 </tr>
                             <?php endforeach; ?>
