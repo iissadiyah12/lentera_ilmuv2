@@ -148,3 +148,6 @@ $routes->post('/restore/auth', 'Restore::auth');
 $routes->get('/restore/form', 'Restore::form');
 $routes->post('/restore/process', 'Restore::process');
 
+//DASHBOARD
+$routes->get('/', 'Dashboard::index');
+$routes->get('dashboard', 'Dashboard::index');

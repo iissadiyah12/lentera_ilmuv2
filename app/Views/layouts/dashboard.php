@@ -1,29 +1,6 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
-    <!-- STYLE PRO -->
-<style>
-.card-pro {
-    border-radius: 12px;
-    transition: 0.25s;
-    overflow: hidden;
-}
-.card-pro:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
-}
-.counter {
-    font-size: 28px;
-    font-weight: bold;
-}
-.small-text {
-    opacity: 0.9;
-}
-.badge-soft {
-    border-radius: 20px;
-    padding: 5px 10px;
-}
-</style>
 <div class="container py-4">
 
     <!-- HEADER -->
@@ -31,10 +8,7 @@
         <h3 class="fw-bold">
             <i class="bi bi-speedometer2"></i> Dashboard
         </h3>
-        <p class="text-muted">
-            Selamat datang di Sistem Perpustakaan
-            <span class="badge bg-success ms-2">Realtime</span>
-        </p>
+        <p class="text-muted">Selamat datang di Sistem Perpustakaan</p>
     </div>
 
     <!-- STAT CARDS -->
@@ -49,7 +23,7 @@
                     </div>
                     <div>
                         <h6 class="mb-0">Users</h6>
-                        <h4 class="fw-bold mb-0" id="total_users"><?= $total_users ?? 0 ?></h4>
+                        <h4 class="fw-bold mb-0"><?= $total_users ?? 0 ?></h4>
                     </div>
                 </div>
             </div>
@@ -64,7 +38,7 @@
                     </div>
                     <div>
                         <h6 class="mb-0">Buku</h6>
-                        <h4 class="fw-bold mb-0" id="total_buku"><?= $total_buku ?? 0 ?></h4>
+                        <h4 class="fw-bold mb-0"><?= $total_buku ?? 0 ?></h4>
                     </div>
                 </div>
             </div>
@@ -79,7 +53,7 @@
                     </div>
                     <div>
                         <h6 class="mb-0">Peminjaman</h6>
-                        <h4 class="fw-bold mb-0" id="total_peminjaman"><?= $total_peminjaman ?? 0 ?></h4>
+                        <h4 class="fw-bold mb-0"><?= $total_peminjaman ?? 0 ?></h4>
                     </div>
                 </div>
             </div>
@@ -94,7 +68,7 @@
                     </div>
                     <div>
                         <h6 class="mb-0">Pengembalian</h6>
-                        <h4 class="fw-bold mb-0" id="total_pengembalian"><?= $total_pengembalian ?? 0 ?></h4>
+                        <h4 class="fw-bold mb-0"><?= $total_pengembalian ?? 0 ?></h4>
                     </div>
                 </div>
             </div>
@@ -105,6 +79,7 @@
     <!-- SECOND ROW -->
     <div class="row mt-4 g-3">
 
+        <!-- DENDA -->
         <div class="col-md-4">
             <div class="card shadow-sm border-0">
                 <div class="card-body d-flex align-items-center">
@@ -113,12 +88,13 @@
                     </div>
                     <div>
                         <h6 class="mb-0">Denda Belum Lunas</h6>
-                        <h4 class="fw-bold mb-0" id="denda_belum"><?= $denda_belum ?? 0 ?></h4>
+                        <h4 class="fw-bold mb-0"><?= $denda_belum ?? 0 ?></h4>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- KATEGORI -->
         <div class="col-md-4">
             <div class="card shadow-sm border-0">
                 <div class="card-body d-flex align-items-center">
@@ -127,12 +103,13 @@
                     </div>
                     <div>
                         <h6 class="mb-0">Kategori</h6>
-                        <h4 class="fw-bold mb-0" id="total_kategori"><?= $total_kategori ?? 0 ?></h4>
+                        <h4 class="fw-bold mb-0"><?= $total_kategori ?? 0 ?></h4>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- RAK -->
         <div class="col-md-4">
             <div class="card shadow-sm border-0">
                 <div class="card-body d-flex align-items-center">
@@ -141,7 +118,7 @@
                     </div>
                     <div>
                         <h6 class="mb-0">Rak Buku</h6>
-                        <h4 class="fw-bold mb-0" id="total_rak"><?= $total_rak ?? 0 ?></h4>
+                        <h4 class="fw-bold mb-0"><?= $total_rak ?? 0 ?></h4>
                     </div>
                 </div>
             </div>
@@ -149,26 +126,18 @@
 
     </div>
 
+    <!-- INFO BOX -->
+    <div class="card mt-4 shadow-sm border-0">
+        <div class="card-body">
+            <h5 class="mb-2">
+                <i class="bi bi-info-circle"></i> Info Sistem
+            </h5>
+            <p class="mb-0 text-muted">
+                Sistem Perpustakaan ini digunakan untuk mengelola data buku, peminjaman, pengembalian, dan denda secara digital.
+            </p>
+        </div>
+    </div>
+
 </div>
-
-<!-- 🔥 REALTIME SCRIPT -->
-<script>
-function loadDashboard() {
-    fetch("<?= base_url('dashboard/realtime') ?>")
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById('total_users').innerText = data.total_users;
-            document.getElementById('total_buku').innerText = data.total_buku;
-            document.getElementById('total_peminjaman').innerText = data.total_peminjaman;
-            document.getElementById('total_pengembalian').innerText = data.total_pengembalian;
-            document.getElementById('denda_belum').innerText = data.denda_belum;
-            document.getElementById('total_kategori').innerText = data.total_kategori;
-            document.getElementById('total_rak').innerText = data.total_rak;
-        });
-}
-
-// refresh tiap 5 detik
-setInterval(loadDashboard, 5000);
-</script>
 
 <?= $this->endSection() ?>
