@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
-<!-- STYLE PRO -->
+    <!-- STYLE PRO -->
 <style>
 .card-pro {
     border-radius: 12px;
@@ -24,140 +24,151 @@
     padding: 5px 10px;
 }
 </style>
+<div class="container py-4">
 
-<div class="container-fluid">
-
-<h2 class="mb-3">📊 Dashboard LENTERA ILMU </h2>
-
-<!-- CARD ROW -->
-<div class="row g-3">
-
-    <div class="col-md-3">
-        <div class="card bg-primary text-white card-pro">
-            <div class="card-body">
-                <div class="counter"><?= $total_buku ?? 0 ?></div>
-                <div class="small-text">📚 Total Buku</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3">
-        <div class="card bg-success text-white card-pro">
-            <div class="card-body">
-                <div class="counter"><?= $total_anggota ?? 0 ?></div>
-                <div class="small-text">👥 Anggota</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3">
-        <div class="card bg-warning text-white card-pro">
-            <div class="card-body">
-                <div class="counter"><?= $dipinjam ?? 0 ?></div>
-                <div class="small-text">📖 Dipinjam</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3">
-        <div class="card bg-danger text-white card-pro">
-            <div class="card-body">
-                <div class="counter"><?= $terlambat ?? 0 ?></div>
-                <div class="small-text">⚠️ Terlambat</div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<!-- DENDA -->
-<div class="card mt-3 shadow-sm card-pro">
-    <div class="card-body">
-        <h5>💰 Total Denda</h5>
-        <h3 class="text-danger">
-            Rp <?= number_format($total_denda ?? 0, 0, ',', '.') ?>
+    <!-- HEADER -->
+    <div class="mb-4">
+        <h3 class="fw-bold">
+            <i class="bi bi-speedometer2"></i> Dashboard
         </h3>
+        <p class="text-muted">
+            Selamat datang di Sistem Perpustakaan
+            <span class="badge bg-success ms-2">Realtime</span>
+        </p>
     </div>
-</div>
 
-<!-- BOTTOM SECTION -->
-<div class="row mt-4">
+    <!-- STAT CARDS -->
+    <div class="row g-3">
 
-<!-- RECENT -->
-<div class="col-md-7">
-    <div class="card card-pro shadow-sm">
-
-        <div class="card-header bg-dark text-white">
-            📝 Recent Peminjaman
+        <!-- USERS -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body d-flex align-items-center">
+                    <div class="bg-primary text-white rounded p-3 me-3">
+                        <i class="bi bi-people fs-4"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0">Users</h6>
+                        <h4 class="fw-bold mb-0" id="total_users"><?= $total_users ?? 0 ?></h4>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="card-body p-0">
-
-            <table class="table table-hover mb-0">
-                <thead class="table-light">
-                    <tr>
-                        <th>NIS</th>
-                        <th>Nama</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                <?php foreach($recent ?? [] as $r): ?>
-                    <tr>
-                        <td><?= $r['nis'] ?></td>
-                        <td><?= $r['nama'] ?></td>
-                        <td>
-                            <span class="badge bg-info badge-soft">
-                                <?= $r['status'] ?? 'dipinjam' ?>
-                            </span>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-
-            </table>
-
+        <!-- BUKU -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body d-flex align-items-center">
+                    <div class="bg-success text-white rounded p-3 me-3">
+                        <i class="bi bi-book fs-4"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0">Buku</h6>
+                        <h4 class="fw-bold mb-0" id="total_buku"><?= $total_buku ?? 0 ?></h4>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- PEMINJAMAN -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body d-flex align-items-center">
+                    <div class="bg-warning text-dark rounded p-3 me-3">
+                        <i class="bi bi-journal-arrow-up fs-4"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0">Peminjaman</h6>
+                        <h4 class="fw-bold mb-0" id="total_peminjaman"><?= $total_peminjaman ?? 0 ?></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PENGEMBALIAN -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body d-flex align-items-center">
+                    <div class="bg-info text-white rounded p-3 me-3">
+                        <i class="bi bi-journal-check fs-4"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0">Pengembalian</h6>
+                        <h4 class="fw-bold mb-0" id="total_pengembalian"><?= $total_pengembalian ?? 0 ?></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-</div>
 
-<!-- CHART -->
-<div class="col-md-5">
-    <div class="card card-pro shadow-sm">
-        <div class="card-header bg-primary text-white">
-            📈 Grafik Peminjaman
+    <!-- SECOND ROW -->
+    <div class="row mt-4 g-3">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body d-flex align-items-center">
+                    <div class="bg-danger text-white rounded p-3 me-3">
+                        <i class="bi bi-cash-coin fs-4"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0">Denda Belum Lunas</h6>
+                        <h4 class="fw-bold mb-0" id="denda_belum"><?= $denda_belum ?? 0 ?></h4>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="card-body">
-            <canvas id="chartPinjam"></canvas>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body d-flex align-items-center">
+                    <div class="bg-secondary text-white rounded p-3 me-3">
+                        <i class="bi bi-tags fs-4"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0">Kategori</h6>
+                        <h4 class="fw-bold mb-0" id="total_kategori"><?= $total_kategori ?? 0 ?></h4>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body d-flex align-items-center">
+                    <div class="bg-dark text-white rounded p-3 me-3">
+                        <i class="bi bi-archive fs-4"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0">Rak Buku</h6>
+                        <h4 class="fw-bold mb-0" id="total_rak"><?= $total_rak ?? 0 ?></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-</div>
 
 </div>
 
-</div>
-
-<!-- CHART JS -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<!-- 🔥 REALTIME SCRIPT -->
 <script>
-new Chart(document.getElementById('chartPinjam'), {
-    type: 'line',
-    data: {
-        labels: ['Jan','Feb','Mar','Apr','Mei','Jun'],
-        datasets: [{
-            label: 'Peminjaman',
-            data: <?= json_encode($chart ?? []) ?>,
-            borderColor: '#0d6efd',
-            backgroundColor: 'rgba(13,110,253,0.1)',
-            tension: 0.4,
-            fill: true,
-            pointRadius: 5
-        }]
-    }
-});
+function loadDashboard() {
+    fetch("<?= base_url('dashboard/realtime') ?>")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('total_users').innerText = data.total_users;
+            document.getElementById('total_buku').innerText = data.total_buku;
+            document.getElementById('total_peminjaman').innerText = data.total_peminjaman;
+            document.getElementById('total_pengembalian').innerText = data.total_pengembalian;
+            document.getElementById('denda_belum').innerText = data.denda_belum;
+            document.getElementById('total_kategori').innerText = data.total_kategori;
+            document.getElementById('total_rak').innerText = data.total_rak;
+        });
+}
+
+// refresh tiap 5 detik
+setInterval(loadDashboard, 5000);
 </script>
 
 <?= $this->endSection() ?>
