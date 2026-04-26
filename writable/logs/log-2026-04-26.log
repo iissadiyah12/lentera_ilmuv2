@@ -3442,3 +3442,23 @@ in APPPATH\Views\kategori\edit.php on line 18.
  9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-26 12:16:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-26 12:16:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-26 12:16:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-26 12:16:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-26 12:16:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-26 12:16:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-26 12:16:57 --> ErrorException: Undefined variable $rak
+[Method: GET, Route: penerbit/edit/12]
+in APPPATH\Views\penerbit\edit.php on line 6.
+ 1 APPPATH\Views\penerbit\edit.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $rak', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penerbit\\edit.php', 6)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penerbit\\edit.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('penerbit/edit', [], true)
+ 5 APPPATH\Controllers\Penerbit.php(48): view('penerbit/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Penerbit->edit('12')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerbit))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
