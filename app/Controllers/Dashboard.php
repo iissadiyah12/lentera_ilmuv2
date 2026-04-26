@@ -18,13 +18,13 @@ class Dashboard extends BaseController
 
     public function index()
     {
-        $userModel = new UsersModel();
+        $usersModel = new UsersModel();
         $bukuModel = new BukuModel();
         $pinjamModel = new PeminjamanModel();
         $kembaliModel = new PengembalianModel();
 
         $data = [
-            'total_users' => $userModel->countAll(),
+            'total_users' => $usersModel->countAll(),
             'total_buku' => $bukuModel->countAll(),
             'total_peminjaman' => $pinjamModel->countAll(),
             'total_pengembalian' => $kembaliModel->countAll(),
