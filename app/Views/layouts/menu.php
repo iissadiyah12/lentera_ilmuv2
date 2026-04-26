@@ -29,11 +29,6 @@
             </a>
         </li>
 
-        <li class="nav-item mb-1">
-            <a class="nav-link" href="<?= base_url('/denda') ?>">
-                <i class="bi bi-credit-card me-2"></i> Denda
-            </a>
-        </li>
 
         <?php if (session()->get('role') == 'admin' || session()->get('role') == 'petugas') : ?>
 
