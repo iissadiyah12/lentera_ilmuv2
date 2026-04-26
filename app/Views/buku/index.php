@@ -127,10 +127,7 @@
                                                 Detail
                                             </a>
 
-                                            <a href="<?= base_url('buku/edit/' . $b['id_buku']) ?>"
-                                               class="btn btn-sm btn-warning">
-                                                Edit
-                                            </a>
+                                           
 
                                             <a href="<?= base_url('buku/delete/' . $b['id_buku']) ?>"
                                                class="btn btn-sm btn-danger"
