@@ -1,33 +1,93 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
-<h2>Data Rak</h2>
 
-<form method="get" action="">
-    <input type="text" name="keyword" placeholder="Cari..." value="<?= $_GET['keyword'] ?? '' ?>">
-    <button type="submit">Cari</button>
-    <a href="<?= current_url() ?>">Reset</a>
-</form>
-<br>
-<a href="<?= base_url('rak/create') ?>">Tambah Rak</a>
+<div class="container py-4">
 
-<table border="1">
-<tr>
-  
-<th>Nama Rak</th>
-<th>Lokasi</th>
-<th>Aksi</th>
-</tr>
+    <div class="card shadow-sm border-0">
 
-<?php foreach($rak as $r): ?>
-<tr>
-  
-<td><?= $r['nama_rak'] ?></td>
-<td><?= $r['lokasi'] ?></td>
-<td>
-    <a href="<?= base_url('rak/edit/'.$r['id_rak']) ?>">Edit</a>
-    <a href="<?= base_url('rak/delete/'.$r['id_rak']) ?>">Hapus</a>
-</td>
-</tr>
-<?php endforeach; ?>
-</table>
+        <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="mb-0">
+                    <i class="bi bi-box-seam"></i> Data Rak
+                </h4>
+
+                <a href="<?= base_url('rak/create') ?>" class="btn btn-success">
+                    <i class="bi bi-plus-circle"></i> Tambah Rak
+                </a>
+            </div>
+
+            <!-- FORM SEARCH -->
+            <form method="get" action="<?= base_url() ?>" class="row g-2 mb-3">
+
+                <div class="col-md-4">
+                    <input type="text"
+                           name="keyword"
+                           class="form-control"
+                           placeholder="Cari..."
+                           value="<?= $_GET['keyword'] ?? '' ?>">
+                </div>
+
+                <div class="col-md-auto">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-search"></i> Cari
+                    </button>
+
+                    <a href="<?= base_url() ?>" class="btn btn-secondary">
+                        <i class="bi bi-arrow-repeat"></i> Reset
+                    </a>
+
+                    <a href="<?= base_url('print?' . http_build_query($_GET)) ?>"
+                       target="_blank"
+                       class="btn btn-outline-dark">
+                        <i class="bi bi-printer"></i> Print
+                    </a>
+                </div>
+
+            </form>
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-striped table-hover align-middle">
+
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Nama Rak</th>
+                            <th>Lokasi</th>
+                            <th width="200">Aksi</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php foreach($rak as $r): ?>
+                            <tr>
+                                <td><?= $r['nama_rak'] ?></td>
+                                <td><?= $r['lokasi'] ?></td>
+                                <td>
+
+                                    <a href="<?= base_url('rak/edit/'.$r['id_rak']) ?>"
+                                       class="btn btn-sm btn-warning">
+                                        <i class="bi bi-pencil-square"></i> Edit
+                                    </a>
+
+                                    <a href="<?= base_url('rak/delete/'.$r['id_rak']) ?>"
+                                       class="btn btn-sm btn-danger"
+                                       onclick="return confirm('Hapus data ini?')">
+                                        <i class="bi bi-trash"></i> Hapus
+                                    </a>
+
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
 <?= $this->endSection() ?>

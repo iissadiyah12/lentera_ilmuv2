@@ -1,91 +1,168 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
-<h3>Edit Buku</h3>
 
-<form method="post" action="<?= base_url('buku/update/' . $buku['id_buku']) ?>" enctype="multipart/form-data">
+<div class="container py-4">
 
-    Judul:<br>
-    <input type="text" name="judul" value="<?= $buku['judul'] ?>"><br><br>
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
 
-    ISBN:<br>
-    <input type="text" name="isbn" value="<?= $buku['isbn'] ?>"><br><br>
+            <div class="card shadow-sm border-0">
 
-    Kategori:<br>
-    <select name="id_kategori">
-        <?php foreach ($kategori as $k): ?>
-            <option value="<?= $k['id_kategori'] ?>"
-                <?= $buku['id_kategori'] == $k['id_kategori'] ? 'selected' : '' ?>>
-                <?= $k['nama_kategori'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br><br>
+                <div class="card-header bg-warning text-dark d-flex align-items-center">
+                    <i class="bi bi-pencil-square me-2"></i>
+                    <h5 class="mb-0">Edit Buku</h5>
+                </div>
 
-    Penulis:<br>
-    <select name="id_penulis">
-        <?php foreach ($penulis as $p): ?>
-            <option value="<?= $p['id_penulis'] ?>"
-                <?= $buku['id_penulis'] == $p['id_penulis'] ? 'selected' : '' ?>>
-                <?= $p['nama_penulis'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br><br>
+                <div class="card-body">
 
-    Penerbit:<br>
-    <select name="id_penerbit">
-        <?php foreach ($penerbit as $p): ?>
-            <option value="<?= $p['id_penerbit'] ?>"
-                <?= $buku['id_penerbit'] == $p['id_penerbit'] ? 'selected' : '' ?>>
-                <?= $p['nama_penerbit'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br><br>
+                    <form method="post"
+                          action="<?= base_url('buku/update/' . $buku['id_buku']) ?>"
+                          enctype="multipart/form-data">
 
-    Rak:<br>
-    <select name="id_rak">
-        <?php foreach ($rak as $r): ?>
-            <option value="<?= $r['id_rak'] ?>">
-                <?= $r['nama_rak'] ?> - <?= $r['lokasi'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br><br>
+                        <div class="row">
 
-    Tahun:<br>
-    <input type="number" name="tahun_terbit" value="<?= $buku['tahun_terbit'] ?>"><br><br>
+                            <!-- JUDUL -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Judul</label>
+                                <input type="text" name="judul" class="form-control"
+                                       value="<?= $buku['judul'] ?>">
+                            </div>
 
-    Jumlah:<br>
-    <input type="number" name="jumlah" value="<?= $buku['jumlah'] ?>"><br><br>
+                            <!-- ISBN -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">ISBN</label>
+                                <input type="text" name="isbn" class="form-control"
+                                       value="<?= $buku['isbn'] ?>">
+                            </div>
 
-    Tersedia:<br>
-    <input type="number" name="tersedia" value="<?= $buku['tersedia'] ?>"><br><br>
+                            <!-- KATEGORI -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Kategori</label>
+                                <select name="id_kategori" class="form-select">
+                                    <?php foreach ($kategori as $k): ?>
+                                        <option value="<?= $k['id_kategori'] ?>"
+                                            <?= $buku['id_kategori'] == $k['id_kategori'] ? 'selected' : '' ?>>
+                                            <?= $k['nama_kategori'] ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
 
-    Deskripsi:<br>
-    <textarea name="deskripsi"><?= $buku['deskripsi'] ?></textarea><br><br>
+                            <!-- PENULIS -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Penulis</label>
+                                <select name="id_penulis" class="form-select">
+                                    <?php foreach ($penulis as $p): ?>
+                                        <option value="<?= $p['id_penulis'] ?>"
+                                            <?= $buku['id_penulis'] == $p['id_penulis'] ? 'selected' : '' ?>>
+                                            <?= $p['nama_penulis'] ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
 
-    Cover:<br>
-    <input type="file" name="cover"><br><br>
+                            <!-- PENERBIT -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Penerbit</label>
+                                <select name="id_penerbit" class="form-select">
+                                    <?php foreach ($penerbit as $p): ?>
+                                        <option value="<?= $p['id_penerbit'] ?>"
+                                            <?= $buku['id_penerbit'] == $p['id_penerbit'] ? 'selected' : '' ?>>
+                                            <?= $p['nama_penerbit'] ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
 
+                            <!-- RAK -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Rak</label>
+                                <select name="id_rak" class="form-select">
+                                    <?php foreach ($rak as $r): ?>
+                                        <option value="<?= $r['id_rak'] ?>"
+                                            <?= $buku['id_rak'] == $r['id_rak'] ? 'selected' : '' ?>>
+                                            <?= $r['nama_rak'] ?> - <?= $r['lokasi'] ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
 
-    <?php if ($buku['cover']): ?>
+                            <!-- TAHUN -->
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Tahun</label>
+                                <input type="number" name="tahun_terbit" class="form-control"
+                                       value="<?= $buku['tahun_terbit'] ?>">
+                            </div>
 
-        <?php
-        $ext = pathinfo($buku['cover'], PATHINFO_EXTENSION);
-        ?>
+                            <!-- JUMLAH -->
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Jumlah</label>
+                                <input type="number" name="jumlah" class="form-control"
+                                       value="<?= $buku['jumlah'] ?>">
+                            </div>
 
-        <?php if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif'])): ?>
-            <img src="<?= base_url('uploads/buku/' . $buku['cover']) ?>" width="100"><br>
-        <?php else: ?>
-           
-        <?php endif; ?>
+                            <!-- TERSEDIA -->
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Tersedia</label>
+                                <input type="number" name="tersedia" class="form-control"
+                                       value="<?= $buku['tersedia'] ?>">
+                            </div>
 
-    <?php else: ?>
-        -
-    <?php endif; ?>
-<div>
-    <label>File Buku (PDF)</label><br>
-    <input type="file" name="file_pdf" accept="application/pdf">
+                            <!-- DESKRIPSI -->
+                            <div class="col-12 mb-3">
+                                <label class="form-label">Deskripsi</label>
+                                <textarea name="deskripsi" class="form-control" rows="3"><?= $buku['deskripsi'] ?></textarea>
+                            </div>
+
+                            <!-- COVER -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Cover</label>
+                                <input type="file" name="cover" class="form-control">
+
+                                <div class="mt-2">
+                                    <?php if ($buku['cover']): ?>
+                                        <?php $ext = pathinfo($buku['cover'], PATHINFO_EXTENSION); ?>
+
+                                        <?php if (in_array($ext, ['jpg','jpeg','png','gif'])): ?>
+                                            <img src="<?= base_url('uploads/buku/' . $buku['cover']) ?>"
+                                                 width="100"
+                                                 class="rounded border">
+                                        <?php endif; ?>
+                                    <?php else: ?>
+                                        <span class="text-muted">-</span>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+
+                            <!-- FILE PDF -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">File Buku (PDF)</label>
+                                <input type="file" name="file_pdf" class="form-control" accept="application/pdf">
+                            </div>
+
+                        </div>
+
+                        <!-- BUTTON -->
+                        <div class="d-flex justify-content-between mt-3">
+
+                            <a href="<?= base_url('buku') ?>" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Kembali
+                            </a>
+
+                            <button type="submit" class="btn btn-warning">
+                                <i class="bi bi-save"></i> Update
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </div>
-    <button type="submit">Update</button>
-    <a href="<?= base_url('buku') ?>">Kembali</a>
 
-</form>
 <?= $this->endSection() ?>

@@ -15,40 +15,34 @@ class Pengembalian extends BaseController
         $this->db = \Config\Database::connect();
     }
 
-    // ================= INDEX + SEARCH =================
-  public function index()
+    public function index()
 {
     $keyword = $this->request->getGet('keyword');
 
     $builder = $this->db->table('pengembalian p');
 
-   $builder->select('
-    p.*,
-    pm.tanggal_pinjam,
-    pm.tanggal_kembali,
-    u.nama as nama_anggota,
-    pt.jabatan as nama_petugas,
-    GROUP_CONCAT(b.judul SEPARATOR ", ") as judul,
+    $builder->select('
+        p.*,
+        pm.status as status_peminjaman,
+        pm.tanggal_pinjam,
+        pm.tanggal_kembali,
+        COALESCE(u.nama, "-") as nama_anggota,
+        GROUP_CONCAT(b.judul SEPARATOR ", ") as judul
+    ');
 
-');
-
-    // ================= JOIN =================
     $builder->join('peminjaman pm', 'pm.id_peminjaman = p.id_peminjaman');
     $builder->join('users u', 'u.id_user = pm.id_anggota', 'left');
-    $builder->join('petugas pt', 'pt.id_petugas = pm.id_petugas', 'left');
-
-    // 🔥 DETAIL BUKU
     $builder->join('detail_peminjaman dp', 'dp.id_peminjaman = pm.id_peminjaman', 'left');
     $builder->join('buku b', 'b.id_buku = dp.id_buku', 'left');
 
-
-    // ================= SEARCH =================
+    // 🔍 SEARCH TAMBAHAN
     if ($keyword) {
         $builder->groupStart()
             ->like('pm.id_peminjaman', $keyword)
             ->orLike('u.nama', $keyword)
+            ->orLike('p.status', $keyword)
             ->orLike('b.judul', $keyword)
-            ->groupEnd();
+        ->groupEnd();
     }
 
     $data['pengembalian'] = $builder
@@ -59,209 +53,79 @@ class Pengembalian extends BaseController
 
     return view('pengembalian/index', $data);
 }
-    // ================= FORM CREATE =================
-    public function create()
+
+    public function acc($id_peminjaman)
     {
-        return view('pengembalian/create');
-    }
-
-    public function lunas($id_pengembalian)
-{
-    $this->db->table('pengembalian')
-        ->where('id_pengembalian', $id_pengembalian)
-        ->update([
-            'status_bayar' => 'lunas',
-            'metode_bayar' => 'cash',
-            'tanggal_bayar' => date('Y-m-d'),
-            'denda' => 0
-        ]);
-
-    return redirect()->back()->with('success', 'Pembayaran berhasil');
-}
-   public function dikembalikan($id)
-{
-    $peminjaman = $this->db->table('peminjaman')
-        ->where('id_peminjaman', $id)
-        ->get()->getRowArray();
-
-    if (!$peminjaman) {
-        return redirect()->back()->with('error', 'Data tidak ditemukan');
-    }
-
-    $today = date('Y-m-d');
-
-    // ================= HITUNG TERLAMBAT =================
-    $terlambat = 0;
-    if ($today > $peminjaman['tanggal_kembali']) {
-        $terlambat = floor((strtotime($today) - strtotime($peminjaman['tanggal_kembali'])) / 86400);
-    }
-
-    // ================= AMBIL JUMLAH BUKU =================
-    $detail = $this->db->table('detail_peminjaman')
-        ->where('id_peminjaman', $id)
-        ->get()->getResultArray();
-
-    $jumlahBuku = count($detail);
-
-    // ================= HITUNG DENDA =================
-    $denda = $terlambat * 5000 * $jumlahBuku;
-
-    // ================= INSERT KE PENGEMBALIAN =================
-    $this->db->table('pengembalian')->insert([
-        'id_peminjaman' => $id,
-        'tanggal_dikembalikan' => $today,
-        'status' => 'disetujui',
-        'denda' => $denda
-    ]);
-
-    $id_pengembalian = $this->db->insertID();
-
-    // ================= UPDATE STATUS PEMINJAMAN =================
-    $this->db->table('peminjaman')
-        ->where('id_peminjaman', $id)
-        ->update([
-            'status' => 'dikembalikan'
-        ]);
-
-    // ================= KEMBALIKAN STOK =================
-    foreach ($detail as $d) {
-        $this->db->table('buku')
-            ->where('id_buku', $d['id_buku'])
-            ->set('jumlah', 'jumlah + '.$d['jumlah'], false)
-            ->update();
-    }
-
-    // ================= MASUK KE TABEL DENDA =================
-    if ($denda > 0) {
-        $this->db->table('denda')->insert([
-            'id_pengembalian' => $id_pengembalian,
-            'total_denda' => $denda,
-            'hari_terlambat' => $terlambat,
-            'status_bayar' => 'belum'
-        ]);
-
-        return redirect()->back()->with('error', 'Terlambat! Denda Rp '.number_format($denda));
-    }
-
-    return redirect()->back()->with('success', 'Buku berhasil dikembalikan');
-}
-   public function acc($id_peminjaman)
-{
-    // ambil peminjaman
-    $peminjaman = $this->db->table('peminjaman')
-        ->where('id_peminjaman', $id_peminjaman)
-        ->get()->getRowArray();
-
-    if (!$peminjaman) {
-        return redirect()->back()->with('error', 'Data tidak ditemukan');
-    }
-
-    $tanggal_dikembalikan = date('Y-m-d');
-    $tanggal_kembali = $peminjaman['tanggal_kembali'];
-
-    // hitung telat
-    $terlambat = 0;
-    if ($tanggal_dikembalikan > $tanggal_kembali) {
-        $terlambat = floor((strtotime($tanggal_dikembalikan) - strtotime($tanggal_kembali)) / 86400);
-    }
-
-    $denda = $terlambat * 5000;
-
-    // 🔥 UPDATE ATAU INSERT PENGEMBALIAN
-    $cek = $this->db->table('pengembalian')
-        ->where('id_peminjaman', $id_peminjaman)
-        ->get()->getRowArray();
-
-    if ($cek) {
-        $this->db->table('pengembalian')
-            ->where('id_peminjaman', $id_peminjaman)
-            ->update([
-                'tanggal_dikembalikan' => $tanggal_dikembalikan,
-                'status' => 'disetujui',
-                'denda' => $denda
-            ]);
-    } else {
-        $this->db->table('pengembalian')->insert([
-            'id_peminjaman' => $id_peminjaman,
-            'tanggal_dikembalikan' => $tanggal_dikembalikan,
-            'status' => 'disetujui',
-            'denda' => $denda
-        ]);
-    }
-
-    // 🔥 INI YANG PALING PENTING (STATUS UTAMA)
-    $this->db->table('peminjaman')
-        ->where('id_peminjaman', $id_peminjaman)
-        ->update([
-            'status' => 'dikembalikan'
-        ]);
-
-    return redirect()->back()->with('success', 'Berhasil dikembalikan');
-}
-    // ================= PROSES PENGEMBALIAN =================
-    public function store()
-    {
-        $id_peminjaman = $this->request->getPost('id_peminjaman');
-
-        // ambil data peminjaman
         $peminjaman = $this->db->table('peminjaman')
             ->where('id_peminjaman', $id_peminjaman)
-            ->get()->getRowArray();
+            ->get()
+            ->getRowArray();
 
         if (!$peminjaman) {
-            return redirect()->back()->with('error', 'ID tidak valid');
+            return redirect()->back()->with('error', 'Data tidak ditemukan');
         }
 
-        // cek status
-        if ($peminjaman['status'] == 'kembali') {
+        if ($peminjaman['status'] == 'dikembalikan') {
             return redirect()->back()->with('error', 'Sudah dikembalikan');
         }
 
         $today = date('Y-m-d');
         $batas = $peminjaman['tanggal_kembali'];
 
-        // hitung keterlambatan
         $terlambat = 0;
         if ($today > $batas) {
-            $terlambat = (strtotime($today) - strtotime($batas)) / (60 * 60 * 24);
+            $terlambat = floor((strtotime($today) - strtotime($batas)) / 86400);
         }
 
         $denda = $terlambat * 5000;
 
-        // ================= UPDATE STOK =================
+        $cek = $this->db->table('pengembalian')
+            ->where('id_peminjaman', $id_peminjaman)
+            ->get()
+            ->getRowArray();
+
+        if ($cek) {
+            $this->db->table('pengembalian')
+                ->where('id_peminjaman', $id_peminjaman)
+                ->update([
+                    'tanggal_dikembalikan' => $today,
+                    'status' => 'disetujui',
+                    'denda' => $denda
+                ]);
+        } else {
+            $this->db->table('pengembalian')->insert([
+                'id_peminjaman' => $id_peminjaman,
+                'tanggal_dikembalikan' => $today,
+                'status' => 'disetujui',
+                'denda' => $denda
+            ]);
+        }
+
+        $this->db->table('peminjaman')
+            ->where('id_peminjaman', $id_peminjaman)
+            ->update([
+                'status' => 'dikembalikan'
+            ]);
+
+        // kembalikan stok
         $detail = $this->db->table('detail_peminjaman')
             ->where('id_peminjaman', $id_peminjaman)
-            ->get()->getResultArray();
+            ->get()
+            ->getResultArray();
 
         foreach ($detail as $d) {
             $this->db->table('buku')
-                ->set('tersedia', 'tersedia + '.$d['jumlah'], false)
                 ->where('id_buku', $d['id_buku'])
+                ->set('jumlah', 'jumlah + '.$d['jumlah'], false)
                 ->update();
         }
 
-        // ================= SIMPAN PENGEMBALIAN =================
-        $this->pengembalian->insert([
-            'id_peminjaman' => $id_peminjaman,
-            'tanggal_dikembalikan' => $today,
-            'denda' => $denda
-        ]);
-
-        // ================= UPDATE STATUS =================
-        $this->db->table('peminjaman')
-            ->where('id_peminjaman', $id_peminjaman)
-            ->update(['status' => 'kembali']);
-
-        return redirect()->to('/pengembalian')->with('success', 'Pengembalian berhasil');
+        return redirect()->back()->with('success', 'Berhasil dikembalikan');
     }
-    
-   
-    // ================= DELETE =================
+
     public function delete($id)
     {
-        $model = new PengembalianModel();
-        $model->delete($id);
-
+        $this->pengembalian->delete($id);
         return redirect()->to('/pengembalian');
     }
 }

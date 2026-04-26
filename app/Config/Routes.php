@@ -56,6 +56,7 @@ $routes->post('/rak/update/(:num)','Rak::update/$1');
 $routes->get('/rak/delete/(:num)','Rak::delete/$1');
 $routes->get('rak/edit/(:num)', 'Rak::edit/$1');
 $routes->post('rak/store', 'Rak::store');
+$routes->get('rak/print', 'Buku::print');
 
 
 //KATEGORI
@@ -67,6 +68,7 @@ $routes->post('/kategori/update/(:num)','Kategori::update/$1');
 $routes->get('/kategori/delete/(:num)','Kategori::delete/$1');
 $routes->get('kategori/edit/(:num)', 'Kategori::edit/$1');
 $routes->post('/kategori/store','kategori::store');
+$routes->get('kategori/print', 'Buku::print');
 
 
 //PENULIS
@@ -76,6 +78,8 @@ $routes->post('/penulis/store','penulis::store');
 $routes->get('/penulis/edit/(:num)','Penulis::edit/$1');
 $routes->post('/penulis/update/(:num)','Penulis::update/$1');
 $routes->get('/penulis/delete/(:num)','Penulis::delete/$1');
+$routes->get('penulis/print', 'Buku::print');
+
 
 //PENERBIT
 $routes->get('/penerbit', 'Penerbit::index');
@@ -84,6 +88,8 @@ $routes->post('/penerbit/store','Penerbit::store');
 $routes->get('/penerbit/edit/(:num)','Penerbit::edit/$1');
 $routes->post('/penerbit/update/(:num)','Penerbit::update/$1');
 $routes->get('/penerbit/delete/(:num)','Penerbit::delete/$1');
+$routes->get('penerbit/print', 'Buku::print');
+
 
 //PEMINJAMAN
 $routes->get('peminjaman', 'Peminjaman::index');
@@ -100,6 +106,7 @@ $routes->get('peminjaman/approvePerpanjang/(:num)', 'Peminjaman::approvePerpanja
 $routes->get('peminjaman/tolakPerpanjang/(:num)', 'Peminjaman::tolakPerpanjang/$1');
 $routes->get('peminjaman/acc/(:num)', 'Peminjaman::acc/$1');
 $routes->get('peminjaman/setujui/(:num)', 'Peminjaman::setujui/$1');
+$routes->get('peminjaman/print', 'Buku::print');
 
 //DENDA
 $routes->post('denda/bayar/(:num)', 'Denda::bayarDenda/$1');
@@ -115,6 +122,7 @@ $routes->post('petugas/store', 'Petugas::store');
 $routes->get('petugas/edit/(:num)', 'Petugas::edit/$1');
 $routes->post('petugas/update/(:num)', 'Petugas::update/$1');
 $routes->get('petugas/delete/(:num)', 'Petugas::delete/$1');
+$routes->get('petugas/print', 'Buku::print');
 
 //PENGEMBALIAN
 $routes->get('pengembalian', 'Pengembalian::index');
@@ -129,6 +137,7 @@ $routes->get('pengembalian/dikembalikan/(:num)', 'Pengembalian::dikembalikan/$1'
 $routes->post('pengembalian/bayar/(:num)', 'Pengembalian::bayarDenda/$1');
 $routes->get('pengembalian/create/(:num)', 'Pengembalian::create/$1');
 $routes->get('pengembalian/lunas/(:num)', 'Pengembalian::lunas/$1');
+$routes->get('pengembalian/print', 'Buku::print');
 
 //BACKUP
 $routes->get('/backup', 'Backup::index');
@@ -139,5 +148,3 @@ $routes->post('/restore/auth', 'Restore::auth');
 $routes->get('/restore/form', 'Restore::form');
 $routes->post('/restore/process', 'Restore::process');
 
-//DASHBOARD
-$routes->get('/dashboard', 'Dashboard::index');

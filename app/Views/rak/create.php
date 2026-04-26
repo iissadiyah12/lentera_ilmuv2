@@ -1,19 +1,52 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
-<h2>Tambah Rak</h2>
+<div class="container py-4">
 
-<form action="<?= base_url('rak/store') ?>" method="post">
-    
-Nama Rak:<br>
-<input type="text" name="nama_rak"><br><br>
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
 
-Lokasi:<br>
-<input type="text" name="lokasi"><br><br>
+            <div class="card shadow-sm border-0">
 
-<button type="submit">Simpan</button>
-<a href="<?= base_url('rak') ?>">Kembali</a>
+                <div class="card-header bg-success text-white d-flex align-items-center">
+                    <i class="bi bi-box-seam me-2"></i>
+                    <h5 class="mb-0">Tambah Rak</h5>
+                </div>
 
-</form>
+                <div class="card-body">
+
+                    <form action="<?= base_url('rak/store') ?>" method="post">
+
+                        <div class="mb-3">
+                            <label class="form-label">Nama Rak</label>
+                            <input type="text" name="nama_rak" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Lokasi</label>
+                            <input type="text" name="lokasi" class="form-control" required>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4">
+
+                            <a href="<?= base_url('rak') ?>" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Kembali
+                            </a>
+
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-save"></i> Simpan
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
 
 <?= $this->endSection() ?>

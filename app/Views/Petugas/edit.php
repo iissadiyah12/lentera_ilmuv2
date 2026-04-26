@@ -1,11 +1,51 @@
-<h2>Edit Petugas</h2>
+<?= $this->extend('layouts/main') ?>
+<?= $this->section('content') ?>
 
-<form method="post" action="<?= base_url('petugas/update/'.$petugas['id_petugas']) ?>">
+<div class="container py-4">
 
-Jabatan:<br>
-<input type="text" name="jabatan" value="<?= $petugas['jabatan'] ?>"><br><br>
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
 
-<button type="submit">Update</button>
-<a href="<?= base_url('petugas') ?>">Kembali</a>
+            <div class="card shadow-sm border-0">
 
-</form>
+                <div class="card-header bg-warning text-dark d-flex align-items-center">
+                    <i class="bi bi-pencil-square me-2"></i>
+                    <h5 class="mb-0">Edit Petugas</h5>
+                </div>
+
+                <div class="card-body">
+
+                    <form method="post" action="<?= base_url('petugas/update/'.$petugas['id_petugas']) ?>">
+
+                        <div class="mb-3">
+                            <label class="form-label">Jabatan</label>
+                            <input type="text"
+                                   name="jabatan"
+                                   class="form-control"
+                                   value="<?= $petugas['jabatan'] ?>"
+                                   required>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4">
+
+                            <a href="<?= base_url('petugas') ?>" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Kembali
+                            </a>
+
+                            <button type="submit" class="btn btn-warning">
+                                <i class="bi bi-save"></i> Update
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<?= $this->endSection() ?>

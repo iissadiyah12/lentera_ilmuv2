@@ -1,11 +1,54 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
-<h2>Edit Rak</h2>
+<div class="container py-4">
 
-<form action="/rak/update/<?= $rak['id_rak'] ?>" method="post">
-Nama Rak: <input type="text" name="nama_rak" value="<?= $rak['nama_rak'] ?>"><br>
-Lokasi: <input type="text" name="lokasi" value="<?= $rak['lokasi'] ?>"><br>
-<button type="submit">Update</button>
-</form>
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-header bg-warning text-dark d-flex align-items-center">
+                    <i class="bi bi-pencil-square me-2"></i>
+                    <h5 class="mb-0">Edit Rak</h5>
+                </div>
+
+                <div class="card-body">
+
+                    <form action="/rak/update/<?= $rak['id_rak'] ?>" method="post">
+
+                        <div class="mb-3">
+                            <label class="form-label">Nama Rak</label>
+                            <input type="text" name="nama_rak" class="form-control"
+                                   value="<?= $rak['nama_rak'] ?>" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Lokasi</label>
+                            <input type="text" name="lokasi" class="form-control"
+                                   value="<?= $rak['lokasi'] ?>" required>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4">
+
+                            <a href="<?= base_url('rak') ?>" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Kembali
+                            </a>
+
+                            <button type="submit" class="btn btn-warning">
+                                <i class="bi bi-save"></i> Update
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
 <?= $this->endSection() ?>
