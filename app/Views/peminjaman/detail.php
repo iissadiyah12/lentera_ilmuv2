@@ -18,14 +18,14 @@
 <tr>
     <td>Buku</td>
     <td>
-        <?php if (!empty($detail)): ?>
-            <?php foreach ($detail as $d): ?>
-                <?= $d['judul'] ?> (<?= $d['jumlah'] ?>)<br>
-            <?php endforeach; ?>
-        <?php else: ?>
-            -
-        <?php endif; ?>
-    </td>
+<?php if (!empty($detail)): ?>
+    <?php foreach ($detail as $d): ?>
+        <?= $d['judul'] ?> (<?= $d['jumlah'] ?>)<br>
+    <?php endforeach; ?>
+<?php else: ?>
+    -
+<?php endif; ?>
+</td>
 </tr>
 <tr>
     <td>Status</td>

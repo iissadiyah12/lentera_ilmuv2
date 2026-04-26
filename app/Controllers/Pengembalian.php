@@ -22,16 +22,15 @@ class Pengembalian extends BaseController
 
     $builder = $this->db->table('pengembalian p');
 
-    $builder->select('
-        p.*,
-        pm.tanggal_pinjam,
-        pm.tanggal_kembali,
-        u.nama as nama_anggota,
-        pt.jabatan as nama_petugas,
-        GROUP_CONCAT(b.judul SEPARATOR ", ") as judul,
-        d.status_bayar,
-        d.metode_bayar
-    ');
+   $builder->select('
+    p.*,
+    pm.tanggal_pinjam,
+    pm.tanggal_kembali,
+    u.nama as nama_anggota,
+    pt.jabatan as nama_petugas,
+    GROUP_CONCAT(b.judul SEPARATOR ", ") as judul,
+
+');
 
     // ================= JOIN =================
     $builder->join('peminjaman pm', 'pm.id_peminjaman = p.id_peminjaman');
@@ -42,8 +41,6 @@ class Pengembalian extends BaseController
     $builder->join('detail_peminjaman dp', 'dp.id_peminjaman = pm.id_peminjaman', 'left');
     $builder->join('buku b', 'b.id_buku = dp.id_buku', 'left');
 
-    // 🔥 FIX DENDA (INI YANG PENTING)
-    $builder->join('denda d', 'd.id_pengembalian = p.id_pengembalian', 'left');
 
     // ================= SEARCH =================
     if ($keyword) {
@@ -68,6 +65,19 @@ class Pengembalian extends BaseController
         return view('pengembalian/create');
     }
 
+    public function lunas($id_pengembalian)
+{
+    $this->db->table('pengembalian')
+        ->where('id_pengembalian', $id_pengembalian)
+        ->update([
+            'status_bayar' => 'lunas',
+            'metode_bayar' => 'cash',
+            'tanggal_bayar' => date('Y-m-d'),
+            'denda' => 0
+        ]);
+
+    return redirect()->back()->with('success', 'Pembayaran berhasil');
+}
    public function dikembalikan($id)
 {
     $peminjaman = $this->db->table('peminjaman')
@@ -135,29 +145,58 @@ class Pengembalian extends BaseController
 
     return redirect()->back()->with('success', 'Buku berhasil dikembalikan');
 }
-   public function acc($id)
+   public function acc($id_peminjaman)
 {
-    // ambil data pengembalian
-    $p = $this->db->table('pengembalian')
-        ->where('id_pengembalian', $id)
-        ->get()
-        ->getRowArray();
+    // ambil peminjaman
+    $peminjaman = $this->db->table('peminjaman')
+        ->where('id_peminjaman', $id_peminjaman)
+        ->get()->getRowArray();
 
-    // update status pengembalian
-    $this->db->table('pengembalian')
-        ->where('id_pengembalian', $id)
-        ->update([
-            'status' => 'disetujui'
+    if (!$peminjaman) {
+        return redirect()->back()->with('error', 'Data tidak ditemukan');
+    }
+
+    $tanggal_dikembalikan = date('Y-m-d');
+    $tanggal_kembali = $peminjaman['tanggal_kembali'];
+
+    // hitung telat
+    $terlambat = 0;
+    if ($tanggal_dikembalikan > $tanggal_kembali) {
+        $terlambat = floor((strtotime($tanggal_dikembalikan) - strtotime($tanggal_kembali)) / 86400);
+    }
+
+    $denda = $terlambat * 5000;
+
+    // 🔥 UPDATE ATAU INSERT PENGEMBALIAN
+    $cek = $this->db->table('pengembalian')
+        ->where('id_peminjaman', $id_peminjaman)
+        ->get()->getRowArray();
+
+    if ($cek) {
+        $this->db->table('pengembalian')
+            ->where('id_peminjaman', $id_peminjaman)
+            ->update([
+                'tanggal_dikembalikan' => $tanggal_dikembalikan,
+                'status' => 'disetujui',
+                'denda' => $denda
+            ]);
+    } else {
+        $this->db->table('pengembalian')->insert([
+            'id_peminjaman' => $id_peminjaman,
+            'tanggal_dikembalikan' => $tanggal_dikembalikan,
+            'status' => 'disetujui',
+            'denda' => $denda
         ]);
+    }
 
-    // update peminjaman (pakai id_peminjaman dari pengembalian)
+    // 🔥 INI YANG PALING PENTING (STATUS UTAMA)
     $this->db->table('peminjaman')
-        ->where('id_peminjaman', $p['id_peminjaman'])
+        ->where('id_peminjaman', $id_peminjaman)
         ->update([
             'status' => 'dikembalikan'
         ]);
 
-    return redirect()->back();
+    return redirect()->back()->with('success', 'Berhasil dikembalikan');
 }
     // ================= PROSES PENGEMBALIAN =================
     public function store()
@@ -216,20 +255,7 @@ class Pengembalian extends BaseController
         return redirect()->to('/pengembalian')->with('success', 'Pengembalian berhasil');
     }
     
-    public function bayarDenda($id_pengembalian)
-{
-    $metode = $this->request->getPost('metode');
-
-    $this->db->table('denda')
-        ->where('id_pengembalian', $id_pengembalian)
-        ->update([
-            'status_bayar' => 'lunas',
-            'metode_bayar' => $metode,
-            'tanggal_bayar' => date('Y-m-d')
-        ]);
-
-    return redirect()->back()->with('success', 'Pembayaran berhasil');
-}
+   
     // ================= DELETE =================
     public function delete($id)
     {

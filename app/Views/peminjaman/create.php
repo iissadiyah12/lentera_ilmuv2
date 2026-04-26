@@ -3,6 +3,13 @@
 
 <h3>Pinjam Buku</h3>
 
+<form method="get">
+    <input type="text" name="keyword" placeholder="Cari buku..." value="<?= $_GET['keyword'] ?? '' ?>">
+    <button type="submit">Cari</button>
+    <a href="<?= base_url('peminjaman/create') ?>">Reset</a>
+</form>
+
+<br>
 <?php if (session()->getFlashdata('error')): ?>
     <div style="color:red;">
         <?= session()->getFlashdata('error') ?>

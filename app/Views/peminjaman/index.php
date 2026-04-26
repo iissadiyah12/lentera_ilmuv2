@@ -23,6 +23,7 @@
 
 <table border="1" cellpadding="2" cellspacing="0">
     <tr>
+        <th>ID</th>
         <th>Anggota</th>
         <th>Petugas</th>
         <th>Buku</th>
@@ -36,6 +37,7 @@
 <?php if (!empty($peminjaman)) : ?>
     <?php foreach ($peminjaman as $p): ?>
         <tr>
+            <td><?= $p['id_peminjaman'] ?></td>
             <td><?= $p['nama_anggota'] ?? '-' ?></td>
             <td><?= $p['nama_petugas'] ?? '-' ?></td>
             <td><?= $p['judul_buku'] ?? '-' ?></td>
@@ -45,7 +47,8 @@
             <td><?= $p['status'] ?></td>
             <td>
             <?php if (session()->get('role') == 'anggota'): ?>
-
+               
+                   
             <a href="<?= base_url('peminjaman/detail/'.$p['id_peminjaman']) ?>">
                 Detail
             </a><br>
@@ -61,41 +64,44 @@
 
             <?php else: ?>
                 <span>Menunggu persetujuan</span>
+
+                <?php if ($p['status'] == 'menunggu'): ?>
+                        <span style="color:orange;">Menunggu</span>
+                    <?php elseif ($p['status'] == 'dipinjam'): ?>
+                        <span style="color:green;">Dipinjam</span>
+                    <?php endif; ?>
             <?php endif; ?>
 
             <?php endif; ?>
-
-            
+             
+              
             </td>
-           
-                            <td>
+            
+                 <td>
                 <?php if (session()->get('role') == 'petugas'): ?>
+               
 
                     <a href="<?= base_url('peminjaman/detail/'.$p['id_peminjaman']) ?>">
                         Detail
                     </a><br>
-
-                    <?php if ($p['status'] == 'menunggu'): ?>
+                   <?php if (session()->get('role') == 'petugas' && $p['status'] == 'menunggu'): ?>
                         <a href="<?= base_url('peminjaman/setujui/'.$p['id_peminjaman']) ?>"
                         onclick="return confirm('Setujui peminjaman ini?')">
-                        Setujui Pinjam
-                        </a><br>
+                        Setujui pimjam
+                        </a>
                     <?php endif; ?>
-
                     <a href="<?= base_url('peminjaman/delete/'.$p['id_peminjaman']) ?>"
                     onclick="return confirm('Yakin hapus?')">
                     Hapus
                     </a>
-
-                <?php endif; ?>
-                   
-                <a href="<?= base_url('peminjaman/delete/'.$p['id_peminjaman']) ?>">
-                    Hapus
-                </a><br>
                 <a href="<?= base_url('peminjaman/approvePerpanjang/' . $p['id_peminjaman']) ?>">
                     setujui
                     </a>          
                 </td>
+                
+                <?php endif; ?>
+                   
+                
         
                         
         </tr>

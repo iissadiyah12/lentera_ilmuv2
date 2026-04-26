@@ -140,7 +140,7 @@ class Peminjaman extends BaseController
 
         return redirect()->to('/peminjaman')->with('success', 'Berhasil meminjam');
     }
-    public function setujui($id)
+   public function setujui($id)
 {
     $this->db->table('peminjaman')
         ->where('id_peminjaman', $id)

@@ -13,18 +13,16 @@
 <a href="<?= base_url('/peminjaman') ?>">
     <i class="bi bi-journal-arrow-up"></i> Peminjaman
 </a><br>
-<a href="<?= base_url('/pengembalian') ?>">
-        <i class="bi bi-journal-check"></i> Pengembalian
-    </a><br>
-<a href="<?= base_url('/denda') ?>">
-    <i class="bi bi-wallet2"></i> Denda
-</a><br>
+
+
 
 <?php if (session()->get('role') == 'admin' || session()->get('role') == 'petugas') : ?>
 
  
 <?php $idu = session('id'); ?>
-
+<a href="<?= base_url('/pengembalian') ?>">
+        <i class="bi bi-journal-check"></i> Pengembalian
+    </a><br>
     
     <a href="<?= base_url('/users') ?>">
         <i class="bi bi-people"></i> Users

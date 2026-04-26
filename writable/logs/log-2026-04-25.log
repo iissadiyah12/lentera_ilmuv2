@@ -9584,3 +9584,1290 @@ in APPPATH\Views\layouts\dashboard.php on line 32.
 DEBUG - 2026-04-25 17:58:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-25 17:59:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-25 17:59:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:02:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:02:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:02:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:02:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-25 18:04:21 --> Duplicate entry '13' for key 'id_rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'13\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'13\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'13\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (:id_buku.1:, :id_rak:)', [...], false)
+ 5 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Buku.php(198): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->update('1')
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+11 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:04:21 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '13' for key 'id_rak'
+[Method: POST, Route: buku/update/1]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (:id_buku.1:, :id_rak:)', [...], false)
+ 2 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Buku.php(198): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->update('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:04:21 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '13' for key 'id_rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'13\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'13\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (:id_buku.1:, :id_rak:)', [...], false)
+ 4 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Buku.php(198): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->update('1')
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:04:21 --> [Caused by] mysqli_sql_exception: Duplicate entry '13' for key 'id_rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'13\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'13\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'13\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (:id_buku.1:, :id_rak:)', [...], false)
+ 5 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Buku.php(198): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->update('1')
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+11 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-25 18:04:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-25 18:04:31 --> Duplicate entry '8' for key 'id_rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'8\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'8\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'8\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (:id_buku.1:, :id_rak:)', [...], false)
+ 5 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Buku.php(198): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->update('1')
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+11 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:04:31 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '8' for key 'id_rak'
+[Method: POST, Route: buku/update/1]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (:id_buku.1:, :id_rak:)', [...], false)
+ 2 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Buku.php(198): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->update('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:04:31 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '8' for key 'id_rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'8\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'8\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (:id_buku.1:, :id_rak:)', [...], false)
+ 4 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Buku.php(198): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->update('1')
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:04:31 --> [Caused by] mysqli_sql_exception: Duplicate entry '8' for key 'id_rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'8\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'8\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (\'1\', \'8\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku_rak` (`id_buku`, `id_rak`) VALUES (:id_buku.1:, :id_rak:)', [...], false)
+ 5 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Buku.php(198): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Buku->update('1')
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+11 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-25 18:04:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:04:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:04:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:05:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:05:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:06:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:06:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:06:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:06:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:06:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:06:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:06:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:06:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:06:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:06:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:06:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:06:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:06:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:07:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-25 18:08:01 --> ErrorException: Undefined array key "nama_petugas"
+[Method: GET, Route: peminjaman/detail/84]
+in APPPATH\Views\peminjaman\detail.php on line 15.
+ 1 APPPATH\Views\peminjaman\detail.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_petugas"', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\peminjaman\\detail.php', 15)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\peminjaman\\detail.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('peminjaman/detail', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(223): view('peminjaman/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-25 18:08:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-25 18:11:17 --> Unknown column 'p.id_peminjaman*' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = :p.id_peminjaman*:', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(216): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:11:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.id_peminjaman*' in 'where clause'
+[Method: GET, Route: peminjaman/detail/84]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = :p.id_peminjaman*:', [...], false)
+ 2 APPPATH\Controllers\Peminjaman.php(216): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:11:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.id_peminjaman*' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = :p.id_peminjaman*:', [...], false)
+ 4 APPPATH\Controllers\Peminjaman.php(216): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:11:17 --> [Caused by] mysqli_sql_exception: Unknown column 'p.id_peminjaman*' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = :p.id_peminjaman*:', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(216): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 18:11:29 --> Unknown column 'p.id_peminjaman*' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = :p.id_peminjaman*:', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(216): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:11:29 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.id_peminjaman*' in 'where clause'
+[Method: GET, Route: peminjaman/detail/84]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = :p.id_peminjaman*:', [...], false)
+ 2 APPPATH\Controllers\Peminjaman.php(216): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:11:29 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.id_peminjaman*' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = :p.id_peminjaman*:', [...], false)
+ 4 APPPATH\Controllers\Peminjaman.php(216): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:11:29 --> [Caused by] mysqli_sql_exception: Unknown column 'p.id_peminjaman*' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = :p.id_peminjaman*:', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(216): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-25 18:11:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:11:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-25 18:13:38 --> Unknown column 'p.id_user' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:13:38 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.id_user' in 'on clause'
+[Method: GET, Route: peminjaman/detail/84]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 2 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:13:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.id_user' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 4 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:13:38 --> [Caused by] mysqli_sql_exception: Unknown column 'p.id_user' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 18:13:39 --> Unknown column 'p.id_user' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:13:39 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.id_user' in 'on clause'
+[Method: GET, Route: peminjaman/detail/84]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 2 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:13:39 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.id_user' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 4 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:13:39 --> [Caused by] mysqli_sql_exception: Unknown column 'p.id_user' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 18:15:01 --> Unknown column 'p.id_user' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:15:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.id_user' in 'on clause'
+[Method: GET, Route: peminjaman/detail/84]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 2 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:15:01 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.id_user' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 4 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:15:01 --> [Caused by] mysqli_sql_exception: Unknown column 'p.id_user' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-25 18:15:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-25 18:15:04 --> Unknown column 'p.id_user' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:15:04 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.id_user' in 'on clause'
+[Method: GET, Route: peminjaman/detail/84]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 2 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:15:04 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.id_user' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 4 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:15:04 --> [Caused by] mysqli_sql_exception: Unknown column 'p.id_user' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = \'84\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`, `up`.`nama` as `nama_petugas`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `p`.`id_user`
+LEFT JOIN `users` `up` ON `up`.`id_user` = `p`.`id_petugas`
+WHERE `p`.`id_peminjaman` = :p.id_peminjaman:', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 18:15:33 --> Unknown column 'p.id_peminjaman*' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = :p.id_peminjaman*:', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(216): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:15:33 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.id_peminjaman*' in 'where clause'
+[Method: GET, Route: peminjaman/detail/84]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = :p.id_peminjaman*:', [...], false)
+ 2 APPPATH\Controllers\Peminjaman.php(216): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:15:33 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.id_peminjaman*' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = :p.id_peminjaman*:', [...], false)
+ 4 APPPATH\Controllers\Peminjaman.php(216): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 18:15:33 --> [Caused by] mysqli_sql_exception: Unknown column 'p.id_peminjaman*' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = \'84\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `u`.`nama` as `nama_anggota`
+FROM `peminjaman` `p`
+LEFT JOIN `users` `u` ON `u`.`id_user` = `id_user`
+WHERE `p`.`id_peminjaman*` = :p.id_peminjaman*:', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(216): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->detail('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-25 18:15:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:16:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:16:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:23:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:23:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:23:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:28:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:28:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:28:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:28:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:28:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:29:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:29:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 18:29:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 19:08:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 19:08:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 19:08:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 19:08:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 19:08:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 19:09:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 19:09:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 19:09:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 19:09:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 19:09:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 19:09:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 19:09:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 20:17:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 20:38:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 20:38:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:20:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:20:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:20:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:20:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:20:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:20:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:20:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:20:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:20:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:21:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:21:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:21:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:21:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:21:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:21:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:21:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:22:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:22:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:23:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:24:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:24:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:25:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:25:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:25:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:25:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:25:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:25:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:25:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:26:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:26:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:31:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:31:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:31:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:31:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:31:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:31:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:31:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:32:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:33:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:41:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:41:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:41:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:41:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:41:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:42:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:42:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:42:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:46:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:46:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:48:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:48:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:48:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:48:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:48:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:54:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:57:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:57:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:57:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 21:57:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-25 21:59:01 --> Duplicate entry '84' for key 'id_peminjaman'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 5 APPPATH\Controllers\Pengembalian.php(103): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 21:59:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '84' for key 'id_peminjaman'
+[Method: GET, Route: pengembalian/acc/84]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 2 APPPATH\Controllers\Pengembalian.php(103): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('84')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 21:59:01 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '84' for key 'id_peminjaman'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 4 APPPATH\Controllers\Pengembalian.php(103): CodeIgniter\Database\BaseBuilder->insert([...])
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('84')
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 21:59:01 --> [Caused by] mysqli_sql_exception: Duplicate entry '84' for key 'id_peminjaman'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 5 APPPATH\Controllers\Pengembalian.php(103): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-25 22:04:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:04:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:04:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:04:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:09:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:09:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:09:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:09:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:09:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:09:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:11:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:11:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:11:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:11:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:12:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:12:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:12:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:12:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:13:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:13:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:13:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-25 22:13:14 --> Duplicate entry '14' for key 'id_buku'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (87, \'14\', 1)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (87, \'14\', 1)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (87, \'14\', 1)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (:id_peminjaman:, :id_buku:, :jumlah:)', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(132): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->store()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-25 22:13:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:13:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-25 22:13:57 --> Duplicate entry '84' for key 'id_peminjaman'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 5 APPPATH\Controllers\Pengembalian.php(110): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 22:13:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '84' for key 'id_peminjaman'
+[Method: GET, Route: pengembalian/acc/84]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 2 APPPATH\Controllers\Pengembalian.php(110): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('84')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 22:13:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '84' for key 'id_peminjaman'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 4 APPPATH\Controllers\Pengembalian.php(110): CodeIgniter\Database\BaseBuilder->insert([...])
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('84')
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 22:13:57 --> [Caused by] mysqli_sql_exception: Duplicate entry '84' for key 'id_peminjaman'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'84\', \'2026-04-25\', \'disetujui\', 95000)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 5 APPPATH\Controllers\Pengembalian.php(110): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('84')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 22:14:04 --> Duplicate entry '85' for key 'id_peminjaman'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'85\', \'2026-04-25\', \'disetujui\', 0)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'85\', \'2026-04-25\', \'disetujui\', 0)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'85\', \'2026-04-25\', \'disetujui\', 0)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 5 APPPATH\Controllers\Pengembalian.php(110): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('85')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 22:14:04 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '85' for key 'id_peminjaman'
+[Method: GET, Route: pengembalian/acc/85]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 2 APPPATH\Controllers\Pengembalian.php(110): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('85')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 22:14:04 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '85' for key 'id_peminjaman'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'85\', \'2026-04-25\', \'disetujui\', 0)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'85\', \'2026-04-25\', \'disetujui\', 0)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 4 APPPATH\Controllers\Pengembalian.php(110): CodeIgniter\Database\BaseBuilder->insert([...])
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('85')
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 22:14:04 --> [Caused by] mysqli_sql_exception: Duplicate entry '85' for key 'id_peminjaman'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'85\', \'2026-04-25\', \'disetujui\', 0)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'85\', \'2026-04-25\', \'disetujui\', 0)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'85\', \'2026-04-25\', \'disetujui\', 0)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 5 APPPATH\Controllers\Pengembalian.php(110): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('85')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 22:14:09 --> Duplicate entry '87' for key 'id_peminjaman'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'87\', \'2026-04-25\', \'disetujui\', 0)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'87\', \'2026-04-25\', \'disetujui\', 0)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'87\', \'2026-04-25\', \'disetujui\', 0)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 5 APPPATH\Controllers\Pengembalian.php(110): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('87')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 22:14:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '87' for key 'id_peminjaman'
+[Method: GET, Route: pengembalian/acc/87]
+in SYSTEMPATH\Database\BaseConnection.php on line 865.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 2 APPPATH\Controllers\Pengembalian.php(110): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('87')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 22:14:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '87' for key 'id_peminjaman'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'87\', \'2026-04-25\', \'disetujui\', 0)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'87\', \'2026-04-25\', \'disetujui\', 0)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 4 APPPATH\Controllers\Pengembalian.php(110): CodeIgniter\Database\BaseBuilder->insert([...])
+ 5 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('87')
+ 6 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 22:14:09 --> [Caused by] mysqli_sql_exception: Duplicate entry '87' for key 'id_peminjaman'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'87\', \'2026-04-25\', \'disetujui\', 0)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'87\', \'2026-04-25\', \'disetujui\', 0)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (\'87\', \'2026-04-25\', \'disetujui\', 0)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pengembalian` (`id_peminjaman`, `tanggal_dikembalikan`, `status`, `denda`) VALUES (:id_peminjaman:, :tanggal_dikembalikan:, :status:, :denda:)', [...], false)
+ 5 APPPATH\Controllers\Pengembalian.php(110): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('87')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-25 22:14:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:14:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:14:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-25 22:14:40 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: pengembalian/acc/87]
+in APPPATH\Controllers\Pengembalian.php on line 155.
+ 1 APPPATH\Controllers\Pengembalian.php(155): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Controllers\\Pengembalian.php', 155)
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('87')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 22:14:55 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: pengembalian/acc/87]
+in APPPATH\Controllers\Pengembalian.php on line 155.
+ 1 APPPATH\Controllers\Pengembalian.php(155): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Controllers\\Pengembalian.php', 155)
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('87')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 22:15:21 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: pengembalian/acc/87]
+in APPPATH\Controllers\Pengembalian.php on line 155.
+ 1 APPPATH\Controllers\Pengembalian.php(155): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Controllers\\Pengembalian.php', 155)
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('87')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 22:18:24 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: pengembalian/acc/87]
+in APPPATH\Controllers\Pengembalian.php on line 155.
+ 1 APPPATH\Controllers\Pengembalian.php(155): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Controllers\\Pengembalian.php', 155)
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('87')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 22:18:25 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: pengembalian/acc/87]
+in APPPATH\Controllers\Pengembalian.php on line 155.
+ 1 APPPATH\Controllers\Pengembalian.php(155): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Controllers\\Pengembalian.php', 155)
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Pengembalian->acc('87')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-25 22:18:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:18:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:18:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:18:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:18:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:18:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:18:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:19:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:19:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:19:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:19:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-25 22:19:22 --> Duplicate entry '14' for key 'id_buku'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (88, \'14\', 1)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (88, \'14\', 1)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (88, \'14\', 1)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (:id_peminjaman:, :id_buku:, :jumlah:)', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(124): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->store()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-25 22:19:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:19:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:20:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:20:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:21:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:30:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:31:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:31:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:31:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:31:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:31:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:31:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:33:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:33:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:33:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:34:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:37:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:37:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:37:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:40:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:40:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:40:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:41:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:41:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:41:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:41:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 22:41:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 23:30:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 23:31:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 23:31:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 23:32:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 23:33:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 23:58:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 23:58:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 23:58:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-25 23:58:30 --> Duplicate entry '1' for key 'id_buku'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (89, \'1\', 1)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (89, \'1\', 1)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (89, \'1\', 1)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (:id_peminjaman:, :id_buku:, :jumlah:)', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(124): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->store()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 23:58:30 --> Duplicate entry '7' for key 'id_buku'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (89, \'7\', 1)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (89, \'7\', 1)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (89, \'7\', 1)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `detail_peminjaman` (`id_peminjaman`, `id_buku`, `jumlah`) VALUES (:id_peminjaman:, :id_buku:, :jumlah:)', [...], false)
+ 5 APPPATH\Controllers\Peminjaman.php(124): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Peminjaman->store()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-25 23:58:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 23:58:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 23:58:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 23:58:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 23:58:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 23:58:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

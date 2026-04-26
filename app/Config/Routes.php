@@ -128,6 +128,7 @@ $routes->get('pengembalian/acc/(:num)', 'Pengembalian::acc/$1');
 $routes->get('pengembalian/dikembalikan/(:num)', 'Pengembalian::dikembalikan/$1');
 $routes->post('pengembalian/bayar/(:num)', 'Pengembalian::bayarDenda/$1');
 $routes->get('pengembalian/create/(:num)', 'Pengembalian::create/$1');
+$routes->get('pengembalian/lunas/(:num)', 'Pengembalian::lunas/$1');
 
 //BACKUP
 $routes->get('/backup', 'Backup::index');
