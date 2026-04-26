@@ -67,10 +67,6 @@
                                 <td><?= $p['jabatan'] ?></td>
                                 <td>
 
-                                    <a href="<?= base_url('petugas/edit/'.$p['id_petugas']) ?>"
-                                       class="btn btn-sm btn-warning">
-                                        <i class="bi bi-pencil-square"></i> Edit
-                                    </a>
 
                                     <a href="<?= base_url('petugas/delete/'.$p['id_petugas']) ?>"
                                        class="btn btn-sm btn-danger"

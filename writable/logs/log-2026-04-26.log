@@ -3462,3 +3462,19 @@ in APPPATH\Views\penerbit\edit.php on line 6.
  9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-26 12:19:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-26 12:19:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-26 12:19:12 --> ErrorException: Undefined variable $penulis
+[Method: GET, Route: penulis/edit/1]
+in APPPATH\Views\penulis\edit.php on line 18.
+ 1 APPPATH\Views\penulis\edit.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $penulis', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penulis\\edit.php', 18)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penulis\\edit.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('penulis/edit', [], true)
+ 5 APPPATH\Controllers\Penulis.php(46): view('penulis/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Penulis->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penulis))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

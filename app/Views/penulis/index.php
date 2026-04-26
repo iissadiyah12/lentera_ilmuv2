@@ -65,10 +65,7 @@
                                 <td><?= $p['nama_penulis'] ?></td>
                                 <td>
 
-                                    <a href="<?= base_url('penulis/edit/'.$p['id_penulis']) ?>"
-                                       class="btn btn-sm btn-warning">
-                                        <i class="bi bi-pencil-square"></i> Edit
-                                    </a>
+                                   
 
                                     <a href="<?= base_url('penulis/delete/'.$p['id_penulis']) ?>"
                                        class="btn btn-sm btn-danger"

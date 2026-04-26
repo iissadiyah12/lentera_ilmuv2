@@ -83,10 +83,7 @@
 
                                     <td class="text-nowrap">
 
-                                        <a href="<?= base_url('penerbit/edit/'.$p['id_penerbit']) ?>"
-                                           class="btn btn-sm btn-warning">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </a>
+                                       
 
                                         <a href="<?= base_url('penerbit/delete/'.$p['id_penerbit']) ?>"
                                            class="btn btn-sm btn-danger"
