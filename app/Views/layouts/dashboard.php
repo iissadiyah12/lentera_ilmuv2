@@ -24,7 +24,7 @@
                             <i class="bi bi-people"></i>
                         </span>
                     </div>
-                    <small class="text-success">Realtime Data</small>
+                    <small class="text-success"></small>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                             <i class="bi bi-book"></i>
                         </span>
                     </div>
-                    <small class="text-success">Realtime Data</small>
+                    <small class="text-success"></small>
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@
                             <i class="bi bi-journal-arrow-up"></i>
                         </span>
                     </div>
-                    <small class="text-success">Realtime Data</small>
+                    <small class="text-success"></small>
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
                             <i class="bi bi-journal-check"></i>
                         </span>
                     </div>
-                    <small class="text-success">Realtime Data</small>
+                    <small class="text-success"></small>
                 </div>
             </div>
         </div>

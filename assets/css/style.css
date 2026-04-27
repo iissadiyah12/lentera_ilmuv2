@@ -1,0 +1,109 @@
+/* BODY */
+body{
+    margin:0;
+    background:#f4f7fa;
+    font-family:Segoe UI, sans-serif;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:260px;
+    height:100vh;
+    background:#111827;
+    position:fixed;
+    left:0;
+    top:0;
+    color:white;
+    padding:20px;
+    overflow-y:auto;
+}
+
+/* LOGO */
+.logo{
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:30px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo i{
+    color:#87afeb;
+}
+
+/* MENU */
+.menu{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.menu li{
+    margin-bottom:8px;
+}
+
+.menu li a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 15px;
+    color:#cbd5e1;
+    text-decoration:none;
+    border-radius:12px;
+    transition:0.2s;
+}
+
+.menu li a:hover{
+    background:#b7d2ff;
+    color:white;
+}
+
+.menu li a i{
+    font-size:18px;
+}
+
+/* MAIN */
+.main-content{
+    margin-left:260px;
+}
+
+/* TOPBAR */
+.topbar{
+    background:white;
+    padding:15px 25px;
+    display:flex;
+    align-items:center;
+    height:70px;
+}
+
+/* CONTENT */
+.content-area{
+    padding:25px;
+}
+
+/* PROFILE */
+.profile-img{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+/* CARD */
+.card{
+    border:none;
+    border-radius:16px;
+}
+
+/* TABLE */
+table{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+/* BUTTON */
+.btn{
+    border-radius:10px;
+}

@@ -3,148 +3,283 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login | Lentera Ilmu</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap -->
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/bootstrap-icons-1.13.1/bootstrap-icons.css') ?>" rel="stylesheet">
 
     <style>
-        body {
-            background: linear-gradient(135deg, #0d6efd 0%, #6f42c1 50%, #20c997 100%);
-            height: 100vh;
-            overflow: hidden;
+        body{
+            margin:0;
+            padding:0;
+            min-height:100vh;
+            background:#f8f9fa;
+            overflow:hidden;
+            font-family:Segoe UI, sans-serif;
+            position:relative;
         }
 
-        .login-card {
-            border: none;
-            border-radius: 18px;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.92);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-            overflow: hidden;
+        /* Background Shape kiri */
+        body::before{
+            content:'';
+            position:absolute;
+            left:-180px;
+            top:0;
+            width:420px;
+            height:100%;
+            background:linear-gradient(180deg,#0d6efd,#20c997);
+            clip-path:polygon(0 0,100% 0,65% 50%,100% 100%,0 100%);
+            opacity:.9;
         }
 
-        .login-header {
-            background: linear-gradient(135deg, #0d6efd, #6610f2);
-            color: white;
-            text-align: center;
-            padding: 25px;
+        body::after{
+            content:'';
+            position:absolute;
+            left:-120px;
+            top:0;
+            width:320px;
+            height:100%;
+            background:rgba(255,255,255,.15);
+            clip-path:polygon(0 0,100% 0,65% 50%,100% 100%,0 100%);
         }
 
-        .login-header h3 {
-            margin: 0;
-            font-weight: 600;
-            letter-spacing: 1px;
+        .brand{
+            position:absolute;
+            top:18px;
+            left:22px;
+            z-index:5;
+            font-size:22px;
+            font-weight:700;
+            color:#0d6efd;
         }
 
-        .form-control {
-            border-radius: 10px;
-            padding: 12px;
+        .login-wrapper{
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            position:relative;
+            z-index:2;
         }
 
-        .btn-login {
-            border-radius: 10px;
-            padding: 10px;
-            font-weight: 600;
-            background: linear-gradient(135deg, #0d6efd, #6610f2);
-            border: none;
+        .login-card{
+            width:360px;
+            background:#fff;
+            border:1px solid #e9ecef;
+            border-radius:10px;
+            box-shadow:0 8px 25px rgba(0,0,0,.08);
+            padding:28px;
         }
 
-        .btn-login:hover {
-            opacity: 0.9;
+        .login-title{
+            font-size:30px;
+            font-weight:700;
+            color:#212529;
         }
 
-        .small-links a {
-            text-decoration: none;
-            font-size: 13px;
+        .form-label{
+            font-size:13px;
+            font-weight:600;
+            margin-bottom:6px;
         }
 
-        .floating-icon {
-            font-size: 40px;
-            color: white;
-            margin-bottom: 10px;
+        .form-control{
+            height:45px;
+            border-radius:6px;
+            font-size:14px;
+        }
+
+        .btn-login{
+            height:45px;
+            border-radius:6px;
+            font-weight:600;
+            background:#0d6efd;
+            border:none;
+        }
+
+        .btn-login:hover{
+            background:#0b5ed7;
+        }
+
+        .divider{
+            text-align:center;
+            position:relative;
+            margin:18px 0;
+            font-size:13px;
+            color:#6c757d;
+        }
+
+        .divider::before{
+            content:'';
+            position:absolute;
+            left:0;
+            top:50%;
+            width:40%;
+            height:1px;
+            background:#dee2e6;
+        }
+
+        .divider::after{
+            content:'';
+            position:absolute;
+            right:0;
+            top:50%;
+            width:40%;
+            height:1px;
+            background:#dee2e6;
+        }
+
+        .social-btn{
+            border:1px solid #dee2e6;
+            font-size:13px;
+            border-radius:6px;
+            width:100%;
+        }
+
+        .footer-left{
+            position:absolute;
+            left:20px;
+            bottom:18px;
+            font-size:12px;
+            color:#6c757d;
+            z-index:5;
+        }
+
+        .footer-right{
+            position:absolute;
+            right:20px;
+            bottom:18px;
+            font-size:12px;
+            z-index:5;
+        }
+
+        .footer-right a{
+            text-decoration:none;
+            color:#0d6efd;
+            margin-left:10px;
+        }
+
+        @media(max-width:768px){
+            body::before,
+            body::after{
+                display:none;
+            }
+
+            .login-card{
+                width:95%;
+            }
+
+            .footer-left,
+            .footer-right{
+                display:none;
+            }
         }
     </style>
-
 </head>
 
 <body>
 
-<div class="container d-flex justify-content-center align-items-center vh-100">
+<div class="brand">
+    <i class="bi bi-book-half"></i> Lentera Ilmu
+</div>
 
-    <div class="col-md-4">
+<div class="login-wrapper">
 
-        <div class="text-center mb-3 text-white">
-            <i class="bi bi-book-half floating-icon"></i>
-            <h4 class="fw-bold">Lentera Ilmu</h4>
-            <small>Sistem Perpustakaan Digital</small>
+    <div class="login-card">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="login-title">Login</div>
+            <a href="<?= base_url('users/create') ?>" class="small text-decoration-none">
+                Belum punya akun?
+            </a>
         </div>
 
-        <div class="card login-card">
+        <!-- ALERT -->
+        <?php if (session()->getFlashdata('error')): ?>
+            <div class="alert alert-danger py-2">
+                <?= session()->getFlashdata('error') ?>
+            </div>
+        <?php endif; ?>
 
-            <div class="login-header">
-                <h3><i class="bi bi-box-arrow-in-right"></i> Login</h3>
+        <?php if (session()->getFlashdata('salahpw')): ?>
+            <div class="alert alert-danger py-2">
+                <?= session()->getFlashdata('salahpw') ?>
+            </div>
+        <?php endif; ?>
+
+        <!-- FORM -->
+        <form action="<?= base_url('/proses-login') ?>" method="post">
+
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text"
+                       name="username"
+                       class="form-control"
+                       placeholder="Masukkan username"
+                       required>
             </div>
 
-            <div class="card-body p-4">
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password"
+                       name="password"
+                       class="form-control"
+                       placeholder="Masukkan password"
+                       required>
+            </div>
 
-                <!-- ALERT -->
-                <?php if (session()->getFlashdata('error')): ?>
-                    <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
-                <?php endif; ?>
-
-                <?php if (session()->getFlashdata('salahpw')): ?>
-                    <div class="alert alert-danger"><?= session()->getFlashdata('salahpw') ?></div>
-                <?php endif; ?>
-
-                <!-- FORM -->
-                <form action="<?= base_url('/proses-login') ?>" method="post">
-
-                    <div class="mb-3">
-                        <label class="form-label">Username</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="bi bi-person"></i></span>
-                            <input type="text" name="username" class="form-control" placeholder="Username" required>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Password</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                            <input type="password" name="password" class="form-control" placeholder="Password" required>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-login w-100 text-white">
-                        <i class="bi bi-box-arrow-in-right"></i> Sign In
-                    </button>
-
-                </form>
-
-                <!-- LINKS -->
-                <div class="text-center mt-3 small-links">
-
-                    <a href="<?= base_url('users/create') ?>" class="text-success me-2">
-                        <i class="bi bi-person-plus"></i> Daftar
-                    </a>
-
-                    <a href="<?= base_url('restore') ?>" class="text-danger">
-                        <i class="bi bi-database"></i> Restore DB
-                    </a>
-
+            <div class="d-flex justify-content-between mb-3 small">
+                <div>
+                    <input type="checkbox"> Keep me sign in
                 </div>
 
+                <a href="<?= base_url('restore') ?>" class="text-decoration-none">
+                    Restore DB?
+                </a>
             </div>
-        </div>
 
-        <div class="text-center mt-3 text-white" style="font-size: 12px;">
-            © <?= date('Y') ?> Lentera Ilmu - All Rights Reserved
+            <button class="btn btn-primary btn-login w-100">
+                Login
+            </button>
+
+        </form>
+
+        <div class="divider">Login With</div>
+
+        <div class="row g-2">
+            <div class="col-4">
+                <button class="btn social-btn">
+                    <i class="bi bi-google text-danger"></i> Google
+                </button>
+            </div>
+
+            <div class="col-4">
+                <button class="btn social-btn">
+                    <i class="bi bi-twitter text-info"></i> Twitter
+                </button>
+            </div>
+
+            <div class="col-4">
+                <button class="btn social-btn">
+                    <i class="bi bi-facebook text-primary"></i> Facebook
+                </button>
+            </div>
         </div>
 
     </div>
 
+</div>
+
+<div class="footer-left">
+    Copyright © <?= date('Y') ?> Lentera Ilmu
+</div>
+
+<div class="footer-right">
+    <a href="#">Home</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Contact</a>
 </div>
 
 <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>

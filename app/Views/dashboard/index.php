@@ -1,114 +1,86 @@
+<!-- FILE: app/Views/dashboard/index.php -->
+
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
-<div class="container-fluid py-4">
+<div class="container-fluid">
 
     <!-- HEADER -->
     <div class="mb-4">
-        <h3 class="fw-bold mb-1">
-            <i class="bi bi-speedometer2"></i> Dashboard
-        </h3>
-        <p class="text-muted mb-0">Selamat datang di Sistem Perpustakaan Lentera Ilmu</p>
+        <h3 class="fw-bold mb-1">Dashboard</h3>
+        <p class="text-muted">Selamat datang di Sistem Perpustakaan Lentera Ilmu</p>
     </div>
 
-    <!-- TOP CARD -->
-    <div class="row g-3">
+    <!-- CARD STATISTIK -->
+    <div class="row g-4">
 
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm h-100">
-                <div class="card-body">
-                    <small class="text-muted">Total Users</small>
-                    <div class="d-flex justify-content-between align-items-center mt-2">
-                        <h3 class="fw-bold mb-0" id="total_users"><?= $total_users ?? 0 ?></h3>
-                        <span class="badge bg-primary">
-                            <i class="bi bi-people"></i>
-                        </span>
-                    </div>
-                    <small class="text-success">Realtime Data</small>
+            <div class="card shadow-sm p-3">
+                <small class="text-muted">Total Users</small>
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <h3 id="total_users"><?= $total_users ?? 0 ?></h3>
+                    <i class="bi bi-people fs-3 text-primary"></i>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm h-100">
-                <div class="card-body">
-                    <small class="text-muted">Total Buku</small>
-                    <div class="d-flex justify-content-between align-items-center mt-2">
-                        <h3 class="fw-bold mb-0" id="total_buku"><?= $total_buku ?? 0 ?></h3>
-                        <span class="badge bg-success">
-                            <i class="bi bi-book"></i>
-                        </span>
-                    </div>
-                    <small class="text-success">Realtime Data</small>
+            <div class="card shadow-sm p-3">
+                <small class="text-muted">Total Buku</small>
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <h3 id="total_buku"><?= $total_buku ?? 0 ?></h3>
+                    <i class="bi bi-book fs-3 text-success"></i>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm h-100">
-                <div class="card-body">
-                    <small class="text-muted">Total Peminjaman</small>
-                    <div class="d-flex justify-content-between align-items-center mt-2">
-                        <h3 class="fw-bold mb-0" id="total_peminjaman"><?= $total_peminjaman ?? 0 ?></h3>
-                        <span class="badge bg-warning text-dark">
-                            <i class="bi bi-journal-arrow-up"></i>
-                        </span>
-                    </div>
-                    <small class="text-success">Realtime Data</small>
+            <div class="card shadow-sm p-3">
+                <small class="text-muted">Peminjaman</small>
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <h3 id="total_peminjaman"><?= $total_peminjaman ?? 0 ?></h3>
+                    <i class="bi bi-journal-arrow-up fs-3 text-warning"></i>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm h-100">
-                <div class="card-body">
-                    <small class="text-muted">Total Pengembalian</small>
-                    <div class="d-flex justify-content-between align-items-center mt-2">
-                        <h3 class="fw-bold mb-0" id="total_pengembalian"><?= $total_pengembalian ?? 0 ?></h3>
-                        <span class="badge bg-info">
-                            <i class="bi bi-journal-check"></i>
-                        </span>
-                    </div>
-                    <small class="text-success">Realtime Data</small>
+            <div class="card shadow-sm p-3">
+                <small class="text-muted">Pengembalian</small>
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <h3 id="total_pengembalian"><?= $total_pengembalian ?? 0 ?></h3>
+                    <i class="bi bi-journal-check fs-3 text-info"></i>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <!-- SECOND ROW -->
-    <div class="row mt-3 g-3">
+    <!-- CHART -->
+    <div class="row mt-4">
 
         <div class="col-md-8">
-            <div class="card border-0 shadow-sm">
-                <div class="card-body">
-                    <h6 class="fw-bold mb-3">Statistik Perpustakaan</h6>
-                    <canvas id="chartDashboard" height="120"></canvas>
-                </div>
+            <div class="card shadow-sm p-4">
+                <h5 class="fw-bold mb-3">Buku Paling Banyak Dipinjam</h5>
+                <canvas id="chartBuku"></canvas>
             </div>
         </div>
 
         <div class="col-md-4">
 
-            <div class="card border-0 shadow-sm mb-3">
-                <div class="card-body">
-                    <small class="text-muted">Denda Belum Lunas</small>
-                    <h3 class="fw-bold text-danger mt-2" id="denda_belum"><?= $denda_belum ?? 0 ?></h3>
-                </div>
+            <div class="card shadow-sm p-3 mb-3">
+                <small class="text-muted">Denda Belum Lunas</small>
+                <h3 id="denda_belum"><?= $denda_belum ?? 0 ?></h3>
             </div>
 
-            <div class="card border-0 shadow-sm mb-3">
-                <div class="card-body">
-                    <small class="text-muted">Total Kategori</small>
-                    <h3 class="fw-bold mt-2" id="total_kategori"><?= $total_kategori ?? 0 ?></h3>
-                </div>
+            <div class="card shadow-sm p-3 mb-3">
+                <small class="text-muted">Kategori</small>
+                <h3 id="total_kategori"><?= $total_kategori ?? 0 ?></h3>
             </div>
 
-            <div class="card border-0 shadow-sm">
-                <div class="card-body">
-                    <small class="text-muted">Total Rak</small>
-                    <h3 class="fw-bold mt-2" id="total_rak"><?= $total_rak ?? 0 ?></h3>
-                </div>
+            <div class="card shadow-sm p-3">
+                <small class="text-muted">Rak Buku</small>
+                <h3 id="total_rak"><?= $total_rak ?? 0 ?></h3>
             </div>
 
         </div>
@@ -118,27 +90,20 @@
 </div>
 
 
-<!-- CHART JS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-const ctx = document.getElementById('chartDashboard');
+const ctx = document.getElementById('chartBuku');
 
-const myChart = new Chart(ctx, {
+const chartBuku = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Users','Buku','Pinjam','Kembali','Denda'],
+        labels: <?= json_encode($chart_label ?? []) ?>,
         datasets: [{
-            label: 'Data Sistem',
-            data: [
-                <?= $total_users ?? 0 ?>,
-                <?= $total_buku ?? 0 ?>,
-                <?= $total_peminjaman ?? 0 ?>,
-                <?= $total_pengembalian ?? 0 ?>,
-                <?= $denda_belum ?? 0 ?>
-            ],
-            borderWidth: 1,
-            borderRadius: 8
+            label: 'Jumlah Dipinjam',
+            data: <?= json_encode($chart_data ?? []) ?>,
+            borderRadius: 8,
+            borderWidth: 1
         }]
     },
     options: {
@@ -153,11 +118,10 @@ const myChart = new Chart(ctx, {
 });
 
 
-// REALTIME AJAX
-function loadRealtime()
-{
+// REALTIME
+function loadRealtime(){
     fetch("<?= base_url('dashboard/realtime') ?>")
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
 
         document.getElementById('total_users').innerHTML = data.total_users;
@@ -168,19 +132,13 @@ function loadRealtime()
         document.getElementById('total_kategori').innerHTML = data.total_kategori;
         document.getElementById('total_rak').innerHTML = data.total_rak;
 
-        myChart.data.datasets[0].data = [
-            data.total_users,
-            data.total_buku,
-            data.total_peminjaman,
-            data.total_pengembalian,
-            data.denda_belum
-        ];
+        chartBuku.data.labels = data.chart_label;
+        chartBuku.data.datasets[0].data = data.chart_data;
+        chartBuku.update();
 
-        myChart.update();
     });
 }
 
-// refresh tiap 5 detik
 setInterval(loadRealtime, 5000);
 </script>
 

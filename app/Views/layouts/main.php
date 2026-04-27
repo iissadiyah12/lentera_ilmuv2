@@ -1,49 +1,64 @@
-<!doctype html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> lentera ilmu </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS Lokal -->
-    <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('assets/bootstrap-icons-1.13.1/bootstrap-icons.css') ?>" rel="stylesheet">
+<title>Lentera Ilmu</title>
 
-    <style>
-        body {
-            font-family: "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            display: flex;
-            min-height: 100vh;
-            overflow-x: auto;
-        }
+<link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
+<link href="<?= base_url('assets/bootstrap-icons-1.13.1/bootstrap-icons.css') ?>" rel="stylesheet">
+<link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
+<link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
 
-        .sidebar {
-            width: 150px;
-            background-color: #fffbd5ff;
-            position: relative;
-        }
-
-        .content {
-            flex-grow: 1;
-            padding: 15px;
-            background-color: #f8f9fa;
-        }
-    </style>
 </head>
-
 <body>
-    <!-- Sidebar -->
-    <div id="sidebar" class="sidebar">
-        <?php include(APPPATH . 'Views/layouts/menu.php'); ?>
+
+<?= $this->include('layouts/sidebar') ?>
+
+<div class="main-content">
+
+    <div class="topbar shadow-sm">
+
+        <div class="dropdown ms-auto">
+
+            <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle"
+               data-bs-toggle="dropdown">
+
+                <img src="<?= base_url('uploads/users/' . session('foto')) ?>"
+                     class="profile-img me-2">
+
+                <span><?= session('nama') ?></span>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end">
+
+                <li>
+                    <a class="dropdown-item"
+                       href="<?= base_url('users/edit/' . session('id')) ?>">
+                       <i class="bi bi-person"></i> Profile
+                    </a>
+                </li>
+
+                <li>
+                    <a class="dropdown-item text-danger"
+                       href="<?= base_url('logout') ?>">
+                       <i class="bi bi-box-arrow-right"></i> Logout
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
     </div>
 
-    <!-- Konten Utama -->
-    <div class="content">
+    <div class="content-area">
         <?= $this->renderSection('content') ?>
     </div>
 
-    <!-- Bootstrap JS Lokal -->
-    <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
-</body>
+</div>
 
+<script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
+</body>
 </html>
