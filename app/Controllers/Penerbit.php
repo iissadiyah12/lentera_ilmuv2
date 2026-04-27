@@ -43,12 +43,17 @@ class Penerbit extends BaseController
     return redirect()->to('/penerbit');
 }
 
-    public function edit($id)
-    {
-        return view('penerbit/edit',[
-            'row'=>$this->model->find($id)
-        ]);
-    }
+   public function edit($id)
+{
+    $db = \Config\Database::connect();
+
+    $data['penerbit'] = $db->table('penerbit')
+        ->where('id_penerbit', $id)
+        ->get()
+        ->getRowArray();
+
+    return view('penerbit/edit', $data);
+}
 
     public function update($id)
     {

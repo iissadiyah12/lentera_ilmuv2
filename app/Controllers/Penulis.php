@@ -42,11 +42,16 @@ class Penulis extends BaseController
 }
 
     public function edit($id)
-    {
-        return view('penulis/edit',[
-            'row'=>$this->model->find($id)
-        ]);
-    }
+{
+    $db = \Config\Database::connect();
+
+    $data['penulis'] = $db->table('penulis')
+        ->where('id_penulis', $id)
+        ->get()
+        ->getRowArray();
+
+    return view('penulis/edit', $data);
+}
 
     public function update($id)
     {

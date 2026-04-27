@@ -12813,3 +12813,144 @@ DEBUG - 2026-04-27 11:07:12 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2026-04-27 11:07:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-27 11:10:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-27 11:10:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-27 11:18:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-27 11:18:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-27 11:19:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-27 11:26:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-27 11:26:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-27 11:26:50 --> ErrorException: Undefined variable $kategori
+[Method: GET, Route: kategori/edit/1]
+in APPPATH\Views\kategori\edit.php on line 18.
+ 1 APPPATH\Views\kategori\edit.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kategori', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\kategori\\edit.php', 18)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\kategori\\edit.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('kategori/edit', [], true)
+ 5 APPPATH\Controllers\Kategori.php(46): view('kategori/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Kategori->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kategori))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-27 11:32:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-27 11:36:40 --> ErrorException: Undefined variable $k
+[Method: GET, Route: penulis]
+in APPPATH\Views\penulis\index.php on line 68.
+ 1 APPPATH\Views\penulis\index.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $k', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penulis\\index.php', 68)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penulis\\index.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('penulis/index', [], true)
+ 5 APPPATH\Controllers\Penulis.php(27): view('penulis/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Penulis->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penulis))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 11:38:05 --> ErrorException: Undefined array key "id_penerbit"
+[Method: GET, Route: penulis]
+in APPPATH\Views\penulis\index.php on line 68.
+ 1 APPPATH\Views\penulis\index.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_penerbit"', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penulis\\index.php', 68)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penulis\\index.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('penulis/index', [], true)
+ 5 APPPATH\Controllers\Penulis.php(27): view('penulis/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Penulis->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penulis))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 11:38:07 --> ErrorException: Undefined array key "id_penerbit"
+[Method: GET, Route: penulis]
+in APPPATH\Views\penulis\index.php on line 68.
+ 1 APPPATH\Views\penulis\index.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_penerbit"', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penulis\\index.php', 68)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penulis\\index.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('penulis/index', [], true)
+ 5 APPPATH\Controllers\Penulis.php(27): view('penulis/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Penulis->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penulis))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-27 11:39:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-27 11:39:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-27 11:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-27 11:40:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-27 11:40:26 --> ErrorException: Undefined variable $rak
+[Method: GET, Route: penerbit/edit/1]
+in APPPATH\Views\penerbit\edit.php on line 6.
+ 1 APPPATH\Views\penerbit\edit.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $rak', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penerbit\\edit.php', 6)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penerbit\\edit.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('penerbit/edit', [], true)
+ 5 APPPATH\Controllers\Penerbit.php(55): view('penerbit/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Penerbit->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerbit))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 11:42:05 --> ErrorException: Undefined variable $rak
+[Method: GET, Route: penerbit/edit/1]
+in APPPATH\Views\penerbit\edit.php on line 6.
+ 1 APPPATH\Views\penerbit\edit.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $rak', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penerbit\\edit.php', 6)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penerbit\\edit.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('penerbit/edit', [], true)
+ 5 APPPATH\Controllers\Penerbit.php(55): view('penerbit/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Penerbit->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerbit))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 11:42:06 --> ErrorException: Undefined variable $rak
+[Method: GET, Route: penerbit/edit/1]
+in APPPATH\Views\penerbit\edit.php on line 6.
+ 1 APPPATH\Views\penerbit\edit.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $rak', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penerbit\\edit.php', 6)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penerbit\\edit.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('penerbit/edit', [], true)
+ 5 APPPATH\Controllers\Penerbit.php(55): view('penerbit/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Penerbit->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerbit))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 11:42:07 --> ErrorException: Undefined variable $rak
+[Method: GET, Route: penerbit/edit/1]
+in APPPATH\Views\penerbit\edit.php on line 6.
+ 1 APPPATH\Views\penerbit\edit.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $rak', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penerbit\\edit.php', 6)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penerbit\\edit.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('penerbit/edit', [], true)
+ 5 APPPATH\Controllers\Penerbit.php(55): view('penerbit/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Penerbit->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerbit))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-27 11:42:08 --> ErrorException: Undefined variable $rak
+[Method: GET, Route: penerbit/edit/1]
+in APPPATH\Views\penerbit\edit.php on line 6.
+ 1 APPPATH\Views\penerbit\edit.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $rak', 'C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penerbit\\edit.php', 6)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\lentera_ilmuv2\\app\\Views\\penerbit\\edit.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('penerbit/edit', [], true)
+ 5 APPPATH\Controllers\Penerbit.php(55): view('penerbit/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Penerbit->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerbit))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-27 11:42:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-27 11:44:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-27 11:44:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-27 11:44:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-27 11:44:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

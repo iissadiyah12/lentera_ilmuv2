@@ -42,11 +42,16 @@ class Kategori extends BaseController
 }
 
     public function edit($id)
-    {
-        return view('kategori/edit',[
-            'row'=>$this->model->find($id)
-        ]);
-    }
+{
+    $db = \Config\Database::connect();
+
+    $data['kategori'] = $db->table('kategori')
+        ->where('id_kategori', $id)
+        ->get()
+        ->getRowArray();
+
+    return view('kategori/edit', $data);
+}
 
     public function update($id)
     {
