@@ -30,7 +30,7 @@
             </a>
         </li>
 
-<?php if(session()->get('role') != 'anggota'): ?>
+<?php if(session()->get('role') == 'admin' || session()->get('role') == 'petugas'): ?>
 
         <li>
             <a href="<?= base_url('/pengembalian') ?>">
@@ -50,6 +50,20 @@
             <a href="<?= base_url('/kategori') ?>">
                 <i class="bi bi-tags"></i>
                 Kategori
+            </a>
+        </li>
+
+        <li>
+            <a href="<?= base_url('/penulis') ?>">
+                <i class="bi bi-pencil-square"></i>
+                Penulis
+            </a>
+        </li>
+
+        <li>
+            <a href="<?= base_url('/penerbit') ?>">
+                <i class="bi bi-tags"></i>
+               Penerbit
             </a>
         </li>
 

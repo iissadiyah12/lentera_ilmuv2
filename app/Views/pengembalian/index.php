@@ -1,9 +1,9 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
-<div class="container py-4">
+<div class="container py-5">
 
-    <div class="card shadow-sm border-0">
+    <div class="card shadow-sm border-100">
 
         <div class="card-body">
 

@@ -9,7 +9,6 @@
 <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
 <link href="<?= base_url('assets/bootstrap-icons-1.13.1/bootstrap-icons.css') ?>" rel="stylesheet">
 <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
-<link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
 
 </head>
 <body>

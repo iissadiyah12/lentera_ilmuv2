@@ -11,6 +11,7 @@
                 <h4 class="mb-0">
                     <i class="bi bi-book"></i> Data Buku
                 </h4>
+<?php if(session()->get('role') == 'admin'): ?>
 
                 <div class="d-flex gap-2">
                     <a href="<?= base_url('buku/create') ?>" class="btn btn-success">
@@ -22,6 +23,7 @@
                     </a>
                 </div>
             </div>
+<?php endif; ?>
 
             <!-- SEARCH -->
             <form method="get" class="row g-2 mb-3">

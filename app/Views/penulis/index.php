@@ -3,7 +3,7 @@
 
 <div class="container py-4">
 
-    <div class="card shadow-sm border-0">
+    <div class="card shadow-sm border-20">
 
         <div class="card-body">
 
