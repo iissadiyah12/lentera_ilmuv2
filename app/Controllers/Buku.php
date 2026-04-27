@@ -159,17 +159,32 @@ class Buku extends BaseController
         return view('buku/detail', $data);
     }
 
-    public function edit($id)
-    {
-        $data['buku'] = $this->buku->find($id);
-        $data['kategori'] = $this->db->table('kategori')->get()->getResultArray();
-        $data['penulis'] = $this->db->table('penulis')->get()->getResultArray();
-        $data['penerbit'] = $this->db->table('penerbit')->get()->getResultArray();
-        $data['rak'] = $this->db->table('rak')->get()->getResultArray();
+   public function edit($id)
+{
+    $data['buku'] = $this->db->table('buku')
+        ->where('id_buku', $id)
+        ->get()
+        ->getRowArray();
 
-        return view('buku/edit', $data);
-    }
+    $data['kategori'] = $this->db->table('kategori')
+        ->get()
+        ->getResultArray();
 
+    $data['rak'] = $this->db->table('rak')
+        ->get()
+        ->getResultArray();
+    
+    $data['penulis'] = $this->db->table('penulis')
+        ->get()
+        ->getResultArray();
+
+     $data['penerbit'] = $this->db->table('penerbit')
+        ->get()
+        ->getResultArray();
+
+
+    return view('buku/edit', $data);
+}
 
     public function update($id)
     {

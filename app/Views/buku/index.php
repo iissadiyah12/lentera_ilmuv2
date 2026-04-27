@@ -106,44 +106,53 @@
                                         <?php endif; ?>
                                     </td>
 
-                                    <td class="text-nowrap">
+                                   <td class="text-nowrap">
 
                                         <?php if (session()->get('role') == 'anggota') : ?>
                                             <a href="<?= base_url('buku/detail/' . $b['id_buku']) ?>"
-                                               class="btn btn-sm btn-info">
-                                                Detail
+                                            class="btn btn-sm btn-info"
+                                            title="Detail">
+                                                <i class="bi bi-eye"></i> Detail
                                             </a>
 
                                             <a href="<?= base_url('buku/wa/' . $b['id_buku']) ?>"
-                                               target="_blank"
-                                               class="btn btn-sm btn-success">
-                                                WA
+                                            target="_blank"
+                                            class="btn btn-sm btn-success"
+                                            title="WhatsApp">
+                                                <i class="bi bi-whatsapp"></i> WA
                                             </a>
                                         <?php endif; ?>
 
                                         <?php if (session()->get('role') == 'admin' || session()->get('role') == 'petugas') : ?>
                                             <a href="<?= base_url('buku/detail/' . $b['id_buku']) ?>"
-                                               class="btn btn-sm btn-info">
-                                                Detail
+                                            class="btn btn-sm btn-info"
+                                            title="Detail">
+                                                <i class="bi bi-eye"></i> Detail
                                             </a>
 
-                                           
+                                            <a href="<?= base_url('buku/edit/' . $b['id_buku']) ?>"
+                                            class="btn btn-sm btn-warning"
+                                            title="Edit">
+                                                <i class="bi bi-pencil-square"></i> Edit
+                                            </a>
 
                                             <a href="<?= base_url('buku/delete/' . $b['id_buku']) ?>"
-                                               class="btn btn-sm btn-danger"
-                                               onclick="return confirm('Yakin hapus?')">
-                                                Hapus
+                                            class="btn btn-sm btn-danger"
+                                            onclick="return confirm('Yakin hapus?')"
+                                            title="Hapus">
+                                                <i class="bi bi-trash"></i> Hapus
                                             </a>
 
                                             <a href="<?= base_url('buku/wa/' . $b['id_buku']) ?>"
-                                               target="_blank"
-                                               class="btn btn-sm btn-success">
-                                                WA
+                                            target="_blank"
+                                            class="btn btn-sm btn-success"
+                                            title="WhatsApp">
+                                                <i class="bi bi-whatsapp"></i> WA
                                             </a>
                                         <?php endif; ?>
 
                                     </td>
-                                </tr>
+                                                                    </tr>
                             <?php endforeach; ?>
 
                         <?php else: ?>

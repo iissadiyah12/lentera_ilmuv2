@@ -1,119 +1,187 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
-<div class="container py-4">
+<div class="container-fluid py-4">
 
     <!-- HEADER -->
     <div class="mb-4">
-        <h3 class="fw-bold">
+        <h3 class="fw-bold mb-1">
             <i class="bi bi-speedometer2"></i> Dashboard
         </h3>
-        <p class="text-muted">Selamat datang di <b>Lentera Ilmu</b> App</p>
+        <p class="text-muted mb-0">Selamat datang di Sistem Perpustakaan Lentera Ilmu</p>
     </div>
 
-    <!-- STAT CARDS -->
+    <!-- TOP CARD -->
     <div class="row g-3">
 
         <div class="col-md-3">
-            <div class="card shadow-sm border-0">
+            <div class="card border-0 shadow-sm h-100">
                 <div class="card-body">
-                    <i class="bi bi-people text-primary fs-3"></i>
-                    <h6>Users</h6>
-                    <h4 id="total_users"><?= $total_users ?></h4>
+                    <small class="text-muted">Total Users</small>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <h3 class="fw-bold mb-0" id="total_users"><?= $total_users ?? 0 ?></h3>
+                        <span class="badge bg-primary">
+                            <i class="bi bi-people"></i>
+                        </span>
+                    </div>
+                    <small class="text-success">Realtime Data</small>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3">
-            <div class="card shadow-sm border-0">
+            <div class="card border-0 shadow-sm h-100">
                 <div class="card-body">
-                    <i class="bi bi-book text-success fs-3"></i>
-                    <h6>Buku</h6>
-                    <h4 id="total_buku"><?= $total_buku ?></h4>
+                    <small class="text-muted">Total Buku</small>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <h3 class="fw-bold mb-0" id="total_buku"><?= $total_buku ?? 0 ?></h3>
+                        <span class="badge bg-success">
+                            <i class="bi bi-book"></i>
+                        </span>
+                    </div>
+                    <small class="text-success">Realtime Data</small>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3">
-            <div class="card shadow-sm border-0">
+            <div class="card border-0 shadow-sm h-100">
                 <div class="card-body">
-                    <i class="bi bi-journal-arrow-up text-warning fs-3"></i>
-                    <h6>Peminjaman</h6>
-                    <h4 id="total_peminjaman"><?= $total_peminjaman ?></h4>
+                    <small class="text-muted">Total Peminjaman</small>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <h3 class="fw-bold mb-0" id="total_peminjaman"><?= $total_peminjaman ?? 0 ?></h3>
+                        <span class="badge bg-warning text-dark">
+                            <i class="bi bi-journal-arrow-up"></i>
+                        </span>
+                    </div>
+                    <small class="text-success">Realtime Data</small>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3">
-            <div class="card shadow-sm border-0">
+            <div class="card border-0 shadow-sm h-100">
                 <div class="card-body">
-                    <i class="bi bi-journal-check text-info fs-3"></i>
-                    <h6>Pengembalian</h6>
-                    <h4 id="total_pengembalian"><?= $total_pengembalian ?></h4>
+                    <small class="text-muted">Total Pengembalian</small>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <h3 class="fw-bold mb-0" id="total_pengembalian"><?= $total_pengembalian ?? 0 ?></h3>
+                        <span class="badge bg-info">
+                            <i class="bi bi-journal-check"></i>
+                        </span>
+                    </div>
+                    <small class="text-success">Realtime Data</small>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <!-- CHART -->
-    <div class="row mt-4">
+    <!-- SECOND ROW -->
+    <div class="row mt-3 g-3">
 
         <div class="col-md-8">
-            <div class="card shadow-sm border-0">
+            <div class="card border-0 shadow-sm">
                 <div class="card-body">
-                    <h5>Buku Paling Sering Dipinjam</h5>
-                    <canvas id="chartBuku"></canvas>
+                    <h6 class="fw-bold mb-3">Statistik Perpustakaan</h6>
+                    <canvas id="chartDashboard" height="120"></canvas>
                 </div>
             </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card shadow-sm border-0">
+
+            <div class="card border-0 shadow-sm mb-3">
                 <div class="card-body">
-                    <h5>Info Sistem</h5>
-                    <p class="text-muted">
-                        Sistem perpustakaan ini berjalan realtime untuk monitoring data.
-                    </p>
+                    <small class="text-muted">Denda Belum Lunas</small>
+                    <h3 class="fw-bold text-danger mt-2" id="denda_belum"><?= $denda_belum ?? 0 ?></h3>
                 </div>
             </div>
+
+            <div class="card border-0 shadow-sm mb-3">
+                <div class="card-body">
+                    <small class="text-muted">Total Kategori</small>
+                    <h3 class="fw-bold mt-2" id="total_kategori"><?= $total_kategori ?? 0 ?></h3>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <small class="text-muted">Total Rak</small>
+                    <h3 class="fw-bold mt-2" id="total_rak"><?= $total_rak ?? 0 ?></h3>
+                </div>
+            </div>
+
         </div>
 
     </div>
 
 </div>
 
+
 <!-- CHART JS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-// REALTIME DASHBOARD
-function loadDashboard() {
-    fetch("<?= base_url('dashboard/realtime') ?>")
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById('total_users').innerText = data.total_users;
-            document.getElementById('total_buku').innerText = data.total_buku;
-            document.getElementById('total_peminjaman').innerText = data.total_peminjaman;
-            document.getElementById('total_pengembalian').innerText = data.total_pengembalian;
-        });
-}
-setInterval(loadDashboard, 5000);
+const ctx = document.getElementById('chartDashboard');
 
-// CHART BUKU POPULER
-const ctx = document.getElementById('chartBuku');
-
-const chartBuku = new Chart(ctx, {
+const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: <?= json_encode($buku_label ?? []) ?>,
+        labels: ['Users','Buku','Pinjam','Kembali','Denda'],
         datasets: [{
-            label: 'Jumlah Dipinjam',
-            data: <?= json_encode($buku_total ?? []) ?>,
-            backgroundColor: 'rgba(54, 162, 235, 0.6)'
+            label: 'Data Sistem',
+            data: [
+                <?= $total_users ?? 0 ?>,
+                <?= $total_buku ?? 0 ?>,
+                <?= $total_peminjaman ?? 0 ?>,
+                <?= $total_pengembalian ?? 0 ?>,
+                <?= $denda_belum ?? 0 ?>
+            ],
+            borderWidth: 1,
+            borderRadius: 8
         }]
+    },
+    options: {
+        responsive:true,
+        plugins:{
+            legend:{display:false}
+        },
+        scales:{
+            y:{beginAtZero:true}
+        }
     }
 });
+
+
+// REALTIME AJAX
+function loadRealtime()
+{
+    fetch("<?= base_url('dashboard/realtime') ?>")
+    .then(response => response.json())
+    .then(data => {
+
+        document.getElementById('total_users').innerHTML = data.total_users;
+        document.getElementById('total_buku').innerHTML = data.total_buku;
+        document.getElementById('total_peminjaman').innerHTML = data.total_peminjaman;
+        document.getElementById('total_pengembalian').innerHTML = data.total_pengembalian;
+        document.getElementById('denda_belum').innerHTML = data.denda_belum;
+        document.getElementById('total_kategori').innerHTML = data.total_kategori;
+        document.getElementById('total_rak').innerHTML = data.total_rak;
+
+        myChart.data.datasets[0].data = [
+            data.total_users,
+            data.total_buku,
+            data.total_peminjaman,
+            data.total_pengembalian,
+            data.denda_belum
+        ];
+
+        myChart.update();
+    });
+}
+
+// refresh tiap 5 detik
+setInterval(loadRealtime, 5000);
 </script>
 
 <?= $this->endSection() ?>

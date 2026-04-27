@@ -2,49 +2,37 @@
 
 namespace App\Controllers;
 
-use App\Controllers\BaseController;
+use CodeIgniter\Controller;
+use Config\Database;
 
-class Dashboard extends BaseController
+class Dashboard extends Controller
 {
     protected $db;
 
     public function __construct()
     {
-        $this->db = \Config\Database::connect();
+        $this->db = Database::connect();
     }
 
     public function index()
     {
-        
-        // CHART: buku paling sering dipinjam
-        $query = $this->db->table('peminjaman')
-            ->select('buku.judul, COUNT(peminjaman.id_buku) as total')
-            ->join('buku', 'buku.id_buku = peminjaman.id_buku')
-            ->groupBy('peminjaman.id_buku')
-            ->orderBy('total', 'DESC')
-            ->limit(5)
-            ->get()
-            ->getResultArray();
+        return view('dashboard/index');
+    }
 
+    public function realtime()
+    {
         $data = [
             'total_users' => $this->db->table('users')->countAllResults(),
             'total_buku' => $this->db->table('buku')->countAllResults(),
             'total_peminjaman' => $this->db->table('peminjaman')->countAllResults(),
             'total_pengembalian' => $this->db->table('pengembalian')->countAllResults(),
-
-            'buku_label' => array_column($query, 'judul'),
-            'buku_total' => array_column($query, 'total'),
+            'denda_belum' => $this->db->table('denda')
+                                ->where('status_bayar', 'belum')
+                                ->countAllResults(),
+            'total_kategori' => $this->db->table('kategori')->countAllResults(),
+            'total_rak' => $this->db->table('rak')->countAllResults(),
         ];
 
-            return view('dashboard/index', $data);    }
-
-    public function realtime()
-    {
-        return $this->response->setJSON([
-            'total_users' => $this->db->table('users')->countAllResults(),
-            'total_buku' => $this->db->table('buku')->countAllResults(),
-            'total_peminjaman' => $this->db->table('peminjaman')->countAllResults(),
-            'total_pengembalian' => $this->db->table('pengembalian')->countAllResults(),
-        ]);
+        return $this->response->setJSON($data);
     }
 }

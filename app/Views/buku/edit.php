@@ -80,7 +80,7 @@
                                 <select name="id_rak" class="form-select">
                                     <?php foreach ($rak as $r): ?>
                                         <option value="<?= $r['id_rak'] ?>"
-                                            <?= $buku['id_rak'] == $r['id_rak'] ? 'selected' : '' ?>>
+                                            <?= isset($buku['id_rak']) && $buku['id_rak'] == $r['id_rak'] ? 'selected' : '' ?>>
                                             <?= $r['nama_rak'] ?> - <?= $r['lokasi'] ?>
                                         </option>
                                     <?php endforeach; ?>
