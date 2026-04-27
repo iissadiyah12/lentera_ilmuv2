@@ -16,8 +16,7 @@
             </a>
         </div>
 
-        <form action="/penerbit/update/<?= $penerbit['id_penerbit'] ?>" method="post">
-
+            <form action="<?= base_url('penerbit/update/' . $p['id_penerbit']) ?>" method="post">    
             <div class="mb-3">
                 <label class="form-label fw-semibold">
                     Nama Penerbit

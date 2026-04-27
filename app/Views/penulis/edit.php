@@ -15,8 +15,7 @@
 
                 <div class="card-body">
 
-                    <form action="/penulis/update/<?= $penulis['id_penulis'] ?>" method="post">
-
+                        <form action="<?= base_url('penulis/update/' . $p['id_penulis']) ?>" method="post">
                         <div class="mb-3">
                             <label class="form-label">Nama Penulis</label>
                             <input type="text"
