@@ -10,5 +10,8 @@ class UsersModel extends Model
     protected $primaryKey = 'id_user';
     protected $allowedFields = ['nama', 'email', 'username', 'password', 'role', 'foto','status'];
 
-    
+    public function getUsersByUsername($username)
+    {
+        return $this->where('username', $username)->first();
+    }
 }
