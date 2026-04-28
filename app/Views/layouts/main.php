@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-5">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Lentera Ilmu</title>
@@ -34,7 +34,7 @@
 
                 <li>
                     <a class="dropdown-item"
-                       href="<?= base_url('users/edit/' . session('id')) ?>">
+                       href="<?= base_url('users/detail/' . session('id')) ?>">
                        <i class="bi bi-person"></i> Profile
                     </a>
                 </li>

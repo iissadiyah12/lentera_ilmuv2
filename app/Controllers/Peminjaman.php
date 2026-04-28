@@ -54,9 +54,9 @@ class Peminjaman extends BaseController
     // ======================
     public function store()
     {
-        $id_anggota = session()->get('id_user');
+        $id_user = session()->get('id_user') ?? session()->get('id');
 
-        // 🔥 AMBIL PETUGAS OTOMATIS
+        //  AMBIL PETUGAS OTOMATIS
         $petugas = $this->db->table('petugas')->get()->getRowArray();
         $id_petugas = $petugas ? $petugas['id_petugas'] : null;
 
@@ -69,15 +69,16 @@ class Peminjaman extends BaseController
         if (!$buku) {
             return redirect()->back()->with('error', 'Pilih minimal 1 buku');
         }
-
-        // ================= INSERT PEMINJAMAN =================
+        
+         //  SIMPAN KE id_user BUKAN id_anggota & insert peminjaman
         $this->db->table('peminjaman')->insert([
-        'id_anggota' => session()->get('id_user'),
+            'id_anggota' => $id_user,
             'id_petugas' => $id_petugas,
             'tanggal_pinjam' => date('Y-m-d'),
             'tanggal_kembali' => date('Y-m-d', strtotime('+6 days')),
             'status' => 'menunggu'
         ]);
+
 
         $id_peminjaman = $this->db->insertID();
 
@@ -173,7 +174,8 @@ class Peminjaman extends BaseController
             return redirect()->back()->with('error', 'Data tidak ditemukan');
         }
 
-        $tanggal_baru = date('Y-m-d', strtotime($p['tanggal_kembali'] . ' +7 days'));
+        // TAMBAHAN HARI PERPANJANG
+        $tanggal_baru = date('Y-m-d', strtotime($p['tanggal_kembali'] . ' +3 days'));
 
         $this->db->table('peminjaman')
             ->where('id_peminjaman', $id_peminjaman)

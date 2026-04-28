@@ -15,7 +15,7 @@
 
                 <div class="card-body">
 
-                        <form action="<?= base_url('kategori/update/' . $k['id_kategori']) ?>" method="post">
+                        <form action="<?= base_url('kategori/update/' . $kategori['id_kategori']) ?>" method="post">
                         <div class="mb-3">
                             <label class="form-label">Nama Kategori</label>
                             <input type="text"

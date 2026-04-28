@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login | Lentera Ilmu</title>
+    <title> Lentera Ilmu</title>
 
     <!-- Bootstrap -->
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
@@ -191,90 +191,113 @@
 
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div class="login-title">Login</div>
-            <a href="<?= base_url('users/create') ?>" class="small text-decoration-none">
-                Belum punya akun?
-            </a>
         </div>
 
-        <!-- ALERT -->
-        <?php if (session()->getFlashdata('error')): ?>
-            <div class="alert alert-danger py-2">
-                <?= session()->getFlashdata('error') ?>
-            </div>
-        <?php endif; ?>
+         <!-- ALERT -->
+            <?php if (session()->getFlashdata('error')): ?>
+                <div class="alert alert-danger">
+                    <i class="bi bi-exclamation-circle"></i>
+                    <?= session()->getFlashdata('error') ?>
+                </div>
+            <?php endif; ?>
 
-        <?php if (session()->getFlashdata('salahpw')): ?>
-            <div class="alert alert-danger py-2">
-                <?= session()->getFlashdata('salahpw') ?>
-            </div>
-        <?php endif; ?>
+            <?php if (session()->getFlashdata('salahpw')): ?>
+                <div class="alert alert-danger">
+                    <i class="bi bi-lock"></i>
+                    <?= session()->getFlashdata('salahpw') ?>
+                </div>
+            <?php endif; ?>
 
-        <!-- FORM -->
-        <form action="<?= base_url('/proses-login') ?>" method="post">
+            <!-- FORM -->
+            <form action="<?= base_url('/proses-login') ?>" method="post">
 
-            <div class="mb-3">
-                <label class="form-label">Username</label>
-                <input type="text"
-                       name="username"
-                       class="form-control"
-                       placeholder="Masukkan username"
-                       required>
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
 
-            <div class="mb-3">
-                <label class="form-label">Password</label>
-                <input type="password"
-                       name="password"
-                       class="form-control"
-                       placeholder="Masukkan password"
-                       required>
-            </div>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person"></i>
+                        </span>
 
-            <div class="d-flex justify-content-between mb-3 small">
-                <div>
-                    <input type="checkbox"> Keep me sign in
+                        <input type="text"
+                               name="username"
+                               class="form-control"
+                               placeholder="Masukkan username"
+                               required>
+                    </div>
                 </div>
 
-                <a href="<?= base_url('restore') ?>" class="text-decoration-none">
-                    Restore DB?
-                </a>
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
 
-            <button class="btn btn-primary btn-login w-100">
-                Login
-            </button>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-shield-lock"></i>
+                        </span>
 
-        </form>
+                        <input type="password"
+                               name="password"
+                               id="password"
+                               class="form-control"
+                               placeholder="Masukkan password"
+                               required>
 
-        <div class="divider">Login With</div>
+                        <span class="input-group-text show-pass" onclick="togglePassword()">
+                            <i class="bi bi-eye" id="eyeIcon"></i>
+                        </span>
+                    </div>
+                </div>
 
-        <div class="row g-2">
-            <div class="col-4">
-                <button class="btn social-btn">
-                    <i class="bi bi-google text-danger"></i> Google
+                <div class="d-flex justify-content-between mb-3">
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label small">
+                            Remember me
+                        </label>
+                    </div>
+
+                    <a href="<?= base_url('restore') ?>" class="mini-link">
+                        Restore DB
+                    </a>
+                </div>
+
+                <button class="btn btn-login text-white w-100">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                    Sign In
                 </button>
+
+            </form>
+
+            <!-- REGISTER -->
+            <div class="text-center mt-4">
+                <span class="footer-text">Belum punya akun?</span><br>
+
+                <a href="<?= base_url('users/create') ?>"
+                   class="btn btn-outline-success btn-sm mt-2">
+                    <i class="bi bi-person-plus"></i>
+                    Daftar Sekarang
+                </a><br>
+
+                <br>
+
+                 <!-- FOOTER -->
+                <div class="text-center pb-1 footer-text">
+                    © <?= date('Y') ?> Lentera Ilmu App
+                </div>
             </div>
 
-            <div class="col-4">
-                <button class="btn social-btn">
-                    <i class="bi bi-twitter text-info"></i> Twitter
-                </button>
-            </div>
-
-            <div class="col-4">
-                <button class="btn social-btn">
-                    <i class="bi bi-facebook text-primary"></i> Facebook
-                </button>
-            </div>
         </div>
 
-    </div>
+       
+
+         
+
+        </div>
 
 </div>
 
-<div class="footer-left">
-    Copyright © <?= date('Y') ?> Lentera Ilmu
-</div>
+
 
 <div class="footer-right">
     <a href="#">Home</a>

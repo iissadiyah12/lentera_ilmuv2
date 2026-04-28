@@ -1,17 +1,17 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
-<div class="container py-4">
+<div class="container py-3">
 
-    <div class="card shadow-sm border-15">
+    <div class="card shadow-sm border-5">
 
         <div class="card-body">
 
-            <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-2">
                 <h4 class="mb-0">
                     <i class="bi bi-book"></i> Data Buku
                 </h4>
-<?php if(session()->get('role') == 'admin'): ?>
+            <?php if(session()->get('role') == 'admin'): ?>
 
                 <div class="d-flex gap-2">
                     <a href="<?= base_url('buku/create') ?>" class="btn btn-success">
@@ -22,8 +22,9 @@
                         <i class="bi bi-printer"></i> Print
                     </a>
                 </div>
+            
+            <?php endif; ?>
             </div>
-<?php endif; ?>
 
             <!-- SEARCH -->
             <form method="get" class="row g-2 mb-3">
@@ -50,7 +51,7 @@
 
                     <thead class="table-dark">
                         <tr>
-                            <th>ID</th>
+                            <th>No</th>
                             <th>ISBN</th>
                             <th>Judul</th>
                             <th>Kategori</th>
@@ -61,7 +62,7 @@
                             <th>Jumlah</th>
                             <th>Tersedia</th>
                             <th>Cover</th>
-                            <th width="200">Aksi</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
 
@@ -69,11 +70,7 @@
 
                         <?php if (!empty($buku) && is_array($buku)): ?>
 
-                            <?php if (isset($pager)) : ?>
-                                <?php $no = 1 + (5 * ($pager->getCurrentPage() - 1)); ?>
-                            <?php else: ?>
-                                <?php $no = 1; ?>
-                            <?php endif; ?>
+                            
 
                             <?php foreach ($buku as $b): ?>
                                 <tr>
@@ -169,13 +166,6 @@
 
                 </table>
 
-            </div>
-
-            <!-- PAGINATION -->
-            <div class="mt-3">
-                <?php if (isset($pager)) : ?>
-                    <?= $pager->links() ?>
-                <?php endif; ?>
             </div>
 
         </div>

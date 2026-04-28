@@ -15,7 +15,7 @@
 
                 <div class="card-body">
 
-                    <form action="/rak/update/<?= $rak['id_rak'] ?>" method="post">
+                    <form action="<?= base_url('rak/update/' . $rak['id_rak']) ?>" method="post">
 
                         <div class="mb-3">
                             <label class="form-label">Nama Rak</label>

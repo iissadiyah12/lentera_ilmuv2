@@ -74,19 +74,26 @@
                     </thead>
 
                     <tbody>
-                        <?php if (!empty($users)): ?>
-                            <?php $no = 1 + (5 * ($pager->getCurrentPage() - 1)); ?>
+                         <?php if (!empty($users)): ?>
+
+                            <?php
+                            $halaman = isset($pager) ? $pager->getCurrentPage() : 1;
+                            $no = 1 + (5 * ($halaman - 1));
+                            ?>
+
                             <?php foreach ($users as $u): ?>
                                 <tr>
                                     <td><?= $no++ ?></td>
                                     <td><?= $u['nama'] ?></td>
                                     <td><?= $u['email'] ?></td>
                                     <td><?= $u['username'] ?></td>
+
                                     <td>
                                         <span class="badge bg-info text-dark">
                                             <?= ucfirst($u['role']) ?>
                                         </span>
                                     </td>
+
                                     <td>
                                         <?php if ($u['foto']): ?>
                                             <img src="<?= base_url('uploads/users/' . $u['foto']) ?>"
@@ -94,45 +101,47 @@
                                         <?php else: ?>
                                             -
                                         <?php endif; ?>
-                                   </td>
+                                    </td>
 
-                                        <?php if (session()->get('role') == 'admin') : ?>
-                                            <td class="text-nowrap">
+                                    <?php if (session()->get('role') == 'admin') : ?>
+                                        <td class="text-nowrap">
 
-                                                <!-- DETAIL -->
-                                                <a class="btn btn-sm btn-info"
+                                            <!-- DETAIL -->
+                                            <a class="btn btn-sm btn-info"
                                                 href="<?= base_url('users/detail/' . $u['id_user']) ?>"
                                                 title="Detail">
-                                                    <i class="bi bi-eye"></i> Detail
-                                                </a>
+                                                <i class="bi bi-eye"></i> Detail
+                                            </a>
 
-                                                <!-- EDIT -->
-                                                <a class="btn btn-sm btn-warning"
+                                            <!-- EDIT -->
+                                            <a class="btn btn-sm btn-warning"
                                                 href="<?= base_url('users/edit/' . $u['id_user']) ?>"
                                                 title="Edit">
-                                                    <i class="bi bi-pencil-square"></i> Edit
-                                                </a>
+                                                <i class="bi bi-pencil-square"></i> Edit
+                                            </a>
 
-                                                <!-- WHATSAPP -->
-                                                <a class="btn btn-sm btn-success"
+                                            <!-- WHATSAPP -->
+                                            <a class="btn btn-sm btn-success"
                                                 href="<?= base_url('users/wa/' . $u['id_user']) ?>"
                                                 target="_blank"
                                                 title="WhatsApp">
-                                                    <i class="bi bi-whatsapp"></i> WA
-                                                </a>
+                                                <i class="bi bi-whatsapp"></i> WA
+                                            </a>
 
-                                                <!-- HAPUS -->
-                                                <a class="btn btn-sm btn-danger"
+                                            <!-- HAPUS -->
+                                            <a class="btn btn-sm btn-danger"
                                                 href="<?= base_url('users/delete/' . $u['id_user']) ?>"
                                                 onclick="return confirm('Hapus user ini?')"
                                                 title="Hapus">
-                                                    <i class="bi bi-trash"></i> Hapus
-                                                </a>
+                                                <i class="bi bi-trash"></i> Hapus
+                                            </a>
 
-                                            </td>
+                                        </td>
                                     <?php endif; ?>
+
                                 </tr>
                             <?php endforeach; ?>
+
                         <?php else: ?>
                             <tr>
                                 <td colspan="7" class="text-center text-muted">
@@ -144,12 +153,12 @@
 
                 </table>
             </div>
-
-            <!-- PAGINATION -->
-            <div class="mt-3">
-                <?= $pager->links() ?>
-            </div>
-
+       <!-- PAGINATION -->
+        <?php if (isset($pager)) : ?>
+        <div class="mt-3">
+            <?= $pager->links() ?>
+        </div>
+        <?php endif; ?>
         </div>
     </div>
 

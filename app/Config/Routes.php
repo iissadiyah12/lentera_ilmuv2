@@ -138,6 +138,7 @@ $routes->post('pengembalian/bayar/(:num)', 'Pengembalian::bayarDenda/$1');
 $routes->get('pengembalian/create/(:num)', 'Pengembalian::create/$1');
 $routes->get('pengembalian/lunas/(:num)', 'Pengembalian::lunas/$1');
 $routes->get('pengembalian/print', 'Buku::print');
+$routes->get('users/wa/(:num)', 'Users::wa/$1', $allRole); // aksi kirim ke whatsapp
 
 //BACKUP
 $routes->get('/backup', 'Backup::index');
@@ -148,5 +149,16 @@ $routes->post('/restore/auth', 'Restore::auth');
 $routes->get('/restore/form', 'Restore::form');
 $routes->post('/restore/process', 'Restore::process');
 
+//DASHBOARD
 $routes->get('dashboard', 'Dashboard::index');
 $routes->get('dashboard/realtime', 'Dashboard::realtime');
+
+//AUTH LOGIN
+$routes->get('auth/google', 'Auth::google');
+$routes->get('auth/googleCallback', 'Auth::googleCallback');
+
+$routes->get('auth/facebook', 'Auth::facebook');
+$routes->get('auth/facebookCallback', 'Auth::facebookCallback');
+
+$routes->get('auth/twitter', 'Auth::twitter');
+$routes->get('auth/twitterCallback', 'Auth::twitterCallback');

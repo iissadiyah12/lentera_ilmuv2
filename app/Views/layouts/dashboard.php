@@ -13,15 +13,14 @@
 
     <!-- TOP CARD -->
     <div class="row g-3">
-
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 shadow-sm h-9">
                 <div class="card-body">
-                    <small class="text-muted">Total Users</small>
+                    <small class="text-muted">Total Buku</small>
                     <div class="d-flex justify-content-between align-items-center mt-2">
-                        <h3 class="fw-bold mb-0" id="total_users"><?= $total_users ?? 0 ?></h3>
-                        <span class="badge bg-primary">
-                            <i class="bi bi-people"></i>
+                        <h3 class="fw-bold mb-0" id="total_buku"><?= $total_buku ?? 0 ?></h3>
+                        <span class="badge bg-success">
+                            <i class="bi bi-book"></i>
                         </span>
                     </div>
                     <small class="text-success"></small>
@@ -29,14 +28,16 @@
             </div>
         </div>
 
-        <div class="col-md-3">
+        <?php if (session()->get('role') == 'admin' || session()->get('role') == 'petugas') : ?>
+
+         <div class="col-md-3">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body">
-                    <small class="text-muted">Total Buku</small>
+                    <small class="text-muted">Total Users</small>
                     <div class="d-flex justify-content-between align-items-center mt-2">
-                        <h3 class="fw-bold mb-0" id="total_buku"><?= $total_buku ?? 0 ?></h3>
-                        <span class="badge bg-success">
-                            <i class="bi bi-book"></i>
+                        <h3 class="fw-bold mb-0" id="total_users"><?= $total_users ?? 0 ?></h3>
+                        <span class="badge bg-primary">
+                            <i class="bi bi-people"></i>
                         </span>
                     </div>
                     <small class="text-success"></small>
@@ -58,6 +59,7 @@
                 </div>
             </div>
         </div>
+            <?php endif; ?>
 
         <div class="col-md-3">
             <div class="card border-0 shadow-sm h-100">
@@ -87,15 +89,9 @@
                 </div>
             </div>
         </div>
+        <?php if (session()->get('role') == 'admin' || session()->get('role') == 'petugas') : ?>
 
         <div class="col-md-4">
-
-            <div class="card border-0 shadow-sm mb-3">
-                <div class="card-body">
-                    <small class="text-muted">Denda Belum Lunas</small>
-                    <h3 class="fw-bold text-danger mt-2" id="denda_belum"><?= $denda_belum ?? 0 ?></h3>
-                </div>
-            </div>
 
             <div class="card border-0 shadow-sm mb-3">
                 <div class="card-body">
@@ -117,6 +113,7 @@
 
 </div>
 
+ <?php endif; ?>
 
 <!-- CHART JS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -127,7 +124,7 @@ const ctx = document.getElementById('chartDashboard');
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Users','Buku','Pinjam','Kembali','Denda'],
+        labels: ['Users','Buku','Pinjam','Kembali'],
         datasets: [{
             label: 'Data Sistem',
             data: [
@@ -135,12 +132,28 @@ const myChart = new Chart(ctx, {
                 <?= $total_buku ?? 0 ?>,
                 <?= $total_peminjaman ?? 0 ?>,
                 <?= $total_pengembalian ?? 0 ?>,
-                <?= $denda_belum ?? 0 ?>
             ],
             borderWidth: 1,
             borderRadius: 8
         }]
     },
+            <?php if (session()->get('role') == 'anggota') : ?>
+               type: 'bar',
+                data: {
+                    labels: ['Buku','Pinjam'],
+                    datasets: [{
+                        label: 'Data Sistem',
+                        data: [
+                        
+                            <?= $total_buku ?? 0 ?>,
+                            <?= $total_peminjaman ?? 0 ?>,
+                        
+                        ],
+                        borderWidth: 1,
+                        borderRadius: 8
+                    }]
+                },
+            <?php endif; ?>
     options: {
         responsive:true,
         plugins:{
