@@ -191,7 +191,6 @@ class Peminjaman extends BaseController
             'tanggal_kembali'   => $tanggalBaru,
             'jumlah_perpanjang' => $jumlah,
             'status_perpanjang' => 'disetujui',
-            'notif_anggota'     => 'Permintaan disetujui. Sisa kuota perpanjang ' . $sisa . ' kali lagi.'
         ]);
 
     // NOTIF KHUSUS PETUGAS

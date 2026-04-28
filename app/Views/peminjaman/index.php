@@ -35,22 +35,22 @@
             <!-- SEARCH -->
             <form method="get" action="<?= base_url('peminjaman') ?>" class="row g-2 mb-3">
 
-                <div class="col-md-4">
-                    <input type="text"
-                           name="keyword"
-                           class="form-control"
-                           placeholder="Cari peminjam..."
-                           value="<?= $_GET['keyword'] ?? '' ?>">
-                </div>
+                    <div class="col-md-5">
+                        <input type="text"
+                            name="keyword"
+                            class="form-control"
+                            placeholder="Cari Anggota / status..."
+                            value="<?= $_GET['keyword'] ?? '' ?>">
+                    </div>
 
-                <div class="col-md-auto">
+                    <div class="col-md-auto d-flex gap-1">
 
                     <button type="submit" class="btn btn-primary">
                         <i class="bi bi-search"></i> Cari
                     </button>
 
                     <a href="<?= base_url('peminjaman') ?>" class="btn btn-secondary">
-                        Reset
+                        <i class="bi bi-arrow-counterclockwise"></i> Reset
                     </a>
 
                     <a href="<?= base_url('peminjaman/print?' . http_build_query($_GET)) ?>"

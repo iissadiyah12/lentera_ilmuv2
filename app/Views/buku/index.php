@@ -41,6 +41,9 @@
                     <button type="submit" class="btn btn-primary">
                         <i class="bi bi-search"></i> Cari
                     </button>
+                     <a href="<?= base_url('buku') ?>" class="btn btn-secondary">
+                        <i class="bi bi-arrow-repeat"></i> Reset
+                    </a>
                 </div>
 
             </form>
