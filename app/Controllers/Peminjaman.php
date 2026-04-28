@@ -18,27 +18,51 @@ class Peminjaman extends BaseController
     // ======================
     // INDEX
     // ======================
-    public function index()
-    {
-        $data['peminjaman'] = $this->db->table('peminjaman p')
-            ->select('
-                p.*,
-                u1.nama as nama_anggota,
-                u2.nama as nama_petugas,
-                GROUP_CONCAT(b.judul SEPARATOR ", ") as judul_buku
-            ')
-            ->join('users u1', 'u1.id_user = p.id_anggota', 'left')
-            ->join('petugas pt', 'pt.id_petugas = p.id_petugas', 'left')
-            ->join('users u2', 'u2.id_user = pt.id_user', 'left')
-            ->join('detail_peminjaman dp', 'dp.id_peminjaman = p.id_peminjaman', 'left')
-            ->join('buku b', 'b.id_buku = dp.id_buku', 'left')
-            ->groupBy('p.id_peminjaman')
-            ->orderBy('p.id_peminjaman', 'DESC')
-            ->get()
-            ->getResultArray();
+ public function index()
+{
+    $keyword = $this->request->getGet('keyword');
 
-        return view('peminjaman/index', $data);
+    $builder = $this->db->table('peminjaman p');
+
+    $builder->select('
+        p.*,
+        u1.nama as nama_anggota,
+        u2.nama as nama_petugas,
+        GROUP_CONCAT(b.judul SEPARATOR ", ") as judul_buku
+    ');
+
+    $builder->join('users u1', 'u1.id_user = p.id_anggota', 'left');
+    $builder->join('petugas pt', 'pt.id_petugas = p.id_petugas', 'left');
+    $builder->join('users u2', 'u2.id_user = pt.id_user', 'left');
+    $builder->join('detail_peminjaman dp', 'dp.id_peminjaman = p.id_peminjaman', 'left');
+    $builder->join('buku b', 'b.id_buku = dp.id_buku', 'left');
+
+    // KHUSUS ANGGOTA HANYA BISA LIHAT DATA SENDIRI
+    if (session()->get('role') == 'anggota') {
+        $idUser = session()->get('id_user') ?? session()->get('id');
+        $builder->where('p.id_anggota', $idUser);
     }
+
+    // SEARCH
+    if ($keyword) {
+        $builder->groupStart()
+            ->like('u1.nama', $keyword)
+            ->orLike('u2.nama', $keyword)
+            ->orLike('b.judul', $keyword)
+            ->orLike('p.status', $keyword)
+            ->orLike('p.tanggal_pinjam', $keyword)
+            ->orLike('p.id_peminjaman', $keyword)
+        ->groupEnd();
+    }
+
+    $data['peminjaman'] = $builder
+        ->groupBy('p.id_peminjaman')
+        ->orderBy('p.id_peminjaman', 'DESC')
+        ->get()
+        ->getResultArray();
+
+    return view('peminjaman/index', $data);
+}
 
     // ======================
     // CREATE
