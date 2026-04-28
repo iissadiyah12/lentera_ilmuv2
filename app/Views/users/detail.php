@@ -48,7 +48,7 @@
                         <th class="bg-light">Foto</th>
                         <td>
                             <?php if ($user['foto']): ?>
-                                <img src="<?= base_url('uploads/users/' . $user['foto']) ?>"
+                                <img src="<?= base_url('uploads/user/' . $user['foto']) ?>"
                                      width="120"
                                      class="rounded-circle border shadow-sm">
                             <?php else: ?>

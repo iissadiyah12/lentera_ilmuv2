@@ -72,7 +72,7 @@ class Users extends BaseController
             'username' => $this->request->getPost('username'),
             // Password di-hash untuk keamanan
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-            'role'     => $this->request->getPost('role'),
+            'role' => 'anggota',
             'foto'     => $namaFoto // simpan nama file foto
         ]);
 
@@ -186,19 +186,17 @@ class Users extends BaseController
         return redirect()->to('/users')->with('success', 'User berhasil dihapus!');
     }
 
-    // ================= DETAIL USER =================
     public function detail($id)
     {
-        // Ambil data user
         $user = $this->users->find($id);
 
-        // Jika tidak ditemukan
         if (!$user) {
             return redirect()->to('/users')->with('error', 'Data tidak ditemukan');
         }
 
-        // Tampilkan detail
-        return view('users/detail', ['user' => $user]);
+        return view('users/detail', [
+            'user' => $user
+        ]);
     }
 
     // ================= PRINT DATA =================

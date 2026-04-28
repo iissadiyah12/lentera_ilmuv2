@@ -38,13 +38,16 @@
                        <i class="bi bi-person"></i> Profile
                     </a>
                 </li>
-
+                
                 <li>
                     <a class="dropdown-item text-danger"
                        href="<?= base_url('logout') ?>">
                        <i class="bi bi-box-arrow-right"></i> Logout
                     </a>
                 </li>
+
+                
+
 
             </ul>
 
