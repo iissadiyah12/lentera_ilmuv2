@@ -3,7 +3,7 @@
 
 <div class="container py-5">
 
-    <div class="card shadow-sm border-100">
+    <div class="card shadow-sm border-0">
 
         <div class="card-body">
 
@@ -54,7 +54,7 @@
 
                     <thead class="table-dark">
                         <tr>
-                            <th>ID</th>
+                            <th>No</th>
                             <th>Nama</th>
                             <th>Tanggal Kembali</th>
                             <th>Status</th>
@@ -64,10 +64,16 @@
 
                     <tbody>
 
+                    <?php if (!empty($pengembalian)) : ?>
+
+                        <?php $no = 1; ?>
+
                         <?php foreach($pengembalian as $p): ?>
                             <tr>
 
-                                <td><?= $p['id_pengembalian'] ?></td>
+                                <!-- NOMOR URUT -->
+                                <td><?= $no++ ?></td>
+
                                 <td><?= $p['nama_anggota'] ?? '-' ?></td>
                                 <td><?= $p['tanggal_dikembalikan'] ?? '-' ?></td>
 
@@ -79,7 +85,7 @@
                                     <?php endif; ?>
                                 </td>
 
-                                <!-- AKSI ICON -->
+                                <!-- AKSI -->
                                 <td class="text-center">
 
                                     <!-- HAPUS -->
@@ -100,7 +106,7 @@
                                         </a>
                                     <?php endif; ?>
 
-                                    <!-- WA (opsional kalau ada fitur WA) -->
+                                    <!-- WA -->
                                     <a href="https://wa.me/62xxxxxxxxxx"
                                        target="_blank"
                                        class="btn btn-sm btn-success"
@@ -112,6 +118,16 @@
 
                             </tr>
                         <?php endforeach; ?>
+
+                    <?php else: ?>
+
+                        <tr>
+                            <td colspan="5" class="text-center text-muted">
+                                Data tidak ada
+                            </td>
+                        </tr>
+
+                    <?php endif; ?>
 
                     </tbody>
 

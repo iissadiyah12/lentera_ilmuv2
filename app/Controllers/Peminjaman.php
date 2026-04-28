@@ -69,7 +69,7 @@ class Peminjaman extends BaseController
         if (!$buku) {
             return redirect()->back()->with('error', 'Pilih minimal 1 buku');
         }
-        
+
          //  SIMPAN KE id_user BUKAN id_anggota & insert peminjaman
         $this->db->table('peminjaman')->insert([
             'id_anggota' => $id_user,
@@ -135,58 +135,71 @@ class Peminjaman extends BaseController
     // ======================
     // PERPANJANG
     // ======================
-    public function requestPerpanjang($id_peminjaman)
+    public function requestPerpanjang($id)
     {
-        $peminjaman = $this->db->table('peminjaman')
-            ->where('id_peminjaman', $id_peminjaman)
-            ->get()
-            ->getRowArray();
+    $p = $this->db->table('peminjaman')
+        ->where('id_peminjaman', $id)
+        ->get()->getRowArray();
 
-        if (!$peminjaman) {
-            return redirect()->back()->with('error', 'Data tidak ditemukan');
-        }
-
-        if ($peminjaman['jumlah_perpanjang'] >= 2) {
-            return redirect()->back()->with('error', 'Maksimal 2x perpanjang');
-        }
-
-        if ($peminjaman['status_perpanjang'] == 'menunggu') {
-            return redirect()->back()->with('error', 'Masih diproses');
-        }
-
-        $this->db->table('peminjaman')
-            ->where('id_peminjaman', $id_peminjaman)
-            ->update([
-                'status_perpanjang' => 'menunggu'
-            ]);
-
-        return redirect()->back()->with('success', 'Permintaan dikirim');
+    if (!$p) {
+        return redirect()->back()->with('error', 'Data tidak ditemukan');
     }
 
-    public function approvePerpanjang($id_peminjaman)
-    {
-        $p = $this->db->table('peminjaman')
-            ->where('id_peminjaman', $id_peminjaman)
-            ->get()
-            ->getRowArray();
-
-        if (!$p) {
-            return redirect()->back()->with('error', 'Data tidak ditemukan');
-        }
-
-        // TAMBAHAN HARI PERPANJANG
-        $tanggal_baru = date('Y-m-d', strtotime($p['tanggal_kembali'] . ' +3 days'));
-
-        $this->db->table('peminjaman')
-            ->where('id_peminjaman', $id_peminjaman)
-            ->update([
-                'tanggal_kembali' => $tanggal_baru,
-                'jumlah_perpanjang' => $p['jumlah_perpanjang'] + 1,
-                'status_perpanjang' => 'disetujui'
-            ]);
-
-        return redirect()->back()->with('success', 'Disetujui');
+    if ($p['jumlah_perpanjang'] >= 2) {
+        return redirect()->back()->with('error', 'Kuota perpanjang sudah habis');
     }
+
+    if ($p['status_perpanjang'] == 'menunggu') {
+        return redirect()->back()->with('error', 'Masih menunggu persetujuan');
+    }
+
+    $this->db->table('peminjaman')
+        ->where('id_peminjaman', $id)
+        ->update([
+            'status_perpanjang' => 'menunggu'
+        ]);
+
+    return redirect()->back()->with(
+        'success',
+        'Permintaan perpanjang dikirim. Tambahan waktu hanya 3 hari.'
+    );
+    }
+
+    public function approvePerpanjang($id)
+{
+    $p = $this->db->table('peminjaman')
+        ->where('id_peminjaman', $id)
+        ->get()
+        ->getRowArray();
+
+    if (!$p) {
+        return redirect()->back()->with('error', 'Data tidak ditemukan');
+    }
+
+    $tanggalBaru = date(
+        'Y-m-d',
+        strtotime($p['tanggal_kembali'] . ' +3 days')
+    );
+
+    $jumlah = $p['jumlah_perpanjang'] + 1;
+    $sisa   = 2 - $jumlah;
+
+    // UPDATE DATA PEMINJAMAN
+    $this->db->table('peminjaman')
+        ->where('id_peminjaman', $id)
+        ->update([
+            'tanggal_kembali'   => $tanggalBaru,
+            'jumlah_perpanjang' => $jumlah,
+            'status_perpanjang' => 'disetujui',
+            'notif_anggota'     => 'Permintaan disetujui. Sisa kuota perpanjang ' . $sisa . ' kali lagi.'
+        ]);
+
+    // NOTIF KHUSUS PETUGAS
+    return redirect()->back()->with(
+        'success',
+        'Berhasil menyetujui perpanjang anggota.'
+    );
+}
 
     // ======================
     // DETAIL
