@@ -35,7 +35,7 @@ class Pengembalian extends BaseController
     $builder->join('detail_peminjaman dp', 'dp.id_peminjaman = pm.id_peminjaman', 'left');
     $builder->join('buku b', 'b.id_buku = dp.id_buku', 'left');
 
-    // 🔍 SEARCH TAMBAHAN
+    // SEARCH TAMBAHAN
     if ($keyword) {
         $builder->groupStart()
             ->like('pm.id_peminjaman', $keyword)
